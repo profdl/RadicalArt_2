@@ -47,14 +47,7 @@
             z-index: 1000;
         }
         #controls {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            z-index: 1000;
+            display: none; /* Hide the search controls */
         }
         #controls button {
             margin: 5px;
@@ -175,8 +168,8 @@
         }
         #preview-panel {
             position: fixed;
-            top: 150px; /* Position it below the controls panel */
-            left: 20px; /* Align with the controls panel */
+            top: 20px; /* Move to top */
+            left: 20px; /* Keep left alignment */
             width: 300px;
             height: 400px;
             background: white;
@@ -190,7 +183,7 @@
             min-width: 200px;
             min-height: 200px;
             max-width: 95vw;
-            max-height: calc(95vh - 150px); /* Account for top spacing */
+            max-height: calc(95vh - 20px); /* Adjust for top spacing */
         }
         #preview-panel.expanded {
             width: 90vw;
@@ -323,6 +316,7 @@
                 <button id="preview-zoom-out" title="Zoom Out">−</button>
                 <button id="preview-fit" title="Fit to Width">↔</button>
                 <button id="preview-zoom-in" title="Zoom In">+</button>
+                <button id="preview-open" title="Open in New Tab">↗</button>
                 <button id="preview-close" title="Close">×</button>
                 <button id="preview-expand" title="Expand">→</button>
             </div>
@@ -685,6 +679,12 @@
                 // Handle the file path
                 const filePath = d.name;
                 
+                // Add open in new tab functionality
+                d3.select('#preview-open').on('click', () => {
+                    const fullUrl = window.location.origin + BASE_PATH + filePath;
+                    window.open(fullUrl, '_blank');
+                });
+                
                 // Add close button functionality
                 d3.select('#preview-close').on('click', () => {
                     previewPanel
@@ -817,18 +817,70 @@
                                     display: inline-block;
                                     background: #f0f0f0;
                                     border: 1px dashed #999;
-                                    padding: 10px;
-                                    color: #666;
-                                    font-style: italic;
-                                    font-size: 12px;
-                                    text-align: center;
-                                    min-width: 100px;
-                                    min-height: 50px;
-                                    line-height: 50px;
                                 }
                             `;
                             doc.head.appendChild(defaultStyle);
-                            
+
+                            // Process all links to make them functional
+                            doc.querySelectorAll('a').forEach(link => {
+                                const href = link.getAttribute('href');
+                                if (href) {
+                                    // Keep the original href for reference
+                                    link.setAttribute('data-original-href', href);
+                                    
+                                    // Remove the href attribute to prevent default navigation
+                                    link.removeAttribute('href');
+                                    
+                                    // Add click handler with proper event handling
+                                    link.addEventListener('click', (e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        
+                                        // Handle relative URLs
+                                        let fullUrl;
+                                        if (href.startsWith('http://') || href.startsWith('https://')) {
+                                            fullUrl = href;
+                                        } else {
+                                            // Consistently handle paths relative to BASE_PATH
+                                            let relativePath = href;
+                                            if (relativePath.startsWith('/')) {
+                                                relativePath = relativePath.substring(1);
+                                            }
+                                            
+                                            // Construct full URL
+                                            fullUrl = window.location.origin + BASE_PATH + relativePath;
+                                            console.log('Opening link:', fullUrl);
+                                        }
+                                        
+                                        // Open in new tab with a slight delay to ensure event handling completes
+                                        setTimeout(() => {
+                                            window.open(fullUrl, '_blank');
+                                        }, 10);
+                                        
+                                        return false;
+                                    });
+                                    
+                                    // Add pointer cursor to show it's clickable despite removed href
+                                    link.style.cursor = 'pointer';
+                                    link.style.textDecoration = 'underline';
+                                    link.style.color = '#0066cc';
+                                }
+                            });
+
+                            // Process all images
+                            doc.querySelectorAll('img').forEach(img => {
+                                const src = img.getAttribute('src');
+                                if (src) {
+                                    // Keep the original src for reference
+                                    img.setAttribute('data-original-src', src);
+                                    
+                                    // Add error handling
+                                    img.onerror = () => {
+                                        img.outerHTML = `<div class="broken-image">Image not found: ${src}</div>`;
+                                    };
+                                }
+                            });
+
                             // Set the HTML content
                             container.innerHTML = doc.documentElement.innerHTML;
                             
