@@ -365,14 +365,8 @@
                 previewPanel.style('display', 'block');
 
                 // Handle the file path
-                let filePath = d.name;
-                // Ensure the path starts with a forward slash
-                if (!filePath.startsWith('/')) {
-                    filePath = '/' + filePath;
-                }
-                // Clean up any double slashes
-                filePath = filePath.replace(/\/+/g, '/');
-
+                const filePath = d.name;
+                
                 // Add close button functionality
                 d3.select('#preview-close').on('click', () => {
                     previewPanel.style('display', 'none');
@@ -382,8 +376,8 @@
                 fetch(filePath)
                     .then(response => {
                         if (!response.ok) {
-                            // If the direct path fails, try without leading slash
-                            return fetch(filePath.substring(1));
+                            // If the direct path fails, try with leading slash
+                            return fetch('/' + filePath);
                         }
                         return response;
                     })
@@ -569,72 +563,49 @@
                 
                 // If it's a concept path, try that first
                 if (conceptMatch) {
-                    alternativePaths.push(`/concept/${conceptMatch[1]}/${conceptMatch[2]}/${imgName}`);
+                    alternativePaths.push(`concept/${conceptMatch[1]}/${conceptMatch[2]}/${imgName}`);
                 }
                 
                 // If it's a process path, try those locations
                 if (processMatch) {
                     const processType = processMatch[1];
                     alternativePaths.push(
-                        `/process/${processType}/${imgName}`,
-                        `/process/${processType}/Rotella/${imgName}`,
-                        `/process/${processType}/RotellaCopertura/${imgName}`,
-                        `/process/${processType}/Villegle/${imgName}`,
-                        `/process/${processType}/Hains/${imgName}`,
-                        `/process/${processType}/Dufrene/${imgName}`
+                        `process/${processType}/${imgName}`,
+                        `process/${processType}/${processType}/${imgName}`
                     );
                 }
                 
-                // Add common image locations
+                // Add common locations
                 alternativePaths.push(
-                    `/gif/buttons/${imgName}`,  // Common location for navigation buttons
-                    `/gif/kinetiek/${imgName}`, // Kinetic art images
-                    baseUrl + imgName,          // Same directory as the HTML file
-                    `/gif/natuur/${imgName}`,   // Nature-related images
-                    `/process/tear/Rotella/${imgName}`,  // Common location for torn artwork
-                    `/process/tear/RotellaCopertura/${imgName}`,
-                    originalSrc                  // Original path as fallback
+                    `gif/buttons/${imgName}`,
+                    `gif/kinetiek/${imgName}`,
+                    `gif/natuur/${imgName}`,
+                    `gif/${imgName}`,
+                    imgName
                 );
                 
-                // For specific image types, add their likely locations
-                if (originalSrc.includes('kinetics/')) {
-                    alternativePaths.unshift(`/gif/kinetiek/${imgName}`);
-                }
-                
-                // For Rotella's work, check specific directories
-                if (imgName.includes('Rotella') || imgName.match(/^\d{2,4}.*\.jpg$/)) {
-                    alternativePaths.unshift(
-                        `/process/tear/Rotella/${imgName}`,
-                        `/process/tear/RotellaCopertura/${imgName}`
-                    );
-                }
-                
-                // Try each alternative path
-                const tryNextPath = async (paths) => {
-                    if (paths.length === 0) {
-                        console.log(`Could not find image: ${imgName}`);
-                        const placeholder = document.createElement('div');
-                        placeholder.className = 'broken-image';
-                        placeholder.textContent = 'Image not found';
-                        element.parentNode.replaceChild(placeholder, element);
+                // Try each path in sequence
+                async function tryNextPath(index = 0) {
+                    if (index >= alternativePaths.length) {
+                        console.error('Could not find image:', imgName);
+                        element.outerHTML = `<div class="broken-image">Image not found: ${imgName}</div>`;
                         return;
                     }
                     
-                    const path = paths[0];
+                    const path = alternativePaths[index];
                     try {
                         const response = await fetch(path);
                         if (response.ok) {
                             element.src = path;
-                            console.log(`Found image at: ${path}`);
-                        } else {
-                            await tryNextPath(paths.slice(1));
+                            return;
                         }
-                    } catch {
-                        await tryNextPath(paths.slice(1));
+                    } catch (error) {
+                        // Continue to next path
                     }
-                };
+                    await tryNextPath(index + 1);
+                }
                 
-                tryNextPath(alternativePaths).catch(console.error);
+                tryNextPath();
             }
 
             // Add event listener for the checkbox
