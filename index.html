@@ -562,6 +562,14 @@
                 // Build the list of paths to try, starting with most likely locations
                 const alternativePaths = [];
                 
+                // Add the OpenForm paths first since that's where we found the images
+                if (imgName.includes('Rauschenberg')) {
+                    alternativePaths.push(
+                        `anything/OpenForm/Rauschenberg/${imgName}`,
+                        `anything/OpenForm/${imgName}`
+                    );
+                }
+                
                 // If it's a concept path, try that first
                 if (conceptMatch) {
                     alternativePaths.push(`concept/${conceptMatch[1]}/${conceptMatch[2]}/${imgName}`);
@@ -582,6 +590,8 @@
                     `gif/kinetiek/${imgName}`,
                     `gif/natuur/${imgName}`,
                     `gif/${imgName}`,
+                    `anything/${imgName}`,
+                    `anything/OpenForm/${imgName}`,
                     imgName
                 );
                 
