@@ -185,14 +185,7 @@
             max-width: 95vw;
             max-height: calc(95vh - 20px); /* Adjust for top spacing */
         }
-        #preview-panel.expanded {
-            width: 90vw;
-            height: 90vh;
-            top: 5vh;
-            left: 5vw;
-            resize: none;
-            transition: all 0.3s ease; /* Keep transition for expand/collapse */
-        }
+
         #preview-header {
             padding: 10px;
             background: #f5f5f5;
@@ -237,13 +230,7 @@
             text-overflow: ellipsis;
             flex: 1;
         }
-        #preview-expand {
-            transform: rotate(0deg);
-            transition: transform 0.3s ease;
-        }
-        #preview-expand.expanded {
-            transform: rotate(-180deg);
-        }
+
         #preview-content {
             height: calc(100% - 40px);
             overflow: auto;
@@ -312,14 +299,10 @@
     <div id="preview-panel">
         <div id="preview-header">
             <h3 id="preview-title"></h3>
-            <div id="preview-controls">
-                <button id="preview-zoom-out" title="Zoom Out">−</button>
-                <button id="preview-fit" title="Fit to Width">↔</button>
-                <button id="preview-zoom-in" title="Zoom In">+</button>
-                <button id="preview-open" title="Open in New Tab">↗</button>
-                <button id="preview-close" title="Close">×</button>
-                <button id="preview-expand" title="Expand">→</button>
-            </div>
+                            <div id="preview-controls">
+                    <button id="preview-open" title="Open in New Tab">↗</button>
+                    <button id="preview-close" title="Close">×</button>
+                </div>
         </div>
         <div id="preview-content"></div>
     </div>
@@ -641,7 +624,7 @@
                 }
 
                 function drag(e) {
-                    if (!isDragging || previewPanel.classed('expanded')) return;
+                    if (!isDragging) return;
 
                     e.preventDefault();
                     
@@ -695,11 +678,6 @@
                         .style('right', null)
                         .style('top', '150px');
                     
-                    d3.select('#preview-expand')
-                        .classed('expanded', false)
-                        .attr('title', 'Expand')
-                        .text('→');
-                    
                     // Reset to initial size when closing
                     previewPanel
                         .style('width', previewPanel.attr('data-initial-width'))
@@ -711,55 +689,11 @@
                     yOffset = 0;
                 });
 
-                // Add expand button functionality with position handling
-                d3.select('#preview-expand').on('click', function() {
-                    const isExpanded = previewPanel.classed('expanded');
-                    
-                    if (!isExpanded) {
-                        // Store current size and position before expanding
-                        previewPanel
-                            .attr('data-pre-expand-width', previewPanel.style('width'))
-                            .attr('data-pre-expand-height', previewPanel.style('height'))
-                            .attr('data-pre-expand-left', previewPanel.style('left'))
-                            .attr('data-pre-expand-top', previewPanel.style('top'));
-                    }
-                    
-                    previewPanel.classed('expanded', !isExpanded);
-                    
-                    if (isExpanded) {
-                        // Restore pre-expansion size and position
-                        previewPanel
-                            .style('width', previewPanel.attr('data-pre-expand-width'))
-                            .style('height', previewPanel.attr('data-pre-expand-height'))
-                            .style('left', previewPanel.attr('data-pre-expand-left'))
-                            .style('top', previewPanel.attr('data-pre-expand-top'));
-                    } else {
-                        // Center in viewport when expanding
-                        previewPanel
-                            .style('left', '5vw')
-                            .style('top', '5vh')
-                            .style('right', null);
-                    }
-                    
-                    d3.select(this)
-                        .classed('expanded', !isExpanded)
-                        .attr('title', isExpanded ? 'Expand' : 'Collapse')
-                        .text(isExpanded ? '→' : '←');
-                });
 
-                // Update ResizeObserver to handle both size storage and content scaling
+
+                // Update ResizeObserver to handle content scaling
                 const resizeObserver = new ResizeObserver(entries => {
                     for (let entry of entries) {
-                        const width = entry.contentRect.width + 'px';
-                        const height = entry.contentRect.height + 'px';
-                        
-                        // Only store size if not expanded
-                        if (!previewPanel.classed('expanded')) {
-                            previewPanel
-                                .attr('data-pre-expand-width', width)
-                                .attr('data-pre-expand-height', height);
-                        }
-
                         // Scale content to fit new width
                         fitContentToWidth();
                     }
@@ -891,20 +825,7 @@
                             // Initial fit to width
                             fitContentToWidth();
 
-                            // Add zoom controls
-                            let currentScale = 1;
-                            
-                            d3.select('#preview-zoom-in').on('click', () => {
-                                currentScale = Math.min(2, currentScale + 0.1);
-                                container.style.transform = `scale(${currentScale})`;
-                            });
-                            
-                            d3.select('#preview-zoom-out').on('click', () => {
-                                currentScale = Math.max(0.1, currentScale - 0.1);
-                                container.style.transform = `scale(${currentScale})`;
-                            });
-                            
-                            d3.select('#preview-fit').on('click', fitContentToWidth);
+
                         } catch (error) {
                             console.error('Error processing preview content:', error);
                             showErrorPreview(d.name, error.message);
