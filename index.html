@@ -1,102 +1,708 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
-""""http://www.w3.org/TR/REC-html40/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<title>Radical Art</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<META NAME="keywords" CONTENT="automatic art generation  mechanical  conceptual algorithmic artificial  formal esthetics computer visual everything nothing anything readymade Duchamp chance concept  destruction process destruction kinetic radical history">
-<meta name="description" content="A site about radical strands in modern art. It includes algorithmic art and its art-historical and conceptual context.">
-<link href="styles/blacktext.html" rel="stylesheet" type="text/css">
-<style type="text/css"><!--
-.style9 {font-weight: bold; font-size: 60px; color: #444444;}
--->
-</style>
+    <title>Site Link Graph</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        #graph {
+            width: 100vw;
+            height: 100vh;
+            background-color: white;
+            position: relative;
+        }
+        .node rect {
+            fill: white;
+            stroke: #333;
+            stroke-width: 1px;
+        }
+        .node text {
+            font-size: 12px;
+            font-family: sans-serif;
+            pointer-events: none;
+        }
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.6;
+        }
+        .tooltip {
+            position: absolute;
+            padding: 8px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+            display: none;
+            z-index: 1000;
+        }
+        #controls {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        #controls button {
+            margin: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .search-box {
+            margin-top: 10px;
+        }
+        #search {
+            width: 200px;
+            padding: 5px;
+        }
+        #preview-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: none;
+            overflow: hidden;
+            z-index: 1000;
+        }
+        #preview-header {
+            padding: 10px;
+            background: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #preview-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        #preview-controls button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 2px 5px;
+            color: #666;
+        }
+        #preview-controls button:hover {
+            color: #000;
+        }
+        #preview-title {
+            margin: 0;
+            font-size: 14px;
+            font-weight: bold;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            flex: 1;
+        }
+        #preview-content {
+            height: calc(100% - 40px);
+            overflow: auto;
+        }
+        .preview-container {
+            transform-origin: top left;
+            padding: 10px;
+        }
+        .preview-loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100% - 40px);
+            font-style: italic;
+            color: #666;
+        }
+        .checkbox-control {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .checkbox-control input[type="checkbox"] {
+            margin: 0;
+        }
+    </style>
 </head>
+<body>
+    <div id="graph"></div>
+    <div class="tooltip"></div>
+    <div id="controls">
+        <button id="zoomIn">Zoom In</button>
+        <button id="zoomOut">Zoom Out</button>
+        <button id="resetView">Reset View</button>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Search pages...">
+        </div>
+        <div class="checkbox-control">
+            <input type="checkbox" id="hideHome" checked>
+            <label for="hideHome">Hide Home Page</label>
+        </div>
+    </div>
+    <div id="preview-panel">
+        <div id="preview-header">
+            <h3 id="preview-title"></h3>
+            <div id="preview-controls">
+                <button id="preview-zoom-out" title="Zoom Out">−</button>
+                <button id="preview-fit" title="Fit to Width">↔</button>
+                <button id="preview-zoom-in" title="Zoom In">+</button>
+                <button id="preview-close" title="Close">×</button>
+            </div>
+        </div>
+        <div id="preview-content"></div>
+    </div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+        function getCleanName(path) {
+            // Remove .html extension
+            path = path.replace('.html', '');
+            
+            // Split path into parts
+            const parts = path.split('/');
+            
+            // If it ends with index, use the parent directory name
+            if (parts[parts.length - 1] === 'index') {
+                return parts[parts.length - 2] || parts[0];
+            }
+            
+            // Otherwise use the last meaningful part
+            const lastPart = parts[parts.length - 1];
+            return lastPart === '' ? parts[parts.length - 2] : lastPart;
+        }
 
-<body bgcolor="#EEEEEE">
-<div align="right"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <p>&nbsp;<a href="about.html"><img src="gif/buttons/blue16.gif" alt="about" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;
-    about this site&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://remkoscha.nl"><img src="gif/buttons/blue16.gif" alt="about" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp; remko scha &nbsp;&nbsp;&nbsp;&nbsp;<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
-</div>
-<div align="center">
-  <blockquote>
-    <table bgcolor="#ffffff" border="0" cellspacing="0" cellpadding="15" width="700">
-      <tr bgcolor="#FFFFFF">
-        <td colspan="3">          <h6><br>
-        </h6>          <h6 align="center"><a href="http://iaaa.nl">institute of artificial art
-          amsterdam</a>, department of art history</h6>
-          <h1 align="center" class="style9">radical art </h1>
-          <h6 align="center">an analytical anthology of anti-art and meta-art </h6>
-          <br>
-          <hr>        </td>
-      </tr>
-      <tr bgcolor="#FFFFFF">
-        <td width="250">          <h4 align="right"><a href="concept/index.html">concept</a></h4></td>
-        <td width="200">
-          <div align="center">
-            <h4><a href="Life/index.html">life</a><br>
-            </h4>
-          </div>
-        </td>
-        <td width="250">          <h4 align="left"><a href="everything/index.html">everything</a></h4></td>
-      </tr>
-      <tr bgcolor="#FFFFFF">
-        <td bgcolor="#FFFFFF">
-          <div align="center">
-            <h4><a href="AlgorithmicArt/index.html">algorithm</a> </h4>
-          </div>
-        </td>
-        <td>
-          <h4 align="center">&nbsp;</h4>
-        </td>
-        <td>
-          <div align="center">
-            <h4><a href="anything/index.html">anything</a>&nbsp;&nbsp;<br>
-</h4>
-          </div>
-        </td>
-      </tr>
-      <tr bgcolor="#FFFFFF">
-        <td bgcolor="#FFFFFF">
-          <div align="center">
-            <h4><a href="kinetics/index.html">mechanics&nbsp;&nbsp;</a></h4>
-          </div>
-        </td>
-        <td>
-          <h4>&nbsp;</h4>
-        </td>
-        <td>
-          <div align="center">
-            <h4><a href="something/index.html">something</a> </h4>
-          </div>
-        </td>
-      </tr>
-      <tr bgcolor="#FFFFFF">
-        <td>          <h4 align="right"><a href="process/index.html">process</a> </h4></td>
-        <td width="200">
-          <div align="center">
-            <h4><a href="destruction/index.html">destruction</a><br>
-            </h4>
-          </div>
-        </td>
-        <td>          <h4 align="left"><a href="nothing/index.html">nothing</a> <br>
-                        </h4></td>
-      </tr>
-    </table>
-    <br>
-    <br>
-    <table bgcolor="#ffffff" border="0" cellspacing="0" cellpadding="15" width="700">
-      <tr bgcolor="#FFFFFF">
-        <td width="700">
-          <p align="center"><a href="meta.html"><br>
-            <img src="gif/buttons/blue16.gif" alt="intro" width="16" height="16" border="0" align="absbottom"></a>&nbsp; &nbsp;an introductory essay&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="QEndArt.html"><img src="gif/buttons/blue16.gif" alt="the end of art" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;  the end of art<br>
-            &nbsp;&nbsp;&nbsp;&nbsp; <br>
-        </p>        </td>
-      </tr>
-    </table>
-    <br>
-    &nbsp; </blockquote>
-</div>
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+
+        async function createGraph() {
+            const data = await fetch('graph_data.json').then(response => response.json());
+            
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            
+            // Calculate node degrees for sizing
+            const nodeDegrees = {};
+            data.nodes.forEach(node => {
+                nodeDegrees[node.id] = 0;
+                // Add clean name to node data
+                node.cleanName = capitalizeFirstLetter(getCleanName(node.name));
+            });
+            data.links.forEach(link => {
+                nodeDegrees[link.source]++;
+                nodeDegrees[link.target]++;
+            });
+            
+            // Store original nodes and links
+            const originalNodes = [...data.nodes];
+            const originalLinks = [...data.links];
+            
+            const zoom = d3.zoom()
+                .scaleExtent([0.1, 4])
+                .on('zoom', zoomed);
+            
+            const svg = d3.select('#graph')
+                .append('svg')
+                .attr('width', width)
+                .attr('height', height)
+                .call(zoom);
+            
+            const g = svg.append('g');
+            
+            let simulation = d3.forceSimulation(data.nodes)
+                .force('link', d3.forceLink(data.links).id(d => d.id))
+                .force('charge', d3.forceManyBody().strength(-1000))
+                .force('center', d3.forceCenter(width / 2, height / 2))
+                .force('collision', d3.forceCollide().radius(d => getNodeSize(d).width / 1.5));
+            
+            function updateGraph(hideHome) {
+                // Filter nodes and links if hideHome is true
+                let currentNodes = hideHome ? 
+                    originalNodes.filter(n => n.name !== 'index.html') : 
+                    [...originalNodes];
+                
+                let currentLinks = hideHome ? 
+                    originalLinks.filter(l => {
+                        const sourceNode = originalNodes.find(n => n.id === (typeof l.source === 'object' ? l.source.id : l.source));
+                        const targetNode = originalNodes.find(n => n.id === (typeof l.target === 'object' ? l.target.id : l.target));
+                        return sourceNode && targetNode && 
+                               sourceNode.name !== 'index.html' && 
+                               targetNode.name !== 'index.html';
+                    }) : 
+                    [...originalLinks];
+
+                // Update the simulation with new data
+                simulation.nodes(currentNodes);
+                simulation.force('link').links(currentLinks);
+                
+                // Update the visual elements
+                const link = g.selectAll('.link')
+                    .data(currentLinks);
+                
+                link.exit().remove();
+                
+                link.enter()
+                    .append('line')
+                    .attr('class', 'link')
+                    .merge(link);
+                
+                const node = g.selectAll('.node')
+                    .data(currentNodes, d => d.id);
+                
+                node.exit().remove();
+                
+                const nodeEnter = node.enter()
+                    .append('g')
+                    .attr('class', 'node')
+                    .call(d3.drag()
+                        .on('start', dragstarted)
+                        .on('drag', dragged)
+                        .on('end', dragended));
+                
+                nodeEnter.each(function(d) {
+                    const g = d3.select(this);
+                    const size = getNodeSize(d);
+                    
+                    g.append('rect')
+                        .attr('width', size.width)
+                        .attr('height', size.height)
+                        .attr('x', -size.width / 2)
+                        .attr('y', -size.height / 2)
+                        .style('fill', 'white')
+                        .style('stroke', d => stringToColor(d.name.split('/')[0] || d.name));
+                    
+                    g.append('text')
+                        .attr('text-anchor', 'middle')
+                        .attr('dy', '0.35em')
+                        .text(d => d.cleanName)
+                        .style('font-size', d => Math.min(14, 10 + Math.sqrt(nodeDegrees[d.id])) + 'px');
+                });
+
+                // Update existing nodes
+                node.select('rect')
+                    .attr('width', d => getNodeSize(d).width)
+                    .attr('height', d => getNodeSize(d).height)
+                    .attr('x', d => -getNodeSize(d).width / 2)
+                    .attr('y', d => -getNodeSize(d).height / 2);
+
+                node.select('text')
+                    .text(d => d.cleanName)
+                    .style('font-size', d => Math.min(14, 10 + Math.sqrt(nodeDegrees[d.id])) + 'px');
+
+                // Set up node event handlers
+                const allNodes = node.merge(nodeEnter);
+                const allLinks = link.merge(link.enter());
+
+                allNodes.on('mouseover', function(event, d) {
+                    tooltip.style('display', 'block')
+                        .html(`${d.name}<br/>${nodeDegrees[d.id]} connections`)
+                        .style('left', (event.pageX + 10) + 'px')
+                        .style('top', (event.pageY - 10) + 'px');
+                    
+                    const connectedNodes = new Set();
+                    currentLinks.forEach(link => {
+                        const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+                        const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+                        if (sourceId === d.id) connectedNodes.add(targetId);
+                        if (targetId === d.id) connectedNodes.add(sourceId);
+                    });
+                    
+                    // Update node opacities
+                    g.selectAll('.node')
+                        .attr('opacity', n => connectedNodes.has(n.id) || n.id === d.id ? 1 : 0.1);
+                    
+                    // Update link opacities
+                    g.selectAll('.link')
+                        .attr('opacity', l => {
+                            const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+                            const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+                            return sourceId === d.id || targetId === d.id ? 1 : 0.1;
+                        });
+                })
+                .on('mouseout', function() {
+                    tooltip.style('display', 'none');
+                    // Reset opacities
+                    g.selectAll('.node').attr('opacity', 1);
+                    g.selectAll('.link').attr('opacity', 0.6);
+                })
+                .on('click', function(event, d) {
+                    // Zoom to node
+                    const scale = 2;
+                    const x = -d.x * scale + width / 2;
+                    const y = -d.y * scale + height / 2;
+                    svg.transition().duration(750)
+                        .call(zoom.transform, d3.zoomIdentity.translate(x, y).scale(scale));
+                    
+                    // Show preview panel
+                    showPreview(d);
+                });
+
+                // Restart the simulation
+                simulation.alpha(1).restart();
+            }
+
+            // Move the showPreview function definition here
+            function showPreview(d) {
+                const previewPanel = d3.select('#preview-panel');
+                const previewTitle = d3.select('#preview-title');
+                const previewContent = d3.select('#preview-content');
+                
+                // Set the title
+                previewTitle.text(d.cleanName);
+                
+                // Show loading state
+                previewContent.html('<div class="preview-loading">Loading preview...</div>');
+                previewPanel.style('display', 'block');
+
+                // Handle the file path
+                let filePath = d.name;
+                // Ensure the path starts with a forward slash
+                if (!filePath.startsWith('/')) {
+                    filePath = '/' + filePath;
+                }
+                // Clean up any double slashes
+                filePath = filePath.replace(/\/+/g, '/');
+
+                // Add close button functionality
+                d3.select('#preview-close').on('click', () => {
+                    previewPanel.style('display', 'none');
+                });
+
+                // First try to fetch the content directly
+                fetch(filePath)
+                    .then(response => {
+                        if (!response.ok) {
+                            // If the direct path fails, try without leading slash
+                            return fetch(filePath.substring(1));
+                        }
+                        return response;
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`File not found: ${d.name}`);
+                        }
+                        return response.text();
+                    })
+                    .then(content => {
+                        // Create a container for the content
+                        const container = document.createElement('div');
+                        container.className = 'preview-container';
+                        container.style.width = 'max-content';
+                        container.style.minWidth = '100%';
+                        container.style.transform = 'scale(1)';
+                        
+                        try {
+                            // Parse the content with DOMParser to manipulate it before inserting
+                            const parser = new DOMParser();
+                            const doc = parser.parseFromString(content, 'text/html');
+                            
+                            // Remove blacktext.html references before they can trigger requests
+                            doc.querySelectorAll('link[href*="blacktext.html"]').forEach(el => el.remove());
+                            
+                            // Add default styles
+                            const defaultStyle = document.createElement('style');
+                            defaultStyle.textContent = `
+                                body {
+                                    font-family: Arial, sans-serif;
+                                    color: #000;
+                                    background: #fff;
+                                    margin: 0;
+                                    padding: 10px;
+                                }
+                                a {
+                                    color: #0066cc;
+                                    text-decoration: none;
+                                }
+                                a:hover {
+                                    text-decoration: underline;
+                                }
+                                img {
+                                    max-width: 100%;
+                                    height: auto;
+                                }
+                                .broken-image {
+                                    display: inline-block;
+                                    background: #f0f0f0;
+                                    border: 1px dashed #999;
+                                    padding: 10px;
+                                    color: #666;
+                                    font-style: italic;
+                                    font-size: 12px;
+                                    text-align: center;
+                                    min-width: 100px;
+                                    min-height: 50px;
+                                    line-height: 50px;
+                                }
+                            `;
+                            doc.head.appendChild(defaultStyle);
+                            
+                            // Set the HTML content
+                            container.innerHTML = doc.documentElement.innerHTML;
+                            
+                            // Clear the preview content and add the container
+                            previewContent.html('');
+                            previewContent.node().appendChild(container);
+                            
+                            // Fix relative paths in the content
+                            const baseUrl = filePath.substring(0, filePath.lastIndexOf('/') + 1);
+                            
+                            // Handle all resources
+                            container.querySelectorAll('img, link[rel="stylesheet"], script').forEach(el => {
+                                if (el.tagName.toLowerCase() === 'img') {
+                                    const originalSrc = el.getAttribute('src');
+                                    if (originalSrc && !originalSrc.startsWith('http')) {
+                                        handleResourceError(el, baseUrl);
+                                    }
+                                } else if (el.src && !el.src.startsWith('http')) {
+                                    handleResourceError(el, baseUrl);
+                                }
+                                if (el.href && !el.href.startsWith('http')) {
+                                    // Skip blacktext.html completely
+                                    if (el.href.includes('blacktext.html')) {
+                                        el.remove();
+                                        return;
+                                    }
+                                    // Try both with and without leading slash
+                                    const withSlash = el.href.startsWith('/') ? el.href : '/' + el.href;
+                                    const withoutSlash = el.href.startsWith('/') ? el.href.substring(1) : el.href;
+                                    
+                                    // Try both paths
+                                    fetch(withSlash, { method: 'HEAD' })
+                                        .then(response => {
+                                            if (response.ok) {
+                                                el.href = withSlash;
+                                            } else {
+                                                return fetch(withoutSlash, { method: 'HEAD' });
+                                            }
+                                        })
+                                        .then(response => {
+                                            if (response && response.ok) {
+                                                el.href = withoutSlash;
+                                            } else if (el.rel === 'stylesheet') {
+                                                el.remove();
+                                            }
+                                        })
+                                        .catch(() => {
+                                            if (el.rel === 'stylesheet') {
+                                                el.remove();
+                                            }
+                                        });
+                                }
+                            });
+
+                            // Function to fit content to width
+                            function fitToWidth() {
+                                const contentWidth = container.scrollWidth;
+                                const containerWidth = previewContent.node().clientWidth;
+                                const scale = Math.min(1, (containerWidth - 20) / contentWidth);
+                                container.style.transform = `scale(${scale})`;
+                            }
+
+                            // Initial fit to width
+                            setTimeout(fitToWidth, 100);
+
+                            // Add zoom controls
+                            let currentScale = 1;
+                            
+                            d3.select('#preview-zoom-in').on('click', () => {
+                                currentScale = Math.min(2, currentScale + 0.1);
+                                container.style.transform = `scale(${currentScale})`;
+                            });
+                            
+                            d3.select('#preview-zoom-out').on('click', () => {
+                                currentScale = Math.max(0.1, currentScale - 0.1);
+                                container.style.transform = `scale(${currentScale})`;
+                            });
+                            
+                            d3.select('#preview-fit').on('click', fitToWidth);
+                        } catch (error) {
+                            console.error('Error processing preview content:', error);
+                            showErrorPreview(d.name, error.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error loading preview:', error);
+                        showErrorPreview(d.name, error.message);
+                    });
+            }
+
+            function showErrorPreview(filename, errorMessage) {
+                const previewContent = d3.select('#preview-content');
+                previewContent.html(`
+                    <div class="preview-error" style="padding: 20px; text-align: center;">
+                        <h3 style="color: #666;">Unable to Preview File</h3>
+                        <p style="color: #888;">${filename}</p>
+                        <p style="color: #999; font-style: italic;">${errorMessage}</p>
+                        <div style="margin-top: 20px; padding: 15px; background: #f5f5f5; border-radius: 5px;">
+                            <p style="margin: 0; color: #666;">This file might be:</p>
+                            <ul style="list-style: none; padding: 0; margin: 10px 0;">
+                                <li style="color: #888;">• Not accessible from the current location</li>
+                                <li style="color: #888;">• Moved or deleted</li>
+                                <li style="color: #888;">• Requiring special permissions</li>
+                            </ul>
+                        </div>
+                    </div>
+                `);
+            }
+
+            function handleResourceError(element, baseUrl) {
+                const originalSrc = element.getAttribute('src');
+                if (!originalSrc) return;
+                
+                // Get the image name and check if it's in a concept path
+                const imgName = originalSrc.split('/').pop();
+                const conceptMatch = originalSrc.match(/\/concept\/([^/]+)\/([^/]+)\//);
+                const processMatch = originalSrc.match(/\/process\/([^/]+)\//);
+                
+                // Build the list of paths to try, starting with most likely locations
+                const alternativePaths = [];
+                
+                // If it's a concept path, try that first
+                if (conceptMatch) {
+                    alternativePaths.push(`/concept/${conceptMatch[1]}/${conceptMatch[2]}/${imgName}`);
+                }
+                
+                // If it's a process path, try those locations
+                if (processMatch) {
+                    const processType = processMatch[1];
+                    alternativePaths.push(
+                        `/process/${processType}/${imgName}`,
+                        `/process/${processType}/Rotella/${imgName}`,
+                        `/process/${processType}/RotellaCopertura/${imgName}`,
+                        `/process/${processType}/Villegle/${imgName}`,
+                        `/process/${processType}/Hains/${imgName}`,
+                        `/process/${processType}/Dufrene/${imgName}`
+                    );
+                }
+                
+                // Add common image locations
+                alternativePaths.push(
+                    `/gif/buttons/${imgName}`,  // Common location for navigation buttons
+                    `/gif/kinetiek/${imgName}`, // Kinetic art images
+                    baseUrl + imgName,          // Same directory as the HTML file
+                    `/gif/natuur/${imgName}`,   // Nature-related images
+                    `/process/tear/Rotella/${imgName}`,  // Common location for torn artwork
+                    `/process/tear/RotellaCopertura/${imgName}`,
+                    originalSrc                  // Original path as fallback
+                );
+                
+                // For specific image types, add their likely locations
+                if (originalSrc.includes('kinetics/')) {
+                    alternativePaths.unshift(`/gif/kinetiek/${imgName}`);
+                }
+                
+                // For Rotella's work, check specific directories
+                if (imgName.includes('Rotella') || imgName.match(/^\d{2,4}.*\.jpg$/)) {
+                    alternativePaths.unshift(
+                        `/process/tear/Rotella/${imgName}`,
+                        `/process/tear/RotellaCopertura/${imgName}`
+                    );
+                }
+                
+                // Try each alternative path
+                const tryNextPath = async (paths) => {
+                    if (paths.length === 0) {
+                        console.log(`Could not find image: ${imgName}`);
+                        const placeholder = document.createElement('div');
+                        placeholder.className = 'broken-image';
+                        placeholder.textContent = 'Image not found';
+                        element.parentNode.replaceChild(placeholder, element);
+                        return;
+                    }
+                    
+                    const path = paths[0];
+                    try {
+                        const response = await fetch(path);
+                        if (response.ok) {
+                            element.src = path;
+                            console.log(`Found image at: ${path}`);
+                        } else {
+                            await tryNextPath(paths.slice(1));
+                        }
+                    } catch {
+                        await tryNextPath(paths.slice(1));
+                    }
+                };
+                
+                tryNextPath(alternativePaths).catch(console.error);
+            }
+
+            // Add event listener for the checkbox
+            d3.select('#hideHome').on('change', function() {
+                updateGraph(this.checked);
+            });
+
+            // Initial graph update
+            updateGraph(true);
+            
+            const tooltip = d3.select('.tooltip');
+            
+            simulation.on('tick', () => {
+                g.selectAll('.link')
+                    .attr('x1', d => d.source.x)
+                    .attr('y1', d => d.source.y)
+                    .attr('x2', d => d.target.x)
+                    .attr('y2', d => d.target.y);
+                
+                g.selectAll('.node')
+                    .attr('transform', d => `translate(${d.x},${d.y})`);
+            });
+            
+            function getNodeSize(d) {
+                // Use the size property from the backend, fallback to 30 if missing
+                const baseSize = d.size || 30;
+                return {
+                    width: Math.max(60, baseSize + d.cleanName.length * 8),
+                    height: Math.max(25, baseSize * 0.4)
+                };
+            }
+            
+            function zoomed(event) {
+                g.attr('transform', event.transform);
+            }
+            
+            function dragstarted(event) {
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                event.subject.fx = event.subject.x;
+                event.subject.fy = event.subject.y;
+            }
+            
+            function dragged(event) {
+                event.subject.fx = event.x;
+                event.subject.fy = event.y;
+            }
+            
+            function dragended(event) {
+                if (!event.active) simulation.alphaTarget(0);
+                event.subject.fx = null;
+                event.subject.fy = null;
+            }
+            
+            function stringToColor(str) {
+                let hash = 0;
+                for (let i = 0; i < str.length; i++) {
+                    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+                }
+                let color = '#';
+                for (let i = 0; i < 3; i++) {
+                    const value = (hash >> (i * 8)) & 0xFF;
+                    color += ('00' + value.toString(16)).substr(-2);
+                }
+                return color;
+            }
+        }
+        
+        createGraph();
+    </script>
 </body>
-</html>
+</html> 
