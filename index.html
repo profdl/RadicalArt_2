@@ -367,21 +367,15 @@
 
                 // Handle the file path
                 const filePath = d.name;
+                const repoBase = '/RadicalArt_2/';
                 
                 // Add close button functionality
                 d3.select('#preview-close').on('click', () => {
                     previewPanel.style('display', 'none');
                 });
 
-                // First try to fetch the content directly
-                fetch('/RadicalArt_2/' + filePath)
-                    .then(response => {
-                        if (!response.ok) {
-                            // If the direct path fails, try without repository name
-                            return fetch(filePath);
-                        }
-                        return response;
-                    })
+                // First try to fetch the content directly with the repo base path
+                fetch(repoBase + filePath)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error(`File not found: ${d.name}`);
@@ -449,17 +443,21 @@
                             previewContent.node().appendChild(container);
                             
                             // Fix relative paths in the content
-                            const baseUrl = filePath.substring(0, filePath.lastIndexOf('/') + 1);
+                            const baseUrl = repoBase + filePath.substring(0, filePath.lastIndexOf('/') + 1);
                             
                             // Handle all resources
                             container.querySelectorAll('img, link[rel="stylesheet"], script').forEach(el => {
                                 if (el.tagName.toLowerCase() === 'img') {
                                     const originalSrc = el.getAttribute('src');
                                     if (originalSrc && !originalSrc.startsWith('http')) {
-                                        handleResourceError(el, baseUrl);
+                                        // Try to load the image with the repo base path
+                                        const imgPath = originalSrc.startsWith('/') ? originalSrc.substring(1) : originalSrc;
+                                        el.src = repoBase + imgPath;
+                                        el.onerror = () => handleResourceError(el, baseUrl);
                                     }
                                 } else if (el.src && !el.src.startsWith('http')) {
-                                    handleResourceError(el, baseUrl);
+                                    const srcPath = el.src.startsWith('/') ? el.src.substring(1) : el.src;
+                                    el.src = repoBase + srcPath;
                                 }
                                 if (el.href && !el.href.startsWith('http')) {
                                     // Skip blacktext.html completely
@@ -467,31 +465,8 @@
                                         el.remove();
                                         return;
                                     }
-                                    // Try both with and without leading slash
-                                    const withSlash = el.href.startsWith('/') ? el.href : '/' + el.href;
-                                    const withoutSlash = el.href.startsWith('/') ? el.href.substring(1) : el.href;
-                                    
-                                    // Try both paths
-                                    fetch(withSlash, { method: 'HEAD' })
-                                        .then(response => {
-                                            if (response.ok) {
-                                                el.href = withSlash;
-                                            } else {
-                                                return fetch(withoutSlash, { method: 'HEAD' });
-                                            }
-                                        })
-                                        .then(response => {
-                                            if (response && response.ok) {
-                                                el.href = withoutSlash;
-                                            } else if (el.rel === 'stylesheet') {
-                                                el.remove();
-                                            }
-                                        })
-                                        .catch(() => {
-                                            if (el.rel === 'stylesheet') {
-                                                el.remove();
-                                            }
-                                        });
+                                    const hrefPath = el.href.startsWith('/') ? el.href.substring(1) : el.href;
+                                    el.href = repoBase + hrefPath;
                                 }
                             });
 
@@ -556,44 +531,27 @@
                 
                 // Get the image name and check if it's in a concept path
                 const imgName = originalSrc.split('/').pop();
-                const conceptMatch = originalSrc.match(/\/concept\/([^/]+)\/([^/]+)\//);
-                const processMatch = originalSrc.match(/\/process\/([^/]+)\//);
+                const repoBase = '/RadicalArt_2/';
                 
                 // Build the list of paths to try, starting with most likely locations
-                const alternativePaths = [];
-                
-                // Add the OpenForm paths first since that's where we found the images
-                if (imgName.includes('Rauschenberg')) {
-                    alternativePaths.push(
-                        `anything/OpenForm/Rauschenberg/${imgName}`,
-                        `anything/OpenForm/${imgName}`
-                    );
-                }
-                
-                // If it's a concept path, try that first
-                if (conceptMatch) {
-                    alternativePaths.push(`concept/${conceptMatch[1]}/${conceptMatch[2]}/${imgName}`);
-                }
-                
-                // If it's a process path, try those locations
-                if (processMatch) {
-                    const processType = processMatch[1];
-                    alternativePaths.push(
-                        `process/${processType}/${imgName}`,
-                        `process/${processType}/${processType}/${imgName}`
-                    );
-                }
-                
-                // Add common locations
-                alternativePaths.push(
-                    `gif/buttons/${imgName}`,
-                    `gif/kinetiek/${imgName}`,
-                    `gif/natuur/${imgName}`,
-                    `gif/${imgName}`,
-                    `anything/${imgName}`,
-                    `anything/OpenForm/${imgName}`,
-                    imgName
-                );
+                const alternativePaths = [
+                    `${repoBase}images/${imgName}`,
+                    `${repoBase}img/${imgName}`,
+                    `${repoBase}assets/${imgName}`,
+                    `${repoBase}gif/buttons/${imgName}`,
+                    `${repoBase}gif/kinetiek/${imgName}`,
+                    `${repoBase}gif/natuur/${imgName}`,
+                    `${repoBase}gif/${imgName}`,
+                    `${repoBase}${imgName}`
+                ];
+
+                // Add artist-specific paths if the image name contains artist names
+                const artistPaths = ['Rauschenberg', 'Agam', 'PaulTalman', 'JanHenderikse', 'ReinerKallhardt'];
+                artistPaths.forEach(artist => {
+                    if (imgName.includes(artist)) {
+                        alternativePaths.unshift(`${repoBase}${artist}/${imgName}`);
+                    }
+                });
                 
                 // Try each path in sequence
                 async function tryNextPath(index = 0) {
@@ -605,7 +563,7 @@
                     
                     const path = alternativePaths[index];
                     try {
-                        const response = await fetch(path);
+                        const response = await fetch(path, { method: 'HEAD' });
                         if (response.ok) {
                             element.src = path;
                             return;
