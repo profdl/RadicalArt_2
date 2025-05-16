@@ -798,9 +798,22 @@
                                     // Keep the original src for reference
                                     img.setAttribute('data-original-src', src);
                                     
+                                    // Handle relative paths
+                                    let fullSrc = src;
+                                    if (!src.startsWith('http://') && !src.startsWith('https://')) {
+                                        // Remove leading slash if present
+                                        const relativePath = src.startsWith('/') ? src.substring(1) : src;
+                                        // Construct full path using BASE_PATH
+                                        fullSrc = window.location.origin + BASE_PATH + relativePath;
+                                    }
+                                    
+                                    // Set the full path as the src
+                                    img.src = fullSrc;
+                                    
                                     // Add error handling
                                     img.onerror = () => {
-                                        img.outerHTML = `<div class="broken-image">Image not found: ${src}</div>`;
+                                        // Try alternative paths if the image fails to load
+                                        handleResourceError(img, src);
                                     };
                                 }
                             });
