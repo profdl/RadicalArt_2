@@ -87,6 +87,10 @@
             color: #666;
             font-size: 18px;
             transition: all 0.2s ease;
+            font-family: Arial, sans-serif;
+        }
+        .nav-button.small-icon {
+            font-size: 14px;
         }
         .nav-button:hover {
             background: #f0f0f0;
@@ -171,8 +175,8 @@
         }
         #preview-panel {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 150px; /* Position it below the controls panel */
+            left: 20px; /* Align with the controls panel */
             width: 300px;
             height: 400px;
             background: white;
@@ -181,6 +185,20 @@
             display: none;
             overflow: hidden;
             z-index: 1000;
+            transition: none; /* Remove transition for smoother dragging */
+            resize: both;
+            min-width: 200px;
+            min-height: 200px;
+            max-width: 95vw;
+            max-height: calc(95vh - 150px); /* Account for top spacing */
+        }
+        #preview-panel.expanded {
+            width: 90vw;
+            height: 90vh;
+            top: 5vh;
+            left: 5vw;
+            resize: none;
+            transition: all 0.3s ease; /* Keep transition for expand/collapse */
         }
         #preview-header {
             padding: 10px;
@@ -189,11 +207,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            cursor: move; /* Indicate draggable */
+            user-select: none; /* Prevent text selection while dragging */
         }
         #preview-controls {
             display: flex;
             align-items: center;
             gap: 10px;
+            cursor: default; /* Reset cursor for controls */
         }
         #preview-controls button {
             background: none;
@@ -202,9 +223,17 @@
             font-size: 14px;
             padding: 2px 5px;
             color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            z-index: 1; /* Ensure buttons are clickable */
         }
         #preview-controls button:hover {
             color: #000;
+            background: #f0f0f0;
+            border-radius: 4px;
         }
         #preview-title {
             margin: 0;
@@ -215,13 +244,24 @@
             text-overflow: ellipsis;
             flex: 1;
         }
+        #preview-expand {
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
+        }
+        #preview-expand.expanded {
+            transform: rotate(-180deg);
+        }
         #preview-content {
             height: calc(100% - 40px);
             overflow: auto;
+            padding-right: 8px;
+            padding-bottom: 15px; /* Add space for resize handle */
         }
         .preview-container {
             transform-origin: top left;
             padding: 10px;
+            min-width: 100%;
+            width: max-content;
         }
         .preview-loading {
             display: flex;
@@ -264,14 +304,6 @@
             <div class="search-count"></div>
             <div id="search-results"></div>
         </div>
-        <div class="checkbox-control">
-            <input type="checkbox" id="hideHome" checked>
-            <label for="hideHome">Hide Home Page</label>
-        </div>
-        <div class="slider-control">
-            <input type="range" id="scaleSlider" min="0.1" max="4" step="0.1" value="1">
-            <label for="scaleSlider">Scale</label>
-        </div>
     </div>
     <div class="nav-controls">
         <div class="nav-group">
@@ -279,7 +311,10 @@
             <button class="nav-button" id="zoomOut" title="Zoom Out">−</button>
         </div>
         <div class="nav-divider"></div>
-        <button class="nav-button" id="resetView" title="Reset View">⌂</button>
+        <div class="nav-group">
+            <button class="nav-button" id="resetView" title="Reset View">⌂</button>
+            <button class="nav-button small-icon" id="fitScreen" title="Fit to Screen">⤧</button>
+        </div>
     </div>
     <div id="preview-panel">
         <div id="preview-header">
@@ -289,6 +324,7 @@
                 <button id="preview-fit" title="Fit to Width">↔</button>
                 <button id="preview-zoom-in" title="Zoom In">+</button>
                 <button id="preview-close" title="Close">×</button>
+                <button id="preview-expand" title="Expand">→</button>
             </div>
         </div>
         <div id="preview-content"></div>
@@ -352,6 +388,10 @@
                 .call(zoom);
             
             const g = svg.append('g');
+
+            // Set initial zoom level
+            const initialScale = 0.5;  // More zoomed out initial view
+            svg.call(zoom.transform, d3.zoomIdentity.scale(initialScale));
             
             let simulation = d3.forceSimulation(data.nodes)
                 .force('link', d3.forceLink(data.links).id(d => d.id))
@@ -359,21 +399,17 @@
                 .force('center', d3.forceCenter(width / 2, height / 2))
                 .force('collision', d3.forceCollide().radius(d => getNodeSize(d).width / 1.5));
             
-            function updateGraph(hideHome) {
-                // Filter nodes and links if hideHome is true
-                let currentNodes = hideHome ? 
-                    originalNodes.filter(n => n.name !== 'index.html') : 
-                    [...originalNodes];
+            function updateGraph() {
+                // Always filter out the home page
+                let currentNodes = originalNodes.filter(n => n.name !== 'index.html');
                 
-                let currentLinks = hideHome ? 
-                    originalLinks.filter(l => {
-                        const sourceNode = originalNodes.find(n => n.id === (typeof l.source === 'object' ? l.source.id : l.source));
-                        const targetNode = originalNodes.find(n => n.id === (typeof l.target === 'object' ? l.target.id : l.target));
-                        return sourceNode && targetNode && 
-                               sourceNode.name !== 'index.html' && 
-                               targetNode.name !== 'index.html';
-                    }) : 
-                    [...originalLinks];
+                let currentLinks = originalLinks.filter(l => {
+                    const sourceNode = originalNodes.find(n => n.id === (typeof l.source === 'object' ? l.source.id : l.source));
+                    const targetNode = originalNodes.find(n => n.id === (typeof l.target === 'object' ? l.target.id : l.target));
+                    return sourceNode && targetNode && 
+                           sourceNode.name !== 'index.html' && 
+                           targetNode.name !== 'index.html';
+                });
 
                 // Update the simulation with new data
                 simulation.nodes(currentNodes);
@@ -490,6 +526,7 @@
                 const previewPanel = d3.select('#preview-panel');
                 const previewTitle = d3.select('#preview-title');
                 const previewContent = d3.select('#preview-content');
+                const previewHeader = d3.select('#preview-header');
                 
                 // Set the title
                 previewTitle.text(d.cleanName);
@@ -498,13 +535,181 @@
                 previewContent.html('<div class="preview-loading">Loading preview...</div>');
                 previewPanel.style('display', 'block');
 
+                // Function to fit content to panel width
+                function fitContentToWidth() {
+                    const container = previewContent.select('.preview-container');
+                    if (!container.empty()) {
+                        const contentWidth = container.node().scrollWidth;
+                        const panelWidth = previewContent.node().clientWidth;
+                        const scale = Math.min(1, (panelWidth - 20) / contentWidth); // 20px padding
+                        container
+                            .style('transform', `scale(${scale})`)
+                            .style('transform-origin', 'top left');
+                    }
+                }
+
+                // Store initial size if not already stored
+                if (!previewPanel.attr('data-initial-width')) {
+                    previewPanel.attr('data-initial-width', '300px')
+                        .attr('data-initial-height', '400px');
+                }
+
+                // Dragging functionality
+                let isDragging = false;
+                let currentX;
+                let currentY;
+                let initialX;
+                let initialY;
+                let xOffset = 0;
+                let yOffset = 0;
+
+                function dragStart(e) {
+                    // Only allow dragging from header and not from control buttons
+                    if (e.target.closest('#preview-controls')) return;
+                    
+                    const panel = previewPanel.node();
+                    const rect = panel.getBoundingClientRect();
+                    
+                    // Get current position considering any previous dragging
+                    initialX = e.clientX - xOffset;
+                    initialY = e.clientY - yOffset;
+                    
+                    // Store current position as offset
+                    xOffset = e.clientX - rect.left;
+                    yOffset = e.clientY - rect.top;
+                    
+                    if (e.target === previewHeader.node() || e.target === previewTitle.node()) {
+                        isDragging = true;
+                    }
+                }
+
+                function dragEnd() {
+                    initialX = currentX;
+                    initialY = currentY;
+                    isDragging = false;
+                }
+
+                function drag(e) {
+                    if (!isDragging || previewPanel.classed('expanded')) return;
+
+                    e.preventDefault();
+                    
+                    // Calculate the new position
+                    currentX = e.clientX - xOffset;
+                    currentY = e.clientY - yOffset;
+
+                    // Apply bounds checking
+                    const panel = previewPanel.node();
+                    const rect = panel.getBoundingClientRect();
+                    const viewportWidth = window.innerWidth;
+                    const viewportHeight = window.innerHeight;
+
+                    // Keep at least 20px of the panel visible on each edge
+                    currentX = Math.min(Math.max(currentX, -rect.width + 20), viewportWidth - 20);
+                    currentY = Math.min(Math.max(currentY, 0), viewportHeight - 20);
+
+                    // Update position
+                    previewPanel
+                        .style('left', currentX + 'px')
+                        .style('right', null) // Remove right positioning when dragging
+                        .style('top', currentY + 'px');
+                }
+
+                // Add drag event listeners
+                previewHeader
+                    .on('mousedown', dragStart)
+                    .on('mouseup', dragEnd)
+                    .on('mouseleave', dragEnd);
+
+                d3.select('body')
+                    .on('mousemove', drag)
+                    .on('mouseup', dragEnd);
+
                 // Handle the file path
                 const filePath = d.name;
                 
                 // Add close button functionality
                 d3.select('#preview-close').on('click', () => {
-                    previewPanel.style('display', 'none');
+                    previewPanel
+                        .style('display', 'none')
+                        .classed('expanded', false)
+                        // Reset position when closing
+                        .style('left', '20px')
+                        .style('right', null)
+                        .style('top', '150px');
+                    
+                    d3.select('#preview-expand')
+                        .classed('expanded', false)
+                        .attr('title', 'Expand')
+                        .text('→');
+                    
+                    // Reset to initial size when closing
+                    previewPanel
+                        .style('width', previewPanel.attr('data-initial-width'))
+                        .style('height', previewPanel.attr('data-initial-height'));
+                    
+                    // Reset drag state
+                    isDragging = false;
+                    xOffset = 0;
+                    yOffset = 0;
                 });
+
+                // Add expand button functionality with position handling
+                d3.select('#preview-expand').on('click', function() {
+                    const isExpanded = previewPanel.classed('expanded');
+                    
+                    if (!isExpanded) {
+                        // Store current size and position before expanding
+                        previewPanel
+                            .attr('data-pre-expand-width', previewPanel.style('width'))
+                            .attr('data-pre-expand-height', previewPanel.style('height'))
+                            .attr('data-pre-expand-left', previewPanel.style('left'))
+                            .attr('data-pre-expand-top', previewPanel.style('top'));
+                    }
+                    
+                    previewPanel.classed('expanded', !isExpanded);
+                    
+                    if (isExpanded) {
+                        // Restore pre-expansion size and position
+                        previewPanel
+                            .style('width', previewPanel.attr('data-pre-expand-width'))
+                            .style('height', previewPanel.attr('data-pre-expand-height'))
+                            .style('left', previewPanel.attr('data-pre-expand-left'))
+                            .style('top', previewPanel.attr('data-pre-expand-top'));
+                    } else {
+                        // Center in viewport when expanding
+                        previewPanel
+                            .style('left', '5vw')
+                            .style('top', '5vh')
+                            .style('right', null);
+                    }
+                    
+                    d3.select(this)
+                        .classed('expanded', !isExpanded)
+                        .attr('title', isExpanded ? 'Expand' : 'Collapse')
+                        .text(isExpanded ? '→' : '←');
+                });
+
+                // Update ResizeObserver to handle both size storage and content scaling
+                const resizeObserver = new ResizeObserver(entries => {
+                    for (let entry of entries) {
+                        const width = entry.contentRect.width + 'px';
+                        const height = entry.contentRect.height + 'px';
+                        
+                        // Only store size if not expanded
+                        if (!previewPanel.classed('expanded')) {
+                            previewPanel
+                                .attr('data-pre-expand-width', width)
+                                .attr('data-pre-expand-height', height);
+                        }
+
+                        // Scale content to fit new width
+                        fitContentToWidth();
+                    }
+                });
+
+                // Observe the preview panel
+                resizeObserver.observe(previewPanel.node());
 
                 // First try to fetch the content
                 fetch(BASE_PATH + filePath)
@@ -520,8 +725,7 @@
                         container.className = 'preview-container';
                         container.style.width = 'max-content';
                         container.style.minWidth = '100%';
-                        container.style.transform = 'scale(1)';
-                        
+
                         try {
                             // Parse the content with DOMParser to manipulate it before inserting
                             const parser = new DOMParser();
@@ -539,6 +743,7 @@
                                     background: #fff;
                                     margin: 0;
                                     padding: 10px;
+                                    min-width: fit-content;
                                 }
                                 a {
                                     color: #0066cc;
@@ -573,47 +778,9 @@
                             // Clear the preview content and add the container
                             previewContent.html('');
                             previewContent.node().appendChild(container);
-                            
-                            // Fix relative paths in the content
-                            const currentPath = filePath.substring(0, filePath.lastIndexOf('/') + 1);
-                            
-                            // Handle all resources
-                            container.querySelectorAll('img, link[rel="stylesheet"], script').forEach(el => {
-                                if (el.tagName.toLowerCase() === 'img') {
-                                    const originalSrc = el.getAttribute('src');
-                                    if (originalSrc && !originalSrc.startsWith('http')) {
-                                        // Try to load the image relative to the current page
-                                        const imgPath = originalSrc.startsWith('/') ? 
-                                            BASE_PATH + originalSrc.substring(1) : 
-                                            BASE_PATH + currentPath + originalSrc;
-                                        el.src = imgPath;
-                                        el.onerror = () => handleResourceError(el, originalSrc);
-                                    }
-                                } else if (el.src && !el.src.startsWith('http')) {
-                                    const srcPath = el.src.startsWith('/') ? el.src.substring(1) : el.src;
-                                    el.src = BASE_PATH + srcPath;
-                                }
-                                if (el.href && !el.href.startsWith('http')) {
-                                    // Skip blacktext.html completely
-                                    if (el.href.includes('blacktext.html')) {
-                                        el.remove();
-                                        return;
-                                    }
-                                    const hrefPath = el.href.startsWith('/') ? el.href.substring(1) : el.href;
-                                    el.href = BASE_PATH + hrefPath;
-                                }
-                            });
-
-                            // Function to fit content to width
-                            function fitToWidth() {
-                                const contentWidth = container.scrollWidth;
-                                const containerWidth = previewContent.node().clientWidth;
-                                const scale = Math.min(1, (containerWidth - 20) / contentWidth);
-                                container.style.transform = `scale(${scale})`;
-                            }
 
                             // Initial fit to width
-                            setTimeout(fitToWidth, 100);
+                            fitContentToWidth();
 
                             // Add zoom controls
                             let currentScale = 1;
@@ -628,7 +795,7 @@
                                 container.style.transform = `scale(${currentScale})`;
                             });
                             
-                            d3.select('#preview-fit').on('click', fitToWidth);
+                            d3.select('#preview-fit').on('click', fitContentToWidth);
                         } catch (error) {
                             console.error('Error processing preview content:', error);
                             showErrorPreview(d.name, error.message);
@@ -717,11 +884,6 @@
                 
                 tryNextPath();
             }
-
-            // Add event listener for the checkbox
-            d3.select('#hideHome').on('change', function() {
-                updateGraph(this.checked);
-            });
 
             // Add search functionality
             const searchInput = d3.select('#search');
@@ -1001,7 +1163,7 @@
             });
 
             // Initial graph update
-            updateGraph(true);
+            updateGraph();
             
             const tooltip = d3.select('.tooltip');
             
@@ -1019,8 +1181,7 @@
             function getNodeSize(d) {
                 // Use the size property from the backend, fallback to 30 if missing
                 const baseSize = d.size || 30;
-                const scale = parseFloat(d3.select('#scaleSlider').node().value);
-                const connectionScale = Math.sqrt(nodeDegrees[d.id] || 1) * scale;
+                const connectionScale = Math.sqrt(nodeDegrees[d.id] || 1);
                 const width = Math.max(60, baseSize + d.cleanName.length * 8) * connectionScale;
                 const height = Math.max(25, baseSize * 0.4) * connectionScale;
                 return { width, height };
@@ -1056,7 +1217,51 @@
                 g.attr('transform', event.transform);
             }
             
-            // Add keyboard shortcuts for navigation
+            function resetView() {
+                svg.transition()
+                    .duration(750)
+                    .call(zoom.transform, d3.zoomIdentity.scale(initialScale));
+            }
+
+            function fitToScreen() {
+                if (!g.node()) return;
+
+                // Get the bounds of the graph
+                const bounds = g.node().getBBox();
+                const fullWidth = bounds.width;
+                const fullHeight = bounds.height;
+                const midX = bounds.x + fullWidth / 2;
+                const midY = bounds.y + fullHeight / 2;
+
+                // Calculate the scale needed to fit the graph
+                const scale = 0.95 * Math.min(
+                    width / fullWidth,
+                    height / fullHeight
+                );
+
+                // Calculate the transform needed to center the graph
+                const translate = [
+                    width / 2 - scale * midX,
+                    height / 2 - scale * midY
+                ];
+
+                svg.transition()
+                    .duration(750)
+                    .call(
+                        zoom.transform,
+                        d3.zoomIdentity
+                            .translate(translate[0], translate[1])
+                            .scale(scale)
+                    );
+            }
+
+            // Add click handlers for navigation buttons
+            d3.select('#zoomIn').on('click', () => zoomByDelta(0.2));
+            d3.select('#zoomOut').on('click', () => zoomByDelta(-0.2));
+            d3.select('#resetView').on('click', resetView);
+            d3.select('#fitScreen').on('click', fitToScreen);
+
+            // Add keyboard shortcuts for the new functionality
             d3.select('body').on('keydown', function(event) {
                 // Only handle shortcuts if not in an input field
                 if (event.target.tagName === 'INPUT') return;
@@ -1081,6 +1286,12 @@
                             resetView();
                         }
                         break;
+                    case 'f':
+                        if (event.metaKey || event.ctrlKey) {
+                            event.preventDefault();
+                            fitToScreen();
+                        }
+                        break;
                 }
             });
 
@@ -1092,26 +1303,6 @@
                     .duration(300)
                     .call(zoom.scaleTo, newScale);
             }
-
-            function resetView() {
-                svg.transition()
-                    .duration(750)
-                    .call(zoom.transform, d3.zoomIdentity);
-            }
-
-            // Add click handlers for navigation buttons
-            d3.select('#zoomIn').on('click', () => zoomByDelta(0.2));
-            d3.select('#zoomOut').on('click', () => zoomByDelta(-0.2));
-            d3.select('#resetView').on('click', resetView);
-
-            // Add mouse wheel zoom with modifier key requirement
-            svg.call(zoom)
-               .on('wheel.zoom', function(event) {
-                   if (!event.ctrlKey && !event.metaKey) {
-                       event.preventDefault();
-                       return;
-                   }
-               });
             
             function dragstarted(event) {
                 if (!event.active) simulation.alphaTarget(0.3).restart();
@@ -1142,9 +1333,6 @@
                 }
                 return color;
             }
-
-            // Add scale slider event handler
-            d3.select('#scaleSlider').on('input', updateNodeSizes);
         }
         
         createGraph();
