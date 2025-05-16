@@ -798,22 +798,16 @@
                                     // Keep the original src for reference
                                     img.setAttribute('data-original-src', src);
                                     
-                                    // Handle relative paths
-                                    let fullSrc = src;
+                                    // If src is relative, make it relative to the current page
                                     if (!src.startsWith('http://') && !src.startsWith('https://')) {
-                                        // Remove leading slash if present
-                                        const relativePath = src.startsWith('/') ? src.substring(1) : src;
-                                        // Construct full path using BASE_PATH
-                                        fullSrc = window.location.origin + BASE_PATH + relativePath;
+                                        const currentPath = d.name.split('/').slice(0, -1).join('/');
+                                        const relativeSrc = currentPath ? `${currentPath}/${src}` : src;
+                                        img.setAttribute('src', `${BASE_PATH}${relativeSrc}`);
                                     }
                                     
-                                    // Set the full path as the src
-                                    img.src = fullSrc;
-                                    
-                                    // Add error handling
-                                    img.onerror = () => {
-                                        // Try alternative paths if the image fails to load
-                                        handleResourceError(img, src);
+                                    // Add error handling that uses our handleResourceError function
+                                    img.onerror = function() {
+                                        handleResourceError(this, this.getAttribute('data-original-src'));
                                     };
                                 }
                             });
