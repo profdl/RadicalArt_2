@@ -453,7 +453,7 @@
                                         // Try to load the image with the repo base path
                                         const imgPath = originalSrc.startsWith('/') ? originalSrc.substring(1) : originalSrc;
                                         el.src = repoBase + imgPath;
-                                        el.onerror = () => handleResourceError(el, baseUrl);
+                                        el.onerror = () => handleResourceError(el, originalSrc);
                                     }
                                 } else if (el.src && !el.src.startsWith('http')) {
                                     const srcPath = el.src.startsWith('/') ? el.src.substring(1) : el.src;
@@ -525,8 +525,7 @@
                 `);
             }
 
-            function handleResourceError(element, baseUrl) {
-                const originalSrc = element.getAttribute('src');
+            function handleResourceError(element, originalSrc) {
                 if (!originalSrc) return;
                 
                 // Get the image name and check if it's in a concept path
@@ -535,6 +534,8 @@
                 
                 // Build the list of paths to try, starting with most likely locations
                 const alternativePaths = [
+                    // Artist-specific paths first
+                    `${repoBase}anything/OpenForm/Rauschenberg/${imgName}`,
                     `${repoBase}images/${imgName}`,
                     `${repoBase}img/${imgName}`,
                     `${repoBase}assets/${imgName}`,
@@ -546,10 +547,17 @@
                 ];
 
                 // Add artist-specific paths if the image name contains artist names
-                const artistPaths = ['Rauschenberg', 'Agam', 'PaulTalman', 'JanHenderikse', 'ReinerKallhardt'];
-                artistPaths.forEach(artist => {
+                const artistPaths = {
+                    'Rauschenberg': 'anything/OpenForm/Rauschenberg',
+                    'Agam': 'Agam',
+                    'PaulTalman': 'PaulTalman',
+                    'JanHenderikse': 'JanHenderikse',
+                    'ReinerKallhardt': 'ReinerKallhardt'
+                };
+
+                Object.entries(artistPaths).forEach(([artist, path]) => {
                     if (imgName.includes(artist)) {
-                        alternativePaths.unshift(`${repoBase}${artist}/${imgName}`);
+                        alternativePaths.unshift(`${repoBase}${path}/${imgName}`);
                     }
                 });
                 
