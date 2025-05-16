@@ -369,6 +369,14 @@
                 // Add clean name to node data
                 node.cleanName = capitalizeFirstLetter(getCleanName(node.name));
             });
+            // Highlighted node names (lowercase for comparison)
+            const highlightedNodeNames = [
+                "concept", "algorithm", "mechanics", "process", "destruction",
+                "nothing", "something", "anything", "everything", "life"
+            ];
+            data.nodes.forEach(node => {
+                node.isHighlighted = highlightedNodeNames.includes(node.cleanName.toLowerCase());
+            });
             data.links.forEach(link => {
                 nodeDegrees[link.source]++;
                 nodeDegrees[link.target]++;
@@ -380,7 +388,15 @@
             
             const zoom = d3.zoom()
                 .scaleExtent([0.1, 4])
-                .on('zoom', zoomed);
+                .on('zoom', zoomed)
+                .filter(event => {
+                    // Allow zoom on wheel events
+                    if (event.type === 'wheel') return true;
+                    // Allow pan on drag events
+                    if (event.type === 'mousedown') return true;
+                    // For clicks, we'll handle them separately
+                    return false;
+                });
             
             const svg = d3.select('#graph')
                 .append('svg')
@@ -449,14 +465,16 @@
                         .attr('height', size.height)
                         .attr('x', -size.width / 2)
                         .attr('y', -size.height / 2)
-                        .style('fill', 'white')
-                        .style('stroke', d => stringToColor(d.name.split('/')[0] || d.name));
+                        .style('fill', d => d.isHighlighted ? 'black' : 'white')
+                        .style('stroke', d => d.isHighlighted ? '#222' : stringToColor(d.name.split('/')[0] || d.name))
+                        .style('stroke-width', d => d.isHighlighted ? '3px' : '1px');
                     
                     g.append('text')
                         .attr('text-anchor', 'middle')
                         .attr('dy', '0.35em')
                         .text(d => d.cleanName)
-                        .style('font-size', calculateFontSize(d));
+                        .style('font-size', calculateFontSize(d))
+                        .style('fill', d => d.isHighlighted ? 'white' : '#191970');
                 });
 
                 // Update existing nodes
@@ -464,11 +482,15 @@
                     .attr('width', d => getNodeSize(d).width)
                     .attr('height', d => getNodeSize(d).height)
                     .attr('x', d => -getNodeSize(d).width / 2)
-                    .attr('y', d => -getNodeSize(d).height / 2);
+                    .attr('y', d => -getNodeSize(d).height / 2)
+                    .style('fill', d => d.isHighlighted ? 'black' : 'white')
+                    .style('stroke', d => d.isHighlighted ? '#222' : stringToColor(d.name.split('/')[0] || d.name))
+                    .style('stroke-width', d => d.isHighlighted ? '3px' : '1px');
 
                 node.select('text')
                     .text(d => d.cleanName)
-                    .style('font-size', d => calculateFontSize(d));
+                    .style('font-size', d => calculateFontSize(d))
+                    .style('fill', d => d.isHighlighted ? 'white' : '#191970');
 
                 // Add variable to track selected node
                 let selectedNodeId = null;
@@ -522,31 +544,34 @@
                     }
                 })
                 .on('click', function(event, d) {
+                    event.stopPropagation(); // Prevent click from reaching background
+                    
                     // Toggle selection
                     if (selectedNodeId === d.id) {
                         selectedNodeId = null;
                         updateNodeHighlights(null);
+                        d3.select('#preview-panel').style('display', 'none');
                     } else {
                         selectedNodeId = d.id;
                         updateNodeHighlights(d.id);
+                        
+                        // Find all connected nodes
+                        const connectedNodes = new Set();
+                        currentLinks.forEach(link => {
+                            const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+                            const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+                            if (sourceId === d.id) connectedNodes.add(targetId);
+                            if (targetId === d.id) connectedNodes.add(sourceId);
+                        });
+                        // Add the clicked node itself
+                        connectedNodes.add(d.id);
+                        
+                        // Zoom to fit all connected nodes
+                        zoomToFitNodes(Array.from(connectedNodes));
+                        
+                        // Show preview panel
+                        showPreview(d);
                     }
-                    
-                    // Find all connected nodes
-                    const connectedNodes = new Set();
-                    currentLinks.forEach(link => {
-                        const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
-                        const targetId = typeof link.target === 'object' ? link.target.id : link.target;
-                        if (sourceId === d.id) connectedNodes.add(targetId);
-                        if (targetId === d.id) connectedNodes.add(sourceId);
-                    });
-                    // Add the clicked node itself
-                    connectedNodes.add(d.id);
-                    
-                    // Zoom to fit all connected nodes
-                    zoomToFitNodes(Array.from(connectedNodes));
-                    
-                    // Show preview panel
-                    showPreview(d);
                 });
 
                 // Restart the simulation
@@ -1292,6 +1317,37 @@
             d3.select('#zoomOut').on('click', () => zoomByDelta(-0.2));
             d3.select('#resetView').on('click', resetView);
             d3.select('#fitScreen').on('click', fitToScreen);
+
+            // Add background click handler
+            svg.on('click', function(event) {
+                // Stop event propagation
+                event.stopPropagation();
+                
+                // Get the click coordinates in the zoomed coordinate space
+                const [x, y] = d3.pointer(event);
+                const transform = d3.zoomTransform(svg.node());
+                const zoomedX = (x - transform.x) / transform.k;
+                const zoomedY = (y - transform.y) / transform.k;
+                
+                // Check if we clicked on a node
+                let clickedOnNode = false;
+                g.selectAll('.node').each(function(d) {
+                    const nodeX = d.x;
+                    const nodeY = d.y;
+                    const size = getNodeSize(d);
+                    if (Math.abs(nodeX - zoomedX) < size.width/2 && 
+                        Math.abs(nodeY - zoomedY) < size.height/2) {
+                        clickedOnNode = true;
+                    }
+                });
+                
+                // If we didn't click on a node, deselect
+                if (!clickedOnNode) {
+                    selectedNodeId = null;
+                    updateNodeHighlights(null);
+                    d3.select('#preview-panel').style('display', 'none');
+                }
+            });
 
             // Add keyboard shortcuts for the new functionality
             d3.select('body').on('keydown', function(event) {
