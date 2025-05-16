@@ -3,6 +3,7 @@
 <head>
     <title>Site Link Graph</title>
     <meta charset="utf-8">
+    <base href="/RadicalArt_2/">
     <style>
         body {
             margin: 0;
@@ -373,11 +374,11 @@
                 });
 
                 // First try to fetch the content directly
-                fetch(filePath)
+                fetch('/RadicalArt_2/' + filePath)
                     .then(response => {
                         if (!response.ok) {
-                            // If the direct path fails, try with leading slash
-                            return fetch('/' + filePath);
+                            // If the direct path fails, try without repository name
+                            return fetch(filePath);
                         }
                         return response;
                     })
