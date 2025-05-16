@@ -330,6 +330,7 @@
         <div id="preview-content"></div>
     </div>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="image-loader.js"></script>
     <script>
         // Use the global variables defined in the head
         const { isGitHubPages, BASE_PATH } = window;
@@ -469,9 +470,38 @@
                     .text(d => d.cleanName)
                     .style('font-size', d => calculateFontSize(d));
 
-                // Set up node event handlers
+                // Add variable to track selected node
+                let selectedNodeId = null;
+
+                // Update node event handlers
                 const allNodes = node.merge(nodeEnter);
                 const allLinks = link.merge(link.enter());
+
+                function updateNodeHighlights(nodeId) {
+                    const connectedNodes = new Set();
+                    if (nodeId) {
+                        currentLinks.forEach(link => {
+                            const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+                            const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+                            if (sourceId === nodeId) connectedNodes.add(targetId);
+                            if (targetId === nodeId) connectedNodes.add(sourceId);
+                        });
+                        connectedNodes.add(nodeId);
+                    }
+                    
+                    // Update node opacities
+                    g.selectAll('.node')
+                        .attr('opacity', n => !nodeId || connectedNodes.has(n.id) ? 1 : 0.1);
+                    
+                    // Update link opacities
+                    g.selectAll('.link')
+                        .attr('opacity', l => {
+                            if (!nodeId) return 0.6;
+                            const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
+                            const targetId = typeof l.target === 'object' ? l.target.id : l.target;
+                            return connectedNodes.has(sourceId) && connectedNodes.has(targetId) ? 1 : 0.1;
+                        });
+                }
 
                 allNodes.on('mouseover', function(event, d) {
                     tooltip.style('display', 'block')
@@ -479,6 +509,29 @@
                         .style('left', (event.pageX + 10) + 'px')
                         .style('top', (event.pageY - 10) + 'px');
                     
+                    // Only update highlights if no node is selected
+                    if (!selectedNodeId) {
+                        updateNodeHighlights(d.id);
+                    }
+                })
+                .on('mouseout', function() {
+                    tooltip.style('display', 'none');
+                    // Only reset highlights if no node is selected
+                    if (!selectedNodeId) {
+                        updateNodeHighlights(null);
+                    }
+                })
+                .on('click', function(event, d) {
+                    // Toggle selection
+                    if (selectedNodeId === d.id) {
+                        selectedNodeId = null;
+                        updateNodeHighlights(null);
+                    } else {
+                        selectedNodeId = d.id;
+                        updateNodeHighlights(d.id);
+                    }
+                    
+                    // Find all connected nodes
                     const connectedNodes = new Set();
                     currentLinks.forEach(link => {
                         const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
@@ -486,32 +539,11 @@
                         if (sourceId === d.id) connectedNodes.add(targetId);
                         if (targetId === d.id) connectedNodes.add(sourceId);
                     });
+                    // Add the clicked node itself
+                    connectedNodes.add(d.id);
                     
-                    // Update node opacities
-                    g.selectAll('.node')
-                        .attr('opacity', n => connectedNodes.has(n.id) || n.id === d.id ? 1 : 0.1);
-                    
-                    // Update link opacities
-                    g.selectAll('.link')
-                        .attr('opacity', l => {
-                            const sourceId = typeof l.source === 'object' ? l.source.id : l.source;
-                            const targetId = typeof l.target === 'object' ? l.target.id : l.target;
-                            return sourceId === d.id || targetId === d.id ? 1 : 0.1;
-                        });
-                })
-                .on('mouseout', function() {
-                    tooltip.style('display', 'none');
-                    // Reset opacities
-                    g.selectAll('.node').attr('opacity', 1);
-                    g.selectAll('.link').attr('opacity', 0.6);
-                })
-                .on('click', function(event, d) {
-                    // Zoom to node
-                    const scale = 2;
-                    const x = -d.x * scale + width / 2;
-                    const y = -d.y * scale + height / 2;
-                    svg.transition().duration(750)
-                        .call(zoom.transform, d3.zoomIdentity.translate(x, y).scale(scale));
+                    // Zoom to fit all connected nodes
+                    zoomToFitNodes(Array.from(connectedNodes));
                     
                     // Show preview panel
                     showPreview(d);
