@@ -61,6 +61,47 @@
             padding: 5px 10px;
             cursor: pointer;
         }
+        .nav-controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 1000;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .nav-button {
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 18px;
+            transition: all 0.2s ease;
+        }
+        .nav-button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+        .nav-divider {
+            height: 1px;
+            background: #ddd;
+            margin: 4px 0;
+        }
+        .nav-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
         .search-box {
             margin-top: 10px;
             position: relative;
@@ -199,15 +240,25 @@
         .checkbox-control input[type="checkbox"] {
             margin: 0;
         }
+        .slider-control {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .slider-control input[type="range"] {
+            flex: 1;
+        }
+        .slider-control label {
+            font-size: 12px;
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body>
     <div id="graph"></div>
     <div class="tooltip"></div>
     <div id="controls">
-        <button id="zoomIn">Zoom In</button>
-        <button id="zoomOut">Zoom Out</button>
-        <button id="resetView">Reset View</button>
         <div class="search-box">
             <input type="text" id="search" placeholder="Search pages...">
             <div class="search-count"></div>
@@ -217,6 +268,18 @@
             <input type="checkbox" id="hideHome" checked>
             <label for="hideHome">Hide Home Page</label>
         </div>
+        <div class="slider-control">
+            <input type="range" id="scaleSlider" min="0.1" max="4" step="0.1" value="1">
+            <label for="scaleSlider">Scale</label>
+        </div>
+    </div>
+    <div class="nav-controls">
+        <div class="nav-group">
+            <button class="nav-button" id="zoomIn" title="Zoom In">+</button>
+            <button class="nav-button" id="zoomOut" title="Zoom Out">−</button>
+        </div>
+        <div class="nav-divider"></div>
+        <button class="nav-button" id="resetView" title="Reset View">⌂</button>
     </div>
     <div id="preview-panel">
         <div id="preview-header">
@@ -356,7 +419,7 @@
                         .attr('text-anchor', 'middle')
                         .attr('dy', '0.35em')
                         .text(d => d.cleanName)
-                        .style('font-size', d => Math.min(14, 10 + Math.sqrt(nodeDegrees[d.id])) + 'px');
+                        .style('font-size', calculateFontSize(d));
                 });
 
                 // Update existing nodes
@@ -368,7 +431,7 @@
 
                 node.select('text')
                     .text(d => d.cleanName)
-                    .style('font-size', d => Math.min(14, 10 + Math.sqrt(nodeDegrees[d.id])) + 'px');
+                    .style('font-size', d => calculateFontSize(d));
 
                 // Set up node event handlers
                 const allNodes = node.merge(nodeEnter);
@@ -956,15 +1019,99 @@
             function getNodeSize(d) {
                 // Use the size property from the backend, fallback to 30 if missing
                 const baseSize = d.size || 30;
-                return {
-                    width: Math.max(60, baseSize + d.cleanName.length * 8),
-                    height: Math.max(25, baseSize * 0.4)
-                };
+                const scale = parseFloat(d3.select('#scaleSlider').node().value);
+                const connectionScale = Math.sqrt(nodeDegrees[d.id] || 1) * scale;
+                const width = Math.max(60, baseSize + d.cleanName.length * 8) * connectionScale;
+                const height = Math.max(25, baseSize * 0.4) * connectionScale;
+                return { width, height };
+            }
+
+            function calculateFontSize(d) {
+                const size = getNodeSize(d);
+                // Keep min size at 12px but increase max size to 60px
+                return Math.min(Math.max(size.height * 0.8, 12), 60) + 'px';
             }
             
+            function updateNodeSizes() {
+                g.selectAll('.node').each(function(d) {
+                    const g = d3.select(this);
+                    const size = getNodeSize(d);
+                    
+                    g.select('rect')
+                        .attr('width', size.width)
+                        .attr('height', size.height)
+                        .attr('x', -size.width / 2)
+                        .attr('y', -size.height / 2);
+
+                    g.select('text')
+                        .style('font-size', calculateFontSize(d));
+                });
+
+                // Update collision force radius
+                simulation.force('collision').radius(d => getNodeSize(d).width / 1.5);
+                simulation.alpha(0.3).restart();
+            }
+
             function zoomed(event) {
                 g.attr('transform', event.transform);
             }
+            
+            // Add keyboard shortcuts for navigation
+            d3.select('body').on('keydown', function(event) {
+                // Only handle shortcuts if not in an input field
+                if (event.target.tagName === 'INPUT') return;
+                
+                switch(event.key) {
+                    case '=':
+                    case '+':
+                        if (event.metaKey || event.ctrlKey) {
+                            event.preventDefault();
+                            zoomByDelta(0.2);
+                        }
+                        break;
+                    case '-':
+                        if (event.metaKey || event.ctrlKey) {
+                            event.preventDefault();
+                            zoomByDelta(-0.2);
+                        }
+                        break;
+                    case '0':
+                        if (event.metaKey || event.ctrlKey) {
+                            event.preventDefault();
+                            resetView();
+                        }
+                        break;
+                }
+            });
+
+            function zoomByDelta(delta) {
+                const currentTransform = d3.zoomTransform(svg.node());
+                const newScale = Math.max(0.1, Math.min(4, currentTransform.k + delta));
+                
+                svg.transition()
+                    .duration(300)
+                    .call(zoom.scaleTo, newScale);
+            }
+
+            function resetView() {
+                svg.transition()
+                    .duration(750)
+                    .call(zoom.transform, d3.zoomIdentity);
+            }
+
+            // Add click handlers for navigation buttons
+            d3.select('#zoomIn').on('click', () => zoomByDelta(0.2));
+            d3.select('#zoomOut').on('click', () => zoomByDelta(-0.2));
+            d3.select('#resetView').on('click', resetView);
+
+            // Add mouse wheel zoom with modifier key requirement
+            svg.call(zoom)
+               .on('wheel.zoom', function(event) {
+                   if (!event.ctrlKey && !event.metaKey) {
+                       event.preventDefault();
+                       return;
+                   }
+               });
             
             function dragstarted(event) {
                 if (!event.active) simulation.alphaTarget(0.3).restart();
@@ -995,6 +1142,9 @@
                 }
                 return color;
             }
+
+            // Add scale slider event handler
+            d3.select('#scaleSlider').on('input', updateNodeSizes);
         }
         
         createGraph();
