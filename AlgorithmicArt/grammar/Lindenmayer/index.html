@@ -1,0 +1,309 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+""""http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>Lindenmayer Systems</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="keywords" CONTENT=" machine drawing automatic art generation lindenmayer L-systems plant growth form computational model">
+<meta name="description" content="The Machines are a group of electric sabre saws who collaborate on the automatic creation of visual art.">
+<link href="../../../styles/blacktext.html" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#EEEEEE">
+<div align="right">
+  <p>&nbsp;<a href="../../index.html"><img src="../../../gif/buttons/blue16.gif" alt="Algorithmic Art" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Algorithmic 
+    Art&nbsp;&nbsp; &nbsp;&nbsp;<a href="../../../index.html"><img src="../../../gif/buttons/blue16.gif" alt="Root" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Radical Art&nbsp;&nbsp; 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+  </p>
+</div>
+<div align="left"> 
+  <hr>
+    <blockquote>
+      <h1>Growth and Form and Infinity</h1>
+        <p align="right"><i>Who knows, maybe all our 'abstract forms' are 'forms 
+            in nature'.</i></p>
+       <p align="right">Kandinsky (1937)</p>
+  </blockquote>
+</div>
+<div align="center">
+    <table width="750">
+      <tr bgcolor="#FFFFFF"> 
+        <td>          <blockquote>
+            <p align="left"><font color="#000000"><br>
+              <br>
+              </font>The perception of a visual shape often involves 
+                an implicit conjecture about the process that generated it. A plausible 
+                theory of perception may thus crucially involve an account of shape-generation 
+                and shape-transformation processes. (Michael 
+                Leyton articulates this perspective in his book &quot;Symmetry, 
+                Causality, Mind&quot;; he discusses Euclidean transformations (translation, 
+                rotation), as well abstractions of physical processes (dent, stretch, 
+                squeeze). Cf. also: Benjamin 
+                Kimia: Shapes as &quot;shock-graphs&quot;.)<br>
+              <br>
+              Applying this approach to the description of organic forms, we try 
+              characterize them in terms of the growth processes that produced 
+              them. Art generation and Gestalt perception thus meet biological 
+              morphology. </p>
+                <blockquote>
+              <p align="left" class="serifbody">&quot;I have 
+                  called this book a study of <i>Growth and Form,</i> because in the 
+                  most familiar illustrations of organic form (. . .) these two factors 
+                  are inseparably associated, and because we are here justified in 
+                  thinking of form as the direct resultant and consequence of growth 
+                  (. . .) whose varying rate in one direction or another has produced 
+                (. . .) the final configuration of the whole material structure.&quot;</p>
+                <p align="right">D'Arcy Wentworth Thompson (1917)</p>
+          </blockquote>
+              <h6 align="left">References </h6>
+              <p align="left" class="indent">
+  Ernst Haeckel: <i>Monograph of the Challenger Radiolaria.</i> (1887)
+  </p>
+              <p align="left" class="indent">Ernst Haeckel:<i> Art Forms in Nature. </i>(1904)</p>
+                <p align="left" class="indent">Wassily Kandinsky: "Assimilation of Art" (1937). <i>Complete Writings</i> (Vol. 2, p. 803).<p align="left" class="indent">Susanne Langer: Mind: An Essay on Human Feeling, 
+            Vol. I. Baltimore: Johns Hopkins University Press, 1967.                </p>
+  <p align="left" class="indent">D'Arcy Wentworth Thompson(1917): On Growth and Form, 1917. Second 
+                    edition: Cambridge, UK: Cambridge University Press, 1942 (Vol. 
+                    1, p. 57). <br>
+                    <br>
+            </p>
+          </blockquote>        </td>
+      </tr>
+    </table>
+    <br>
+</div>
+  <div align="center">
+    <table width="750">
+      <tr bgcolor="#FFFFFF"> 
+        <td>          <blockquote>
+            <h5 align="left"><b><br>
+            </b> Lindenmayer-systems: Growth processes in line 
+            patterns</h5>
+                <blockquote>
+              <p align="left" class="serifbody">&quot;(. . .) not only 
+                  the leaves repeat each other, but the leaves repeat the flowers, 
+                  and the very stems and branches are like un-unfolded leaves. (. 
+                  . .) To the pattern of the flower there corresponds a further 
+                  pattern developed in the placing and grouping of the flowers along 
+                  the branches, and the branches themselves divide and stand out 
+                  in balanced proportions, under the controlling vital impulse (. 
+              . .) Musical expression follows the same law.&quot;</p>
+              <p align="left">Basil de Selincourt: &quot;Music 
+                  and Duration.&quot; Music and Letters, <b>1</b> (1920), p. 288.                  </p>
+          </blockquote>
+            <p align="left">A mathematical method to describe plant growth 
+                processes was developed by Aristid Lindenmayer in the period 1968-1990. 
+                The most basic version of Lindenmayer's &quot;L-systems&quot; resembles 
+                the Context-Free Grammars that are often used in Computational Linguistics 
+                to characterize the constituent structure of natural language sentences. 
+                The formalism works differently in two respects: (1) The difference 
+                between terminal symbols and non-terminal symbols is abolished: <i>all</i> symbols can be rewritten, and <i>all</i> symbols can 
+                occur in output-expressions. (2) Every rewrite step rewrites <i>all</i> 
+              symbols simultaneously.<br>
+              <br>
+              Another important difference with language-grammars is that the 
+              strings that are generated have a visual interpretation: they are 
+              strings of a &quot;turtle-graphics&quot; coding language. In &quot;Turtle 
+                Graphics&quot;, a line consisting of straight segments is described 
+                from the perspective of a turtle who draws it: the length of segment 
+                1, the angle to turn after segment 1, the length of segment 2, the 
+                angle to turn after segment 2, and so on. Combined with the commands 
+              &quot;pen up&quot; and &quot;pen down&quot;, this allows the description 
+            of all possible drawings consisting of straght line segments.</p>
+            <h6 align="left"><br>
+            References Lindenmayer-Systems</h6>
+        <blockquote>
+              <p align="left">Przemyslaw Prusinkiewicz &amp; Aristid 
+                Lindenmayer: <i>The Algorithmic Beauty of Plants</i>. New York: 
+                Springer-Verlag, 1990.<br>
+                <br>
+                Gary W. Flake: &quot;L-Systems and Fractal Growth&quot;. In: <a href="http://mitpress.mit.edu/books/FLAOH/cbnhtml/">The 
+                Computational Beauty of Nature</a>. Cambridge, MA.: MIT Press, 1998. 
+                [Online applet: choose &quot;L-Systems&quot; in the menu on the <a href="http://mitpress.mit.edu/books/FLAOH/cbnhtml/javalarge.html">Java-Applets</a> 
+              page. ]</p>
+            </blockquote>
+            <h6 align="left">References Turtle Graphics</h6>
+                <blockquote>
+              <p align="left">Harold Abelson and Andrea diSessa: <i>Turtle 
+                  Geometry. The Computer as a Medium for Exploring Mathematics.</i> 
+                Cambridge, Mass.: MIT Press, 1980. <br>
+                <br>
+                Seymour Papert:<i> Mindstorms. Children, Computers, and Powerful 
+                Ideas.</i> New York: Basic Books, 1980.  </p>
+            </blockquote>
+            <h6 align="left">Links                </h6>
+                <blockquote>
+                  <p align="left">
+                  Przemyslaw Prusinkiewicz: <a href="http://www.cpsc.ucalgary.ca/projects/bmv/papers/index.html">Algorithmic Botany</a>. </p>
+                  <p align="left">
+                    Plant-modelling-software for games, movies and architects: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://www.onyxtree.com/">http://www.onyxtree.com/ 
+                  </a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://www.greenworks.de/">http://www.greenworks.de/</a> </p>
+                  <p align="left"><a href="http://www.bit-101.com/">Bit-101 Action-Script Laboratory</a>: 2001 sep 05&#150;08; 2001 nov 
+                  09; 2001 dec 10; 2002 oct 30.</p>
+                  <p align="left">
+                  Mondriaan's trees: David Sylvester: <a href="http://www.artchive.com/artchive/M/mondrian.html">&quot;Mondrian 
+                  in London,&quot;</a> <i>Studio International</i>, December 1966.</p>
+            </blockquote>
+            <h6 align="left">Assigments 2001 (results):</h6>
+                <blockquote>
+              <p align="left"> &nbsp;&nbsp;&nbsp;<a href="L-Opdracht/L-formules.html">Puite 
+                    en Roelofs</a><br>
+&nbsp;&nbsp;&nbsp;<a href="L-Opdracht/L-Kooistra.html">Kooistra</a><br>
+&nbsp;&nbsp;&nbsp;<a href="L-Opdracht/L-Overtoom.html">Overtoom</a> 
+                <br>
+                <br>
+&nbsp;&nbsp;&nbsp;&nbsp;  </p>
+            </blockquote>
+          </blockquote>      </td>
+      </tr>
+    </table>
+    <br>
+</div>
+  <div align="center">
+    <table width="750">
+      <tr bgcolor="#FFFFFF"> 
+        <td>          <h5 align="left"><br>
+          Infinite recursion. </h5>
+              <blockquote>
+                <p align="left" class="indent">If 
+                  we imagine that the rewrite process is continued forever, Lindenmayer-systems 
+                  may represent shapes which are <i>fractal </i>and <i>self-similar</i>, 
+                  such as Koch-islands and spacefilling curves.</p>
+                <p align="left" class="indent">The 
+                  Droste-picture on a computer screen with a <i>zoom</i> option: 
+                  the image really has an unlimited degree of detail. Cf. also: 
+                  Driessens &amp; Verstappen: Ima Traveller (discussed on our page 
+                  about 2D cellular automata). The visual experience of the Droste-demo 
+                  and &quot;Ima Traveller&quot; is: to fall. This correlates directly 
+                  with the dizzying nature of any vivid <i>thought</i> which involves 
+                  infinite recursion. </p>
+                <p align="left" class="indent">When infinite recursion is mapped onto infinite <i>iteration</i> it becomes a visual structure that can be contemplated: a circle. 
+                  But to <i>think</i> infinite recursion is to fall into an epileptic 
+                  mental process which is not contained anymore by the rationality 
+                  that launched it. This occurs if one attempts to think seriously 
+                  about the liar-paradox. It also occurs if one attempts to seriously 
+                  think any all-embracing philosophical thought which concerns the 
+                  whole world with oneself in it. (This is what Wittgenstein called &quot;das Mystische&quot;: &quot;die Erfahrung der Welt als begrenztes 
+                  Ganzes&quot;. It correlates directly with Kant's notion of &quot;das 
+                  mathematische Erhabene&quot;.)</p> 
+                <p align="left" class="indent">George 
+                Brecht:<i> Vicious Circles and Paradoxes.</i> </p>
+              </blockquote>
+              <h6 align="left" class="indent">Links </h6>
+                   <p align="left" class="indent"><a href="http://www.win.tue.nl/%7Eaeb/ca/frac/koch.html">Applet 
+                    voor Koch-krommen</a><br>
+                   <a href="http://www.bit-101.com/">Bit-101 
+                   Laboratory</a>: 2002 feb 05/11 </p>
+                     <p align="left" class="indent"><a href="http://fractals.iut.u-bordeaux1.fr/jpl/jpl4.html">Fractales sur le Web </a> </p>
+                     <p align="left" class="indent"><a href="http://spanky.triumf.ca/www/fractint/fractint.html">Fractint 
+                     </a>Fractal Geometry PC Freeware.<br>
+                     <a href="../../../concept/paradox/index.html"><br>
+                    The Radical Art page on paradox.</a><br>
+                    <a href="../../../concept/tautology/index.html">The Radical Art page 
+                    on tautology.</a><br>
+                     <br>
+&nbsp;&nbsp;&nbsp; </p>
+               
+      </td>
+      </tr>
+    </table>
+    <br>
+  </div>
+  <div align="center">
+    <table width="750">
+      <tr bgcolor="#FFFFFF"> 
+        <td> 
+          <blockquote> 
+            <strong><br>
+            </strong><div align="left">Beyond the countably infinite</div>
+            <blockquote> 
+              <div align="left"> 
+                <p>Cantor proved that the real numbers constitute 
+                  an uncountable set. (I.e., they can <i>not</i> be conceived as 
+                  the outcome of an infinitely continued recursive process.)<br>
+                  Turing used the same proof technique (the &quot;diagonal argument&quot;) 
+                  to establish that the &quot;halting problem&quot; for Turing machines 
+                  cannot be solved by a Turing machine. <br>
+                  G&ouml;del used a similar proof structure to show that a consistent 
+                  formal system that allows the formalization of arithmetic allows 
+                  the formulation of propositions which are true but unprovable 
+                  within the system.</p>
+              </div>
+            </blockquote>
+            <div align="left"> 
+              <h6>Links</h6>
+            </div>
+            <blockquote>
+              <div align="left"> 
+                <p><a href="http://www.win.tue.nl/%7Eaeb/ca/computers-6.html">G&ouml;del's Onvolledigheidsstelling.</a><br>
+                <br>
+                Gregory Chaitin: <a href="http://www.umcs.maine.edu/%7Echaitin/unknowable/"><i>The 
+                Unknowable.</i></a> (On Turing, G&ouml;del and Randomness.)<br>
+                <br>
+                </p>
+              </div>
+              <div align="left"></div>
+            </blockquote>
+          </blockquote>
+        </td>
+      </tr>
+    </table>
+    <br>
+  </div>
+  <div align="center">
+    <table width="750">
+      <tr bgcolor="#FFFFFF"> 
+        <td> 
+          <blockquote> 
+            <div align="left">
+              <h5><font color="#006600"><br>
+              Assignment</font></h5>
+            </div>
+            <blockquote> 
+              <div align="left"> 
+                <p><font color="#006600"> In the &quot;Monadologie&quot; 
+                  Leibniz describes organic systems as &quot;machines&quot; which 
+                  (unlike &quot;machines&quot; in the narrower sense of that word) 
+                  consist of infinitely small parts. Find his exact formulation 
+                  of this idea, and discuss it in relation with the present-day 
+                  notion of fractal structures. Consider the relation between the 
+                  fractal and the biological which is suggested by the literature 
+                  on Lindenmayer-systems.</font>  
+                </p>
+              </div>
+            </blockquote>
+            <div align="left">
+              <div align="left">
+                <h6><font color="#006600">Link</font></h6>
+              </div>
+            </div>
+            <blockquote>
+              <div align="left">
+                <p><font color="#006600">Gottfried Leibniz: 
+                       
+                  <em>The Monadology</em>, 1714.</font></p>
+              </div>
+            </blockquote>
+  <p align="center">&nbsp;</p>
+          </blockquote>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <p align="right" ><br>
+  </p>
+   <div align="right">
+     <table >
+        <tr > 
+          <td>
+                  <p>Remko Scha, 2001/2006.<br>
+                    Some links suggested 
+                  by J&uuml;rgen Sturm and Chuntug Taguba.<br>
+                  <br>
+                  </p>       </td>
+        </tr>
+     </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+""""http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>PixelGrids</title>
+
+<script language="JavaScript">
+<!--
+function overwindow(i,j) 
+	{status=i;};
+function clickwindow(i,j,w,h)
+	{nw=window.open(i, j,"scrollbars=no,width=" + w + ",height=" + h);
+// e.g."pics_html/7-Blank.html"
+	if (navigator.appName=="Netscape"){nw.focus()};};
+//-->
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="keywords" content=" machine drawing automatic art generation chance random algorithmic sampling machines">
+<meta name="description" content="The image as a grid of points.">
+<link href="../../../../styles/blacktext.html" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<div align="right"><a href="../index.html"><img src="../../../../gif/buttons/blue16.gif" alt="Discretization" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Discretization 
+  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="../../index.html"><img src="../../../../gif/buttons/blue16.gif" alt="Grids" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Grid 
+  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="../../../index.html"><img src="../../../../gif/buttons/blue16.gif" alt="Algorithmic Ar" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Algorithmic 
+  Art &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="../../../../index.html"><img src="../../../../gif/buttons/blue16.gif" alt="Root" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Radical Art 
+  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+  &nbsp;&nbsp;&nbsp;&nbsp;<br>
+</div>
+<div align="left"> 
+  <hr>
+  <div align="center">
+    <h1 align="left">Pixel Grids</h1>
+    <p align="left">Images as discrete grids of colored squares (and some antecedents and variations)<br>
+    </p>
+  </div>
+  <div align="center"><br>
+    <table width="750" cellpadding="10" cellspacing="0" border="0">
+      <tr bgcolor="#FFFFFF"> 
+        <td> 
+          <div align="center">
+            <p><font size="-1"><img src="1888-Seurat/88-LaParade-s.jpg" alt="" width="230" height="155"></font>              <br>
+              <br>
+            Georges Seurat: La Parade, 1888</p>
+          </div>
+        </td>
+        <td> 
+          <div align="center">
+            <p><img src="1888-Seurat/88-LaParade-Detail-s.jpg" alt="" width="154" height="250"><br>
+              <br>
+              Georges Seurat: <br>
+            La Parade, 1888 (Detail)</p>
+          </div>
+        </td>
+        <td> 
+          <div align="center">
+            <p><img src="1888-Seurat/89-EiffelTower-ss.jpg" alt="" width="151" height="250"><br>
+              <br>
+              Georges Seurat:<br>
+            La Tour Eiffel, 1889</p>
+          </div>
+        </td>
+      </tr>
+      <tr bgcolor="#FFFFFF"> 
+        <td> 
+          <div align="center">
+            <p><img src="30-OttoFreundlich/30Composition-s.jpg" alt="" width="178" height="250"><br>
+              <br>
+              Otto Freundlich: <br>
+              Composition, <br>
+            1930</p>
+          </div>
+        </td>
+        <td> 
+          <div align="center">
+            <p><img src="30-OttoFreundlich/36-38TheUnityOfLifeAndDeath.jpg" alt="" width="185" height="250"><br>
+              <br>
+            Otto Freundlich:<br>
+            The Unity of Life and Death,<br>
+          1936-1938 </p>
+          </div>
+        </td>
+        <td> 
+          <div align="center">
+            <p><img src="73HarmonLincoln-s.jpg" alt="" width="188" height="250"><br>
+              <br>
+              Leon Harmon:<br>
+              Abraham Lincoln,<br>
+            1973 </p>
+          </div>
+        </td>
+      </tr>
+      <tr bgcolor="#FFFFFF"> 
+        <td colspan="3"> 
+          <div align="center">
+            <p><img src="73Winiarski/73-Area142.14-s.jpg" alt="" width="199" height="200">&nbsp;&nbsp;&nbsp;&nbsp;<img src="73Winiarski/RW73Area142.15-s.jpg" alt="" width="199" height="200">&nbsp;&nbsp;&nbsp;&nbsp;<img src="73Winiarski/RW73Area142.17-s.jpg" alt="" width="200" height="200"><br>
+              <br>
+            Ryszard Winiarski: Area 142.14, Area 142.15, Area 142.17 (1973)</p>
+          </div>
+        </td>
+      </tr>
+      <tr bgcolor="#FFFFFF"> 
+        <td> 
+          <div align="center">
+            <p><img src="75EdManningBlocpixRlphNderS.jpg" alt="" width="195" height="250"><br>
+              <br>
+              Ed Manning: Blocpix: <br>
+            Ralph Nader, 1975</p>
+          </div>
+        </td>
+        <td> 
+          <div align="center"> 
+            <p><font size="-1"><img src="76-Dali/76_gala_lincoln-s.jpg" alt="" width="192" height="250"></font></p>
+            <p align="left">Salvador Dali: "Gala Contemplating 
+              the Mediterranean Sea which at Twenty Metres Becomes the Portrait 
+              of Abraham Lincoln," 1976</p>
+          </div>
+        </td>
+        <td> 
+          <div align="center">
+            <p><img src="78TomGeismarGeometricGrid-s.jpg" alt="" width="180" height="200"><br>
+              <br>
+              <br>
+              Tom Geismer:<br>
+              Geometric Grid,<br>
+            1978</p>
+          </div>
+        </td>
+      </tr>
+      <tr bgcolor="#FFFFFF"> 
+        <td> 
+          <div align="center">
+            <p><img src="83Close/83SelfPortrait-s.jpg" alt="" width="176" height="250"><br>
+              <br>
+            Chuck Close:<br>
+          Self Portrait, 1983</p>
+          </div>
+        </td>
+        <td> 
+          <div align="center">
+            <p><img src="83Close/87LucasII-s.jpg" alt="" width="207" height="250"><br>
+              <br>
+            Chuck Close:<br>
+          Lucas II, 1987</p>
+          </div>
+        </td>
+        <td> 
+          <div align="center">
+            <p><img src="83Close/96Maggie.jpg" alt="" width="230" height="230"><br>
+              <br>
+              Chuck Close:<br>
+            Maggie, 1996</p>
+          </div>
+        </td>
+      </tr>
+      <tr bgcolor="#FFFFFF"> 
+        <td> 
+          <div align="center"><font size="-1"></font></div>
+        </td>
+        <td> 
+          <div align="center"><font size="-1"></font></div>
+        </td>
+        <td> 
+          <div align="center"><font size="-1"></font></div>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <table width="750">
+      <tr bgcolor="#FFFFFF"> 
+        <td>          <blockquote><h6 align="left"><br>
+              Links and references:</h6>
+              <div align="left">
+                <table border="0" cellspacing="0" cellpadding="10">
+                <tr> 
+                  <td colspan="2">
+                    <p align="left"><font face="Verdana, Arial, Helvetica, sans-serif">Artboy:<a href="http://www.ioc.net/%7Eartboy/P/P.html"> 
+                      The History of the Pixel.</a></font></p>
+                    <p align="left"><a href="http://www.ioc.net/%7Eartboy/P/beth.html">Artboy<br>
+                      </a><br>
+                      Leon Harmon: "The Recognition of Faces." <i>Scientific 
+                      American,</i> November 1973.</p>
+                    <p align="left"><font face="Verdana, Arial, Helvetica, sans-serif">Remko 
+                      Scha: <a href="http://iaaa.nl/rs/photo.html">"Computer/Art/Photography."</a> 
+                      <i>Perspektief </i><b>37</b> (1989), pp. 4-10</font><font face="Verdana, Arial, Helvetica, sans-serif"></font><font face="Verdana, Arial, Helvetica, sans-serif" size="-1">.</font></p>
+                  </td>
+                </tr>
+                </table>
+              </div>
+          </blockquote >        </td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <table width="750">
+      <tr bgcolor="#FFFFFF"> 
+        <td>          <blockquote><h6 align="left"><br>
+              Directly related work:</h6>
+              <blockquote><p align="left"><b><a href="../HalfTone/index.html"><img src="../../../../gif/buttons/blue16.gif" alt="Halftone" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;</b>Halftone 
+                Art (Lichtenstein, Polke, Jacquet)<b> &nbsp;&nbsp; &nbsp;&nbsp; 
+                <br>
+                <br>
+                <a href="../ASCIIArt/index.html"><img src="../../../../gif/buttons/blue16.gif" alt="ASCII" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;</b>ASCII 
+                Art (Peterson, Knowlton, Demiaux, Cosic)<b> &nbsp;&nbsp;<br>
+                <br>
+                <a href="../PhotoMosaic/index.html"><img src="../../../../gif/buttons/blue16.gif" alt="PhotoMosaics" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;</b>Photo 
+                Mosaics (Silvers, Blake)<b> &nbsp;&nbsp; <br>
+                &nbsp;&nbsp;&nbsp;
+                <br>
+                </b>  <br>
+              </p>
+            </blockquote>
+          </blockquote >        </td>
+      </tr>
+    </table>
+    <br>
+  </div>
+</div>
+</body>
+</html>

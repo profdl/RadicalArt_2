@@ -1,0 +1,318 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+""""http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>Gestalt Perception</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="keywords" CONTENT=" computational models Gestalt perception visual structural information theory SIT coding disambiguation">
+<meta name="description" content="Computational models of visual gestalt perception. Structural Information Theory.">
+<link href="../../../styles/blacktext.html" rel="stylesheet" type="text/css">
+</head>
+<body bgcolor="#EEEEEE">
+<div align="right"><a href="../index.html"><img src="../../../gif/buttons/blue16.gif" alt="lines" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Image algebras &nbsp;&nbsp;<a href="../../line/index.html"><img src="../../../gif/buttons/blue16.gif" alt="lines" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Algorithmic line drawing &nbsp;&nbsp; <a href="../../index.html"><img src="../../../gif/buttons/blue16.gif" alt="algorithmic art" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Algorithmic 
+  Art &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<a href="../../../index.html"><img src="../../../gif/buttons/blue16.gif" alt="root" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Radical Art
+  &nbsp;&nbsp;<br>
+ <hr>
+<blockquote>
+  <p align="left">&quot;Die Sch&ouml;nheit einer Sternfigur &#150; eines Sechseck-Sterns 
+      etwa &#150; wird beeintr&auml;chtigt, wenn man sie symmetrisch bez&uuml;glich 
+      einer bestimmten Achse sieht.&quot; </p>
+ <p align="right">Ludwig Wittgenstein, 1948. (<i>Vermischte Bemerkungen,</i> 
+  p. 135.)</p> 
+<h2 align="left">Gestalt perception and its formalization <br>
+  </h2>
+</blockquote>
+  <div align="center">
+<table width="750">
+        <tr bgcolor="#FFFFFF"> 
+          <td> 
+            <blockquote> 
+              <div align="right"> 
+                <p align="left"><br>
+                  <br>
+                  The term <i>&quot;Gestalt&quot;</i> denotes the 
+                  perceived structure of visual input. (The analogous notion in language 
+                  processing would be: the <i>surface structure</i> of utterances 
+                  and texts.) We focus on static images. Their perception is determined 
+                  by: (1) similarity with previously encountered images; (2) interpreting 
+                  an image as a representation of a 3D scene, thereby accounting for 
+                  perspective, lighting effects, etc.; (3) a preference for simplicity 
+                  and regularity.<br>
+                  <br>
+                  We now narrow our focus once more. We concentrate on abstract patterns 
+                  where recognition and 3D-phenomena play no role. This is the domain 
+                  of &quot;Gestalt perception&quot; in the more narrow sense of that 
+                  term. (Note: It has been surmised that this exercise is intrinsically 
+                  useless, because all perception is completely determined by the 
+                  cognitive faculty of recognition. This &quot;radical empiricism&quot; has been tested and refuted. Cf. several papers in Ellis (1938).) 
+                  <br>
+              &nbsp;&nbsp;&nbsp;&nbsp; </p>
+              </div>
+            </blockquote>
+            
+      </td>
+        </tr>
+    </table>
+      <br>
+      <br>
+      <table width="750" border="0" cellpadding="0" cellspacing="0">
+          <tr align="left" valign="bottom" bgcolor="#FFFFFF">
+            <td colspan="3"><h5 align="left">&nbsp;&nbsp;&nbsp;<br>
+            Max Wertheimer's Gestalt Principles</h5>            </td>
+          </tr>
+        <tr bgcolor="#FFFFFF">
+          <td rowspan="2"><p align="left" class="margin">Wertheimer's thesis: Gestalt perception is determined by several interacting principles, such as:</p>
+            <p align="left" class="indent">Proximity: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;O &nbsp;OO&nbsp; OOO &nbsp;OOO &nbsp;OOOOOO &nbsp;&nbsp;OO</b><br>
+                <br>
+  Similarity in Color: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;OO<font color="#FF0033">OO</font>OOO<font color="#0000FF">OOOOOO</font>OOOOOOO<br>
+  <br>
+  </b>Similarity in Size: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>OOOooOoOOoooooOOOOOOooO</b><br>
+  <br>
+  Similarity in Shape:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;&nbsp;OOOXOOXXOOOOOOXOOXXXOX</b><br>
+  <br>
+  Repetition: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>AXQAXQAXQAXQAXQAXQAXQAXQ</b><br>
+  <br>
+  Symmetrie: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>&nbsp;BBBBBAAAXXXQQQXXXAAABBBBB</b><br>
+  <br>
+  Experience: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Recognizing previously perceived patterns<i><br>
+  </i></p></td> 
+          <td width="120" align="center" ><p align="center"><img src="proximity.jpg" alt="" width="80" height="80">                    </p>
+          <p align="center"  >Proximity</p>    </td>
+          <td width="120" align="center"><p align="center"><img src="continuation.jpg" alt="" width="80" height="80">  </p>
+            <p align="center" >Continuation
+</p></td>
+        </tr>
+        <tr bgcolor="#FFFFFF">
+          <td width="120" align="center"><p align="center"><img src="similarity.jpg" alt="" width="80" height="80" hspace="0" vspace="0">
+            </p>
+            <p align="center"  >
+          Similarity</p></td>
+          <td width="120" align="center"><p align="center"><img src="closure.jpg" alt="" width="80" height="80">           </p>
+            <p align="center">
+          Closure</p> </td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td colspan="3">
+            <h6 align="left" class="margin"><em>References</em></h6>
+            <p align="left" class="margin">Max Wertheimer: &quot;Untersuchungen zur Lehre von 
+                der Gestalt.&quot; <i>Psychologische Forschung</i> <b>4</b> (1923), 
+                pp. 301-350. [English translation of important parts of this paper: &quot;<a href="http://psy.ed.asu.edu/%7Eclassics/Wertheimer/Forms/forms.htm">Laws 
+                of Organization in Perceptual Forms.</a>&quot; In: W. Ellis: <i>A 
+                source book of Gestalt psychology.</i> London: Routledge & Kegan Paul, 
+                1938, pp. 71-88.] <br>
+              <br>
+              Irvin Rock and Stephen Palmer: &quot;The Legacy of Gestalt Psychology.&quot;<i> 
+          Scientific American,</i> December 1990, pp. 48&#150;61. </p></td>
+        </tr>
+    </table>
+<br>
+      <br>
+      <table width="750" border="0" cellpadding="10" cellspacing="0">
+        <tr bgcolor="#FFFFFF"> 
+          <td>            <h5 align="left"><br>
+            Emanuel Leeuwenberg: Structural Information Theory (SIT)</h5>
+            <p align="left" class="margin"><br>
+              Domain: Sequences of symbols. (E.g.: &quot;XPAPX&quot;, &quot;LHOOQ&quot;, &quot;OFHSKHKSHFKSHFKSH&quot; 
+              &#150; where the letters stand for atomic elements that have no perceivable 
+                        relation to each other.)<br>
+              <br>
+              The process of perception translates an input sequence into an expression 
+of a &quot;coding language&quot;. The coding language has the same 
+                        primitive symbols as the input language, but it has other operations 
+                        besides mere concatenation. These operations are: Repetition, Symmetry, 
+                  and Alternation. E.g.:</p>
+            <p align="left" class="indent"> Rep3(AB) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 
+              &nbsp;ABABAB<br>
+              Sym(AB, C) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= &nbsp;ABCBA<br>
+              Altright(ABC, K) = &nbsp;AKBKCK </p>
+            <p align="left" class="margin">Any input-pattern has many alternative 
+                  codings. E.g.: </p>
+            <p align="left" class="margin">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ABABAB</p>
+            <p align="left" class="indent"> = Rep3(AB)<br>
+                  = AB Rep2(AB) <br>
+                  = A Rep2(BA) B <br>
+                  = A Sym(BA, B) <br>
+                  = Altright(AAA, B) <br>
+                = Altright(Rep3(A), B) </p>
+            <p align="left" class="margin">Perception is disambiguation. Disambiguation 
+                          criterion: choose the shortest code. (Other psychologists have 
+                          proposed similar ideas. Cf.: Fred Attneave, Max Clowes.) Note 
+                          the similarity with the theory of Minimum Description Length (MDL), 
+                        as developed by Kolmogorov, Solomonoff, Rissanen, Li &amp; Vitanyi. </p>            <h6 align="left" class="margin"><em>Reference</em></h6>
+            <p align="left" class="margin">Emanuel L. J. Leeuwenberg: &quot;A 
+                    Perceptual Coding Language for Visual and Auditory Patterns.&quot; 
+                  <i>American Journal of Psychology</i> <b>84</b>, 3 (1971). <br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                <br>
+          </p></td>
+        </tr>
+      </table>
+      <br>
+      <br>
+      <table width="750" cellspacing="0" border="0">
+        <tr bgcolor="#FFFFFF"> 
+          <td> 
+             <h5 align="left"> <br>
+  The discrete line: &quot;turtle graphics&quot; </h5>
+               <p align="left"  class="indent"><br>
+                 Leeuwenberg's coding theory will 
+                    not be the ultimate account of any domain of human perception. 
+                    There are no perceptual modalities where one may realistically 
+                    assume an input consisting of discrete, unrelated symbols. The 
+                    visual domain presents an additional problem: it is intrinsically 
+                    two-dimensional rather than linear. Leeuwenberg tries to sidestep 
+                    the latter problem by focussing on black &amp; white drawings 
+                    consisting of straight line segments, and representing such drawings 
+               as discrete symbol sequences, by means of &quot;turtle graphics&quot;.</p>
+                  <p align="left" class="indent"> In &quot;Turtle Graphics&quot;, 
+                    a line consisting of straight segments is described from the perspective 
+                    of a turtle who draws it: the length of segment 1, the angle to 
+                    turn after segment 1, the length of segment 2, the angle to turn 
+                    after segment 2, and so on. Combined with the commands &quot;pen 
+                    up&quot; and &quot;pen down&quot;, this allows the description 
+                    of all possible drawings consisting of straght line segments.<br>
+                    <br>
+                  (A turtle graphics description specifies a sequence of points. 
+                  Note that such a sequence of points can also be used to define 
+                  a quadratic or cubic spline curve.)</p>
+                 <h6 align="left" class="margin"><em>References</em></h6>
+                <p align="left" class="indent">Harold Abelson and Andrea diSessa: 
+                  <i>Turtle Geometry. The Computer as a Medium for Exploring Mathematics.</i> 
+                  Cambridge, MA: MIT Press, 1980.<br>
+                  <br>
+                  Seymour Papert:<i> Mindstorms. Children, Computers, and Powerful 
+                  Ideas.</i> New York: Basic Books, 1980.  </p>
+          </td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+      <br>
+      <br>
+      <table width="750" cellpadding="10" cellspacing="0" border="0">
+        <tr bgcolor="#FFFFFF"> 
+          <td colspan="2">   <h5 align="left"> <br>
+                  Structural Information Theory for discrete line drawings</h5>
+            <p align="left" class="margin"><br>
+              Using a turtle-graphics notation, 
+                 the input-code of a square with edge <i>a</i> is: <i>&nbsp;&nbsp;pi/2 
+                  a &nbsp;pi/2 a&nbsp; pi/2 a&nbsp;&nbsp;pi/2 a</i> <br>
+              The shortest SIT-coding of this pattern is: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rep4(<i>pi/2 
+              a</i>)</p>            <p align="left" class="margin">A square with edge <i><b>c</b></i> 
+                with on its corners squares with edge <i><b>a</b></i>: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rep4(<i>pi/2 
+                  c </i>rep4(<i>pi/2 a</i>))<br>
+                  <br>
+                This pattern is also perceived when the square with edge <i><b>c</b></i> is not drawn explicitly. To account for such examples, the operations &quot;lift pen&quot; and &quot;lower pen&quot; are added to the 
+                coding language.</p>
+              <p align="left"><span class="margin">The input code of a zigzag line:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                  <i>b a&nbsp;c a&nbsp;b a&nbsp;c a&nbsp;b a&nbsp;c a&nbsp;b a&nbsp;c 
+                a&nbsp;b a&nbsp;c a&nbsp;b a&nbsp;c a&nbsp; &nbsp;</i></span></p>
+              <p align="left"><span class="margin">Its shortest coding in the SIT-language: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;altright(rep6(<i>b 
+            c</i>), a)</span></p>
+              <p align="left"  class="margin">A zigzag line is perceived as &quot;symmetric&quot; if<b> <i>c</i></b> equals <i><b>&#150;b</b></i>. The SIT-code does not account 
+          for this observation, because it ignores the relation between <i><b>b</b></i> and<b> <i>c</i></b>: the angles are treated as atomic symbols. </p>
+          </td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td align="center"> 
+            <div align="center"><a href="http://www.artificialdesign.nl/Other/SIT/SIT.html"><img src="../../../gif/buttons/blue16.gif" alt="SIT-interpreter" width="16" height="16" border="0" align="absbottom"></a></div></td>
+          <td width="700"> 
+            <p align="left">Jos de Bruin's online <a href="http://www.artificialdesign.nl/Other/SIT/SIT.html">SIT-Interpreter</a> 
+              applet allows you to play with SIT-codes for discrete lines. [Note 
+              that this applet uses the SIT-notation defined in Chapter 2 of Dastani 
+              (1998), which is different than the one used in the examples above. 
+              Use the button &quot;Auto&quot; to see random examples of codes in that 
+              notation.] </p>
+          </td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td colspan="2">
+            <p align="left" class="margin">Mapping arbitrary input-codes onto their shortest 
+                equivalent SIT-notation is an NP-complete problem. (The computational 
+                complexity is caused by the alternation-operation.) There are two 
+                implemented algrithms that try to meet this challenge. <br>
+              Peter van der Helm's program <i>PISA </i>implements a deterministic 
+                algorithm which often (but not always) yields the optimal code. It 
+                was written in C and runs under Unix. Robert Voorn (VU) implemented 
+                a genetic algorithm which often (but not always) yields the optimal 
+                code. It was written in C++ and runs under Unix. Both programs can 
+                be obtained through Mehdi Dastani (mehdi at cs dot uu dot nl).  
+          </p></td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td colspan="2">        <p align="left" class="margin">Dastani (1998) discusses some fundamental 
+                  limitations of Structural Information Theory, and tries to overcome 
+                  some of them. The most important limitations are: 
+                </p>
+                <div align="left">
+                  <ul class="indent">
+                    <li> The assumption that line drawings can 
+                          be &quot;linearized&quot; is not warranted. </li>
+                      <li> 
+                       The proximity factor is ignored.
+                      </li>
+                      <li> &quot;Emergent&quot; Gestalts (such as <a href="../../moire/index.html">Moir&eacute; Effects</a>) 
+                          are ignored.
+                        <br>
+                        <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                  </ul>
+          </div></td>
+        </tr>
+    </table>
+  <br>
+      <br>
+      <table width="750" cellspacing="0" border="0">
+        <tr bgcolor="#FFFFFF"> 
+          <td>            <blockquote>
+              <p align="left"> <b><br>
+                </b> </p>
+              <p align="left"><b>References Gestalt Perception.</b> <br>
+                <br>
+                R. Collard, P. Vos and E. Leeuwenberg: &quot;What 
+                  Melody Tells about Metre in Music.&quot;<i> Zeitschrift f&uuml;r 
+                Psychologie,</i> 189 (1981).</p>
+              <p align="left"><font face="Verdana, Arial, Helvetica, sans-serif" color="#000000">Mohammad 
+                  Mehdi Dastani:<i> Languages of Perception.</i></font><font face="Verdana, Arial, Helvetica, sans-serif"> 
+                  Ph. D. Thesis University of Amsterdam, 1998. ILLC Dissertation Series 
+                1998-05. </font></p>
+              <p align="left">Emanuel L. J. Leeuwenberg: &quot;A 
+                  Perceptual Coding Language for Visual and Auditory Patterns.&quot; 
+                <i>American Journal of Psychology</i> <b>84</b>, 3 (1971). </p>
+              <hr align="left">
+              <p align="left"> <b>References Complexity.</b> <br>
+                <br>
+                <span class="style1"> G. Birkhoff: &quot;A Mathematical Approach to Aesthetics.&quot; 
+                <i>Scientia</i> 50 (1931), pp. 133-146.<br>
+                <br>
+                R. Gunzenh&auml;user: &quot;Birkhoff's Anwendungen.&quot; In: <i>Ma&szlig; 
+                und Information als &Auml;sthetische Kategorien. </i>Baden-Baden: 
+                  Agis Verlag, 1975.<br>
+                <br>
+                Frans Boselie and Emanuel Leeuwenberg: &quot;A General Notion of 
+                  Beauty Used to Quantify the Aesthetic Attractiveness of Geometric 
+                  Forms.&quot; In: W. Crozier and A. Chapman (eds.): <i>Cognitive 
+                  Processes in the Perception of Art. </i>Elsevier Science Publishers, 
+                1984.</span></p>
+              <hr align="left">
+              <p align="left"><b>Acknowledgments</b> <br>
+                    <br>
+                    Several decades ago, L&eacute;on van Noorden drew 
+                  our attention to Leeuwenberg's work. <br>
+                  Yuri Engelhardt provided some of the illustrations on this page.</p>
+            </blockquote>          </td>
+        </tr>
+        <tr bgcolor="#FFFFFF"> 
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+    <p>&nbsp;</p>
+      <p align="right">Remko Scha &amp; Jos de Bruin, 2002&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+        <br>
+        <br>
+        <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;      </p>
+  </div>
+</div>
+</body>
+</html>

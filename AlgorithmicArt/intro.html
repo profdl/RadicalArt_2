@@ -1,0 +1,430 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+""""http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>About Algorithmic Art </title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="keywords" CONTENT=" algorithmic  automatic generative digital computer art generation  new media">
+<meta name="description" content="What is algorithmic art?">
+<link href="../styles/blacktext.html" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#EEEEEE">
+<blockquote> 
+  <div align="right"><a href="index.html"><img src="../gif/buttons/blue16.gif" alt="Algorithmic Art" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Algorithmic 
+    Art Index&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../index.html"><img src="../gif/buttons/blue16.gif" alt="Root" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Radical 
+    Art &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+  <br>
+  <hr>
+</blockquote>
+<blockquote> 
+  <div align="left">
+    <h6>Remko Scha</h6>
+    <h2>About Algorithmic Art</h2>
+  </div>
+</blockquote>
+<div align="right">
+  <div align="center">
+    <table width="750">
+      <tr bgcolor="#FFFFFF"> 
+        <td> 
+          <blockquote> 
+            <div align="center"><font size="+1" color="#000000"> </font><font color="#000000"><br>
+              </font></div>
+            <div align="left"> 
+              <p>We are concerned with autonomous algorithms that 
+                produce visual art (or, perhaps equivalently, algorithms that 
+                themselves may be viewed as (meta-) artworks). We are <i>not</i> 
+                concerned with software-tools that facilitate the production of 
+                artworks by human artists. <br>
+                <br>
+                Most image generation algorithms do not specify one image, but 
+                a large (often infinite) class of images. Algorithmic art is &quot;meta-art&quot;. 
+                Other, pre-computational approaches to meta-art constitute the 
+                art-historical context of algorithmic art:<a href="../kinetics/index.html"> 
+                kinetic art</a>, <a href="../concept/index.html">conceptual art</a>, 
+                <a href="../anything/OpenForm/index.html">interactive art</a>, <a href="../process/index.html">process 
+                art</a>, <a href="../process/vibration/metamatic/index.html">drawing 
+                machines</a>. In the case of algorithmic art, the class of possible 
+                outcomes is specified in mathematical terms; other forms of meta-art 
+                tend to involve human persons or other real-world processes. </p>
+              <p>Art-generation algorithms can be applied to various 
+                modalities: images, animations, sculpture, architecture, music, 
+                text, even facial expression and other forms of body-art. They 
+                can be meant to be observed live in a discotheque or on the internet, 
+                or to produce static output for art-collectors and traditional 
+                museums. The focus of this page is image generation &#150; but 
+                the mathematical concepts and computational methods that we encounter 
+                may very well be applicable in other domains.<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                <br>
+              </p>
+            </div>
+          </blockquote>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <table width="750">
+      <tr bgcolor="#FFFFFF"> 
+        <td>          <blockquote><h5 align="left"><font face="Verdana"><br>
+            Algorithms</font></h5>
+              <blockquote><p align="left">An algorithm is a sequence of formal (mechanical) 
+                rules operating on symbolic representations (codes).<br>
+                <br>
+                In ancient Greece and India, systems of rules were used to ensure 
+                objectivity and precision: Euclid's <i>Elements</i>, Aristotle's 
+                syllogisms, Panini's grammar of Sanskrit. <br>
+                <br>
+                The mechanization of rule systems was pioneered in the 14th century 
+                A.D., when Ramon Llull proposed mechanical procedures for generating 
+                new propositions from first principles. A few centuries later, 
+                Gottfried Wilhelm von Leibniz invented symbolic logic by eliminating 
+                the theological content from Llull's machinery. <br>
+                <br>
+                The first fully specified design for a &quot;general purpose computer&quot;, 
+                running algorithms in today's precise sense of that word, was 
+                Alan Turing's &quot;Universal Computing Machine&quot;. 
+                <br>
+                <br>
+                &nbsp;&nbsp;&nbsp; </p>
+            </blockquote>
+          </blockquote>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <table width="750">
+      <tr bgcolor="#FFFFFF"> 
+        <td>          <blockquote><h5 align="left"><font face="Verdana"><br>
+            Mathematical Images</font></h5>
+            <p align="left"><font face="Verdana"><i><b><br>
+              </b></i></font>Any image-generation algorithm must be based on 
+                  some formal conception of what an image is -- it must be inscribed 
+              within a mathematical definition of the set of all possible images.
+            </p>
+            <blockquote><p align="left"><b>Shapes.</b> Mainstream 
+                  mathematics assumes a reductionist ontology about geometry: it 
+                  treats lines and planes as sets of points &#150;&#150; where a 
+                  point is a position in a given n-dimensional space. A point may 
+                  thus be represented as an n-tuple of numbers: the Cartesian coordinates 
+                  which specify its position. A point in a two-dimensional plane 
+                  is thus described by a pair, consisting of its x-coordinate and 
+                  its y-coordinate.
+              </p>
+              <div align="left">
+                <table border="0" cellspacing="0" cellpadding="0" align="right" hspace="10">
+                  <tr> 
+                    <td> 
+                      <div align="center"> 
+                        <p><img src="gif/RGB-cube.jpg" alt="" width="200" height="161" border="0"><br>
+                          RGB&nbsp;cube                      </p>
+                      </div>
+                    </td>
+                    <td> 
+                      <div align="center">
+                        <p><img src="gif/HSV-simeqi.JPG" alt="" width="180" height="180" border="0"><br>
+                          Hue-Saturation-Brightness 
+                        cone </p>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <p align="left"><b>Colors.</b> In black &amp; white graphics, 
+                  color is a boolean: black/white. The scale of grey-tones is a 
+                  one-dimensional continuum (for instance: the segment of the real 
+                  numbers between 0 and 1). The space of all colors is a three-dimensional 
+                  continuum. One can make different choices about which dimensions 
+                to use. E.g.: RGB, CYM, HSB. 
+              </p>
+              <p align="left"><font face="Verdana">An<b> image</b> is thus 
+                  a mapping from pairs of real numbers (in a given interval) to 
+              colors (e.g., booleans, real numbers, or triples of real numbers).</font></p>
+            </blockquote>
+            <div align="left">
+              <blockquote>&nbsp;
+              </blockquote>
+            </div>
+            <blockquote><p align="left"><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+            </blockquote>
+          </blockquote>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <table width="750">
+      <tr bgcolor="#FFFFFF"> 
+        <td>          <blockquote><h5 align="left"><br>
+            Computational Images              </h5>
+            <p align="left">The mathematical point of view does not directly 
+                  translate into a practical convention for finite computational representations. 
+                  The mathematical correlate of a visible shape or line-segment is 
+                  a set of uncountably many points, and the coordinates of most of 
+                  these points are not integers, but irrational numbers, which cannot 
+                  be represented in a finite way.<br>
+              <br>
+              In the design of image-generation algorithms, 
+               the representations to be used can thus not be based directly on 
+               mathematical first principles. No image-generation algorithm can 
+               explore the space of all possible images, if we understand that 
+               notion in its mathematical sense. Any algorithm must be based on 
+               a definition of a space of finitely representable images; specifying 
+               this definition is in some sense an arbitrary (in other words, artistic) 
+               decision.<br>
+              <br>
+              Different &quot;schools&quot; in algorithmic 
+                  art made different decisions about this. We present the most common 
+                approaches on separate pages:
+            </p>
+            <div align="left">
+              <blockquote>   
+                <table width="600" border="0" cellspacing="0" cellpadding="5">
+                    <tr> 
+                      <td> 
+                        <div align="center"><a href="grid/index.html"><img src="../gif/buttons/blue16.gif" alt="grid" width="16" height="16" border="0" align="absbottom"></a><br>
+                      &nbsp;&nbsp;&nbsp; </div>
+                      </td>
+                      <td><p align="left">Grid-based algorithms, which work with 
+                            a two-dimensional array of cells &#150; a <i>discrete </i>version 
+                            of the mathematical model, which makes the image representations 
+                            finite and computable. The grid therefore inherits a feel 
+                            of &quot;objectivity&quot; from the mathematical research 
+                        tradition. </p></td>
+                    </tr>
+                    <tr> 
+                      <td> 
+                        <div align="center"><a href="scatter/index.html"><img src="../gif/buttons/blue16.gif" alt="scatter" width="16" height="16" border="0" align="absbottom"></a></div>
+                      </td>
+                      <td><p align="left">Scatter-algorithms, which map bags of 
+                        objects onto positions on the plane.</p></td>
+                    </tr>
+                    <tr> 
+                      <td> 
+                        <div align="center"><a href="line/index.html"><img src="../gif/buttons/blue16.gif" alt="line" width="16" height="16" border="0" align="absbottom"></a><br>
+                      &nbsp;&nbsp;&nbsp;&nbsp; </div>
+                      </td>
+                      <td> 
+                        <p align="left">Line-based algorithms. This includes &nbsp;turtle-graphics algorithms, which draw sequences 
+                            of straight line-segments in terms of a &quot;local&quot; coordinate-system, and <a href="movement/index.html">movement 
+                            simulation algorithms</a>, which draw lines according 
+                          to a continuous dynamics.</p>
+                        <p align="left"></p>
+                      </td>
+                    </tr>
+                  </table>
+              </blockquote>
+            </div>
+          </blockquote>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <table width="751">
+      <tr bgcolor="#FFFFFF"> 
+        <td> 
+          <blockquote> 
+            <div align="right"> 
+              <h5 align="left"><br>
+                Visual Languages</h5>
+            </div>
+            <div align="left">
+              <p>&nbsp;</p>
+              <p><font face="Verdana, Arial, Helvetica, sans-serif">Any 
+                  image generation algorithm is inscribed within some &quot;visual 
+                  language&quot;: it assumes a set of formally possible images, and 
+                  this assumption largely determines the style of the piece. Different 
+                  techniques may be used to define visual languages:<br>
+              </font> </p>
+            </div>
+            <blockquote> 
+              <div align="left">
+                <table width="600" border="0" cellspacing="0" cellpadding="5">
+                  <tr> 
+                    <td width="50"> 
+                      <div align="center">
+                        <p><a href="enumeration/index.html"><img src="../gif/buttons/blue16.gif" alt="enumeration" width="16" height="16" border="0" align="absbottom"></a></p>
+                        <p><a href="chance/index.html"><img src="../gif/buttons/blue16.gif" alt="chance" width="16" height="16" border="0" align="absbottom"></a></p>
+                      </div>
+                    </td>
+                    <td><p><font face="Verdana, Arial, Helvetica, sans-serif"><i>Schemas.</i> 
+                        The early algorithmic pieces of the 1960's were usually 
+                        based on one simple, fixed structure, with a small number 
+                      of variable parameters. </font></p></td>
+                  </tr>
+                  <tr> 
+                    <td width="50"> 
+                      <div align="center">
+                        <p><a href="grammar/index.html"><img src="../gif/buttons/blue16.gif" alt="grammar" width="16" height="16" border="0" align="absbottom"></a></p>
+                      </div>
+                    </td>
+                    <td><p><font face="Verdana, Arial, Helvetica, sans-serif"><i>Grammars.</i> 
+                        To define visual languages which allow images with arbitrarily 
+                        deep hierarchical structures, one may draw inspiration from 
+                        the context-free and context-sensitive rewrite systems of 
+                      early Chomskyan linguistics. </font></p></td>
+                  </tr>
+                  <tr> 
+                    <td width="50"> 
+                      <div align="center"><p><a href="algebra/index.html"><img src="../gif/buttons/blue16.gif" alt="algebra" width="16" height="16" border="0" align="absbottom"></a><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;</p> </div>
+                    </td>
+                    <td> 
+                      <p><font face="Verdana, Arial, Helvetica, sans-serif"><i>Algebras.</i> 
+                        The most general approach is to use a mathematical image 
+                        description language which encompasses complex image-generation 
+                        and image-transformation operations. </font></p>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </blockquote>
+          </blockquote>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <table width="750">
+      <tr bgcolor="#FFFFFF"> 
+        <td>          <blockquote><h5 align="left"><br>
+              Algorithmic approaches</h5>
+            <p align="left">Any image generation algorithm explores a space 
+            of possible images. It may do this in many different ways.</p>
+            <div align="left">
+              <blockquote>    
+                <table width="600" border="0" cellspacing="0" cellpadding="5">
+                    <tr> 
+                      <td> 
+                        <div align="center"><a href="enumeration/index.html"><img src="../gif/buttons/blue16.gif" alt="enumeration" width="16" height="16" border="0" align="absbottom"></a></div>
+                      </td>
+                      <td><p align="left"><i>Complete 
+                        enumeration.</i></p></td>
+                    </tr>
+                    <tr> 
+                      <td> 
+                        <div align="center"><a href="chance/index.html"><img src="../gif/buttons/blue16.gif" alt="chance" width="16" height="16" border="0" align="absbottom"></a></div>
+                      </td>
+                      <td><p align="left"><i>Random 
+                            sampling.</i> If the space of possibilities is very large, 
+                            this is the only way to give an unbiased impression of what 
+                        it contains.</p></td>
+                    </tr>
+                    <tr> 
+                      <td> 
+                        <div align="center"><a href="optimization.html"><img src="../gif/buttons/blue16.gif" alt="optimization" width="16" height="16" border="0" align="absbottom"></a><br>
+                          <br>
+                        </div>
+                      </td>
+                      <td> 
+                        <p align="left"><i>Optimization</i>. 
+                            The algorithm may be trying to find the &quot;best&quot; 
+                          image according to certain criteria (e.g. a formalization 
+                          of &quot;beauty&quot;, or statistics about people's appreciation). 
+                            To explore the space effectively, a heuristic search strategy 
+                            must be employed. Artificial evolution by means of <i><a href="evolutie.html">genetic 
+                          algorithms</a>.</i> is popular for this purpose.</p>                    </td>
+                    </tr>
+                    <tr> 
+                      <td> 
+                        <div align="center"><a href="interactivity.html"><img src="../gif/buttons/blue16.gif" alt="interactivity" width="16" height="16" border="0" align="absbottom"></a></div>
+                      </td>
+                      <td><p align="left"> 
+                          <i>Interactivity</i>. The spectator may be allowed to explore 
+                            the possibilities on her own accord. The algorithm is an 
+                        <i>interface</i>.</p></td>
+                    </tr>
+                    <tr> 
+                      <td> 
+                        <div align="center"><a href="moire/index.html"><img src="../gif/buttons/blue16.gif" alt="emergence" width="16" height="16" border="0" align="absbottom"></a></div>
+                      </td>
+                      <td> <p align="left"><i>Emergence. </i>The algorithm carries 
+                            out sequences of local transformations on an arbitrary initial 
+                            image. Global patterns emerge because of unforeseen interactions 
+                            between the local processes. Algorithms of this sort (e.g. 
+                              <a href="grid/cellular/index.html">cellular automata</a>) 
+                            are often inspired by natural processes (<i>Artificial Life</i>). 
+                        </p></td>
+                    </tr>
+                    <tr> 
+                      <td> 
+                        <div align="center"><a href="mapping/index.html"><img src="../gif/buttons/blue16.gif" alt="mapping" width="16" height="16" border="0" align="absbottom"></a></div>
+                      </td>
+                      <td><p align="left"><i>Data-visualisation.</i> Images may 
+                            be constructed by mapping data from a different (non-visual) 
+                        domain.</p></td>
+                    </tr>
+                  </table>
+              </blockquote>
+            </div>
+          </blockquote>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <br>
+    <table width="750">
+      <tr bgcolor="#FFFFFF"> 
+        <td> 
+          <blockquote> 
+            <div align="left"> 
+              <h5> <font color="#000000"><br>
+                <br>
+                The esthetics of algorithmic art.</font><br>
+              </h5>
+            </div>
+            <blockquote>
+              <div align="left">
+                <p>The classical painting is a material 
+                  object, dense with properties that cannot be explicitly articulated 
+                  and which are nonetheless essential for the identity of the work. 
+                  (Cf. Nelson Goodman:<i> Languages of Art</i>.) Algorithmic art 
+                  is different: an algorithm is an explicit, discursively articulated 
+                  schema. It does not create the concrete materiality of its output &#150; it merely specifies some of its properties, at a more abstract 
+                  level. In that sense, algorithmic art is conceptual art. <br>
+                  <br>
+                  Most image generation algorithms do not specify one image, but 
+                  a large (often infinite) class of images; algorithmic art is &quot;meta-art&quot;. 
+                  Obviously, the esthetic goals of meta-art differ substantially 
+                  from those of subjective expression-oriented art. The esthetics 
+                  of meta-art is not a new invention, however. It can be traced 
+                  back to the art of Marcel Duchamp and the philosophy of Immanuel 
+                  Kant. (Cf: Remko Scha: <a href="../meta.html"><i>Kant, Duchamp, 
+                  Meta-art.</i></a>) <br>
+                  <br>
+                </p>
+              </div>
+              <div align="left">
+                <p>In the context of the New Media, 
+                  algorithmic art can be viewed in two different ways. It borders 
+                  on highbrow visual art as well as on interactive media technology: 
+                  if we parameterize an art generation algorithm and allow the human 
+                  spectator to turn the knobs, we have built a new &quot;medium&quot; 
+                  that people may find fun, interesting or useful. Our perspective 
+                  on algorithmic art may thus be determined by the &quot;reflection 
+                  esthetics&quot; of modern art, or by the &quot;involvement esthetics&quot; of computer games and paint programs. We will mostly adapt the 
+                  first point of view, although the the second one may ultimately 
+                  be more important. <br>
+                  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+              </div>
+            </blockquote>
+          </blockquote>
+        </td>
+      </tr>
+    </table>
+    <br>
+    <br>
+  </div>
+</div>
+<div align="center"> <br>
+  <br>
+  <br>
+  <br>
+</div>
+</body>
+</html>

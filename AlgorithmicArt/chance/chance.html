@@ -1,0 +1,390 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+""""http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>Chance</title>
+
+<script language="JavaScript">
+<!--
+function overwindow(i,j) 
+	{status=i;};
+function clickwindow(i,j,w,h)
+	{nw=window.open(i, j,"scrollbars=no,width=" + w + ",height=" + h);
+// e.g."pics_html/7-Blank.html"
+	if (navigator.appName=="Netscape"){nw.focus()};};
+//-->
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="keywords" content=" machine drawing automatic art generation chance random algorithmic sampling machines">
+<meta name="description" content="Chance">
+<link href="../../styles/blacktext.html" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#FFFFFF">
+<div align="right"><a href="../../anything/index.html"><img src="../../gif/buttons/blue16.gif" alt="indeterminacy" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp; 
+  Indeterminacy&nbsp; &nbsp;&nbsp;<a href="index.html"><img src="../../gif/buttons/blue16.gif" alt="chance art" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp; 
+  Chance Art&nbsp; &nbsp;&nbsp;<a href="../../index.html"><img src="../../gif/buttons/blue16.gif" alt="Radical Art" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Radical Art
+  &nbsp;&nbsp;&nbsp;&nbsp;<br>
+</div>
+<div align="left"> 
+  <hr>
+</div>
+<blockquote>
+  <div align="left">
+    <h3><font face="Verdana">Chance <font color="#333333">(What 
+      is it? Does it exist? Can we fake it?)</font></font><br>
+  </h3>
+  </div>
+</blockquote>
+<div align="center">
+<table width="750">
+    <tr bgcolor="#FFFFFF"> 
+      <td>        <blockquote><p align="left"> <font face="Verdana"><br>
+            <br>
+            <br>
+            Is it possible to design conceptually definite processes with unpredictable 
+        outcomes? Can indeterminacy be implemented without invoking &quot;nature&quot;, 
+            and without shifting artistic decisions to curators, performing artists, 
+            or the public itself? The obvious answer to this challenge is the 
+            use of <i>chance procedures</i> &#150; a method that <font face="Verdana">may 
+            be summarized as follows: (1) define a space of possibilities in explicit, 
+            mathematical terms; (2) define a probability distribution over this 
+            space; (3) draw random samples from the space, in accordance with 
+            the probability distribution.</font> <br>
+            <br>
+            This probabilistic art generation strategy highlights one artistic 
+            problem with relentless clarity: How to define the space of possible 
+            outcomes (and the concomitant probability distribution)? This problem 
+            is discussed in our page on <a href="index.html">chance art</a>. The strategy also raises some slightly esoteric philosophical/physical 
+            questions: What is chance, and does it exist? <font face="Verdana"> 
+            For the practice of chance art, the answers to these questions are 
+            largely immaterial, but for an appreciation of its conceptual dimensions, 
+            they are indispensible.<br>
+            </font></font></p>
+          <h6 align="left"><font face="Verdana">What is chance?</font></h6>
+          <p align="left">The common-sense notion of chance refers to real-life 
+            unpredictability. (William Wollaston, 1722: &quot;Chance seems to 
+            be only a term, by which we express our ignorance of the cause of 
+            any thing.&quot;) <font face="Verdana">For predictions 
+            about an ongoing sequence of events that must be based on observations 
+            of an initial segment, a mathematical correlary of unpredictability 
+            can be developed: unpredictablity = the absence of regularity = the 
+            impossibility of a gambling strategy. This analysis was first proposed 
+            by Richard von Mises in 1919. It was perfected by Abraham Wald (1936/1937) 
+            and Alonzo Church (1940), criticized by Ville (1939), and saved by 
+            </font>Per Martin-L&ouml;f (1966<font face="Verdana">). 
+            <br>
+            <br>
+            A different perspective on this matter, based on </font>Shannon's 
+            information theory<font face="Verdana">, is due</font> 
+            to Andrey Kolmogorov, who focussed directly on the absence of regularities 
+            in initial segments of a random sequence. Since any regularity<font face="Verdana"> 
+            in a sequence allows it to be encoded in a more efficient way, randomness 
+            may be equated with</font> <i>incompressibility</i>. 
+            <font face="Verdana">This idea was further developed 
+            by Gregory Chaitin. (Cf. Li &amp; Vitanyi, 1993; Calude, 1994; Chaitin, 
+            2001.)</font> <font face="Verdana"><br>
+            <br>
+            Randomness implies various kinds of statistical uniformity &#150; 
+            and for many practical purposes, that is all one needs from a &quot;random&quot; sequence. Effective criteria for statistical uniformity were first 
+            proposed by </font>Kermack & McKendrick (1936/1937) 
+            and Kendall &amp; Babington Smith (1938<font face="Verdana">). 
+            See Meyer (1956) for a bibliography of early work in this area. The 
+            current state of the art is the Diehard test-suite (cf. Marsaglia &amp; Tsang, 2002).<br>
+            </font></p>
+          <h6 align="left">Does it exist?</h6>
+          <p align="left"><font face="Verdana">Unpredictability is often operationalized through uncontrolled physical 
+            processes, such as casting dice, tossing coins, and spinning the roulette 
+            wheel. For practical purposes, this works fine. We know, however, 
+            that events of this sort can <i>in principle</i> be predicted, by 
+              measuring initial conditions and applying the laws of classical mechanics. 
+              For roulette wheels this is even practically feasible (Bass, 1985). 
+              But prediction becomes increasingly difficult if we look at modern 
+              devices for random number generation, which generate fast bit streams 
+              from small-scale physical phenomena such as thermal noise (electric 
+              potential fluctuations in conducting materials) or atmospheric radio 
+              noise (cf. <a href="http://random.org/essay.html">random.org</a>). 
+            <br>
+            </font></p>
+          <p align="left"><font face="Verdana">Physical measurements at the quantum 
+            level are not predicted by any known theory; they are thus &quot;random&quot; in an unusually strong sense of that word. It is sometimes asserted 
+            that they are <i>absolutely</i> random, i.e., that we know that no 
+            conceivable deterministic theory could predict their outcomes. Von 
+            Neumann (1932) presented a formal proof to this effect, which was, 
+            however, based on an incorrect assumption (cf. Hermann, 1935; Bell, 
+            1966). In the meantime, there is experimental evidence about the reality 
+            of quantum-entanglement, which implies that quantum-measurements cannot 
+            be accounted for by <i>local</i> hidden variables. <a href="http://www.fourmilab.ch/hotbits/">HotBits</a> 
+            is an online source of random numbers which uses quantum effects: 
+            radioactive decay. <br>
+          </font></p>
+          <h6 align="left">Can we fake it?</h6>
+          <p align="left"><font face="Verdana">An old challenge in computer 
+              science: can a deterministic computer be programmed to yield number 
+              sequences which are &quot;random&quot; in the mathematical sense of 
+              that word? In the strict sense demanded by Von Mises and Kolmogorov, 
+              this is obviously out of the question: the generating algorithm defines 
+              both a perfect gambling strategy and an extremely efficient compressed 
+              code. (John von Neumann, 1951: &quot;Anyone who considers arithmetical 
+              methods of producing random digits is, of course, in a state of sin.&quot;) Mere 
+              statistical uniformity, on the other hand, is a difficult but not 
+              impossible challenge. Divisions between large incommensurable numbers 
+              often yield sequences with reasonable statistical properties (Knuth, 
+              1969). Several other methods have been developed over the years; see 
+              Coddington (1996) for an overview. The current state of the art is 
+              the &quot;Mersenne Twister&quot; (Matsumoto &amp; Nishimura, 1998).<br>
+            </font></p>
+          <div align="left">
+            <blockquote>&nbsp;</blockquote>
+          </div>
+        </blockquote>      </td>
+    </tr>
+  </table>
+  <div align="center"><br>
+    <br>
+  </div>
+</div>
+<div align="center">
+  <table width="750">
+    <tr bgcolor="#FFFFFF"> 
+      <td> 
+        <blockquote> 
+          <div align="left">
+            <h5 align="center"><br>
+              References</h5>
+            <p> <font face="Verdana"><i>General</i></font> </p>
+            <blockquote> 
+              <p>Thomas A. Bass: <i>The Eudaemonic Pie.</i> Houghton-Mifflin, 
+                New York, 1985.<br>
+                <br>
+                Jorge Luis Borges: <a href="http://www.hfac.uh.edu/mcl/faculty/armstrong/cityofdreams/texts/babylon.html">The 
+                Lottery in Babylon</a>. In: <i>El Jard'n de senderos que se bifurcan</i>, 
+                1941.<br>
+                <br>
+                J. Piaget &amp; B. Inhelder: <i>La Gen&egrave;se de l'Id&eacute;e 
+                de Hasard chez l'Enfant </i>(Paris: PUF, 1951). <br>
+                <br>
+                Luke Rhinehart: <i>The Dice Man, </i>1971. <br>
+                <br>
+                William Wollaston: <i>The Religion of Nature Delineated.</i> (1722),                 V. 83. </p>
+            </blockquote>
+          </div>
+          <div align="left"> 
+            <div align="left"> 
+              <div align="left"> 
+                <p><font face="Verdana"><i>Characterizing Randomness: Complexity 
+                  Theory</i></font></p>
+              </div>
+              <blockquote> 
+                <div align="left">
+                  <p><font face="Verdana">Cristian Calude: 
+                        <i>Information and Randomness. An Algorithmic Perspective.</i> 
+                    Berlin: Springer-Verlag, 1994.<br>
+                    <br>
+                    Gregory J. Chaitin: <i>Exploring Randomness. </i>London: Springer-Verlag, 
+                    2001. <br>
+                    <br>
+                    Alonzo Church: &quot;On the concept of a random sequence.&quot; 
+                    <i>Bulletin of the American Mathematical Society</i> <b>46</b> 
+                    (1940), pp. 130-135. <br>
+                    <br>
+                    Ming Li &amp; Paul Vit&aacute;nyi: <i>An Introduction into Kolmogorov 
+                    Complexity and its Applications.</i> New York: Springer-Verlag, 
+                    1993.<br>
+                    <br>
+                    P. Martin-L&ouml;f: &quot;The definition of random sequences.&quot; 
+                    <i>Information and Control</i> 9 (1966), pp. 602-619<br>
+                    <br>
+                    Richard von Mises: &quot;Fundamentals&auml;tze der Wahrscheinlichkeitsrechnung.&quot; 
+                    <i>Mathematische Zeitschrift</i> <b>4</b> (1919), p. 1.<br>
+                    <br>
+                    Richard von Mises: &quot;Grundlagen der Wahrscheinlichkeitsrechnung.&quot; 
+                    <i>Mathematische Zeitschrift</i> <b>5</b> (1919), p. 52. <br>
+                    <br>
+                    J. Ville: <i>&Eacute;tude Critique de la Notion de Collectif.</i> 
+                    Gauthier-Villars, 1939. <br>
+                    <br>
+                    Abraham Wald: &quot;Sur la notion de collectif dans le calcul 
+                    des probabilit&eacute;s.&quot; <i>Comptes Rendus des S&eacute;ances 
+                    de l'Acad&eacute;mie des Sciences</i>, <b>202</b> (1936), pp. 
+                    1080-1083.<br>
+                    <br>
+                    Abraham Wald: &quot;Die Wiederspruchsfreiheit des Kollektivbegriffes 
+                    der Wahrscheinlichkeitsrechnung.&quot; <i>Ergebnisse eines mathematischen 
+                    Kolloquiums</i> <b>8</b> (1937), pp. 38-72.</font><font face="Verdana"></font><font face="Verdana" size="-1"><br>
+                    <br>
+                  </font></p>
+                </div>
+              </blockquote>
+              <div align="left"> 
+                <p><font face="Verdana"><i>Characterizing Randomness: Statistics</i></font></p>
+              </div>
+              <blockquote> 
+                <div align="left">
+                  <p>M.G. Kendall: &quot;A Theory 
+                    of Randomness.&quot; <i>Biometrika</i>, 1941.<font face="Verdana"><br>
+                    <br>
+                    </font>M.G. Kendall &amp; B. Babington Smith: 
+                  &quot;Randomness and Random Sampling Numbers.&quot; <i>Journal 
+                    of the Royal Statistical Society,</i> Vol. 101, No. 1 (1938), 
+                    pp. 147-166.<br>
+                    <br>
+                    W.O. Kermack & A.G. McKendrick: "Tests for Randomness in a Series 
+                    of Numerical Observations" <i>Proceedings of the Royal Society</i>, 
+                    Edinburgh, Vol. 57 (1936-1937), Part 3, pp. 228-240.<br>
+                    <br>
+                    G. Marsaglia, W.W. Tsang: &quot;Some difficult-to-pass tests 
+                    of randomness.&quot; <i>Journal of Statistical Software</i>, 
+                    2002<br>
+                    <br>
+                    H.A. Meyer: &quot;The generation and testing of random digits, 
+                    and known sources of random digit tables. (An annotated bibliography.)&quot; In H. A. Meyer (ed.): <i>Symposium on Monte Carlo Methods,</i> 
+                    pp. 323-337. Wiley, 1956.                  </p>
+                </div>
+              </blockquote>
+              
+            </div>
+            <blockquote>
+<div align="left"></div>
+            </blockquote>
+          </div>
+          <div align="left">
+            <p><i>Hidden variables and the Einstein-Podolsky-Rosen 
+              effect </i><br>
+              <br>
+            </p>
+            <div align="left"></div>
+          </div>
+          <blockquote>
+            <div align="left">
+              <div align="left">
+                <p>Cristian S. Calude: &quot;<a href="http://www.idquantique.com/products/files/quantis-calude.pdf">Algorithmic 
+                  Randomness, Quantum Physics, and Incompleteness</a>.&quot;<br>
+                  <br>
+                  J. S. Bell, <a href="http://www.drchinese.com/David/Bell_Compact.pdf">On 
+                  the Einstein Podolsky Rosen Paradox</a>, Physics 1, 195 (1964)<br>
+                  <br>
+                  J. S. Bell, On the problem of hidden variables in quantum mechanics, 
+                  Rev. Mod. Phys. 38, 447 (1966) <br>
+                  <br>
+                </p>
+              </div>
+            </div>
+            <div align="left"></div>
+            <div align="left">
+              <p>Arthur Fine (1982), Hidden Variables, 
+                Joint Probability, and the Bell Inequalities, Physical Review Letters 
+                48, 5, pp. 291-294.<br>
+                <br>
+                Grete Hermann (1935), Abhandlungen der Fries'schen Schule<b> 6</b>, 
+                75.<br>
+                <br>
+                Willem de Muynck: <i>Foundations of quantum mechanics, an empiricist 
+                approach</i>. Dordrecht: Kluwer Academic Publishers, 2002.<br>
+                <br>
+                Willem de Muynck: <a href="http://www.phys.tue.nl/ktn/Wim/qm4.htm#hv">Hidden-variables 
+                or subquantum theories</a><font face="Verdana"><br>
+                </font> 
+              </p>
+              <div align="left"> 
+                <div align="left"></div>
+              </div>
+              <div align="left"></div>
+              <p><br>
+                John von Neumann (1932),<i> Mathematische Grundlagen der Quantenmechanic</i> 
+                (Berlin: Springer)<br>
+                <br>
+                 
+              </p>
+              <div align="left">
+                <p>Fergus Ray-Murray: <a href="http://fergusmurray.members.beeb.net/Bibliography.htm">Bibliography</a><br>
+                  <br>
+                </p>
+              </div>
+            </div>
+            <div align="left">
+              <p><font face="Verdana" color="#666666">[To 
+                add: TV program about this (VPRO). Victor Wentink has a tape.]</font></p>
+            </div>
+          </blockquote>
+          <div align="left">
+            <p>Pseudo-Random Numbers</p>
+          </div>
+          <blockquote>
+            <div align="left">
+              <p><font face="Verdana">Paul Coddington: 
+                    <a href="http://nhse.cs.rice.edu/NHSEreview/RNG/index.html">Random 
+                Number Generators for Parallel Computers</a>. <i>NHSE Review</i>, 
+                1996. <br>
+                <br>
+                </font>R. Coveyou: &quot;Random number generation 
+                is too important to be left to chance.&quot; <i>Studies in Applied 
+                Math</i>ematics<b> 3 </b>(1969), pp. 70-111.<font face="Verdana"> 
+                <br>
+                <br>
+                Andrew Culver: </font> <font face="Verdana"><a href="http://www.anarchicharmony.org/People/Culver/CagePrograms.html">Software 
+                for John Cage</a>. </font><br>
+                <br>
+                Gardner, M. (1968). &quot;On the meaning of randomness and some 
+                ways of achieving it.&quot; <i>Scientific American,</i> July 1968, 
+                116-121.<br>
+                <br>
+                <font face="Verdana">Peter Hellekalek: <a href="http://random.mat.sbg.ac.at/literature/">Bibliography</a>. 
+                </font> <br>
+                <br>
+                <font face="Verdana">Donald Knuth: <i>The Art of 
+                Computer Programming,</i> Vol.2 (Seminumerical Algorithms), Ch. 
+                3 (Random Numbers). Reading, MA: Addison-Wesley, 1969.<br>
+                <br>
+                M. Matsumoto &amp; T. Nishimura: &quot;Mersenne Twister: A 623-Dimensionally 
+                Equidistributed Uniform Pseudo-Random Number Generator&quot; <i>ACM 
+                Transactions on Modeling and Computer Simulation, </i>1998.<br>
+                <br>
+                J. von Neumann: &quot;Various techniques used in connection with 
+                random digits&quot; <i>National Bureau of Standards Applied Mathematics 
+                Series</i> <b>12</b> (1951), 36-38.<br>
+                <br>
+              </font>  </p>
+            </div>
+            <div align="left">
+              <p>RandomNumber.org: <a href="http://randomnumber.org/bibliography.htm">Bibliography 
+                until 1984.</a> </p>
+            </div>
+          </blockquote>
+          <p><br>
+          </p>
+        </blockquote>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <table width="750">
+    <tr bgcolor="#FFFFFF"> 
+      <td>        <blockquote><blockquote><blockquote><p align="left"><font size="-1"><font color="#999999"><a href='../grid/index.html' 
+  onMouseOver='overwindow("grid.html","j7"); return true;'
+  onClick='clickwindow("hdv-test.html","j7","700","500"); return false;'> </a></font></font><br>
+                <font color="#999999"><br>
+                <a href="RandomNumberTables.html"><img src="../../gif/buttons/blue16.gif" alt="tables" width="16" height="16" border="0" align="ABSMIDDLE"></a> &nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;Random 
+                number tables</p>
+              <p align="left"><font color="#999999"><a href="hardware.html"><img src="../../gif/buttons/blue16.gif" alt="hardware" width="16" height="16" border="0" align="ABSMIDDLE"></a> &nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;Hardware devices for generating 
+              random numbers</p>
+              <p align="left"><font color="#999999"><a href="QChance.html"><img src="../../gif/buttons/blue16.gif" alt="quotes" width="16" height="16" border="0" align="ABSMIDDLE"></a> &nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;Quotes about chance</p>
+              <p align="left"><font color="#999999"><a href="index.html"><img src="../../gif/buttons/blue16.gif" alt="art" width="16" height="16" border="0" align="ABSMIDDLE"></a> &nbsp;&nbsp;</font>&nbsp;&nbsp;&nbsp;Chance Art<br>
+                <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+      </blockquote>
+          </blockquote>
+        </blockquote>      </td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+</body>
+</html>

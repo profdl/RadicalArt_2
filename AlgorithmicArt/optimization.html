@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+""""http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>Artificial Intelligence</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="keywords" CONTENT="artificial intelligence image generation">
+<meta name="description" content="Artificial Intelligence and image generation">
+<link href="../styles/blacktext.html" rel="stylesheet" type="text/css">
+</head>
+
+<body bgcolor="#EEEEEE">
+<div align="right"><a href="index.html"><img src="../gif/buttons/blue16.gif" alt="Up" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Algorithmic 
+  Art &nbsp;&nbsp; &nbsp;<a href="../index.html"><img src="../gif/buttons/blue16.gif" alt="Root" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Radical 
+  Art &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+</div>
+<div align="left"><hr>
+  <h2><font face="Verdana">Automatic art generation as an optimization problem<br>
+      </font> 
+    </h2>
+</div>
+<div align="center"> 
+  <table width="750">
+    <tr bgcolor="#FFFFFF"> 
+      <td> 
+        <blockquote> 
+          <p align="left"><br>
+            <br>
+            In most approaches to algorithmic art, a (possibly very large or infinite) 
+            set of images is specified by means of a constructive mathematical definition 
+            (a <a href="grammar/index.html">grammar</a>, an <a href="algebra/index.html">algebra</a>, 
+            or a <a href="grid/cellular/index.html">cellular automaton</a>), and 
+            an algorithm is implemented which computes and displays the visual appearance 
+            of the resulting images &#150;&#150; either <a href="enumeration/index.html">enumerating</a> 
+            them all, or drawing <a href="chance/index.html">random samples</a>, 
+            or allowing the spectator to <a href="interactivity.html">explore</a> 
+            the space of possibilities. The constructive definition is the artwork. 
+            It is concept art made visible: the output refers back to the abstract 
+            structures that underly its generation.<br>
+            <br>
+            Note that this kind of &quot;art generation&quot; has nothing in common 
+            with human art production. There is no distinction between a &quot;mental 
+            image&quot; and the detailed description of its concrete realization; 
+            there is no incremental process of beginning, addition, judgment and 
+            improvement. The artificial artist is blind: when he perceives his output, 
+            he merely remembers how he produced it.<br>
+            <br>
+            There have been proposals, however, to construe artificial art more 
+            along the lines of simulating human art production. A historically important 
+          example is the following statement by Frieder Nake (1974), pp. 34-40:</p>
+          <blockquote>
+            <p align="left" class="serifbody">&nbsp;&nbsp;&nbsp;&nbsp;Die 
+                  5 Dinge, die [. . .] ein &auml;sthetisches Programm bestimmen, 
+                  sind: das "Zeichenrepertoire" <b><i>Z</i></b><i>,</i> die "Transformationsmenge" 
+              <b><i>T</i></b><i>,</i> die "Ablauffunktion"<b><i> a</i></b>, 
+                  die "Bewertungsfunktion" <i><b>b</b></i> und "Zielmenge"<i> <b>K</b>. 
+                  </i>[. . .] Wir haben es demnach bei dem &auml;sthetischen Programm 
+                  mit einem Modell folgender Art zu tun: ein K&uuml;nstler ist sich 
+                  seiner Mittel (<b><i>Z</i></b><i>, <b>T</b></i>) und Ziele (<b><i>K</i></b>) 
+                  bewu&szlig;t: er kennt operationale Definitionen seiner Kriterien 
+                  (<i><b>b</b></i>) und wei&szlig; a priori auf welche Art er sein 
+                  Ziel erreichen will oder welche Konstruktionsschritte er sich 
+                  selbst zugesteht (<i><b>a</b></i>). [. . .] <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wir machen einen Unterschied zwischen 
+                  den von einem &auml;sthetischen Programm <i><b>P</b></i> erzeugbaren &auml;sthetischen Objekten und den bez&uuml;glich <i><b>P</b></i> akzeptablen Objekten, die eine Untermenge der erzeugbaren sind. 
+                  Ein vorliegendes &auml;sthetisches Objekt ist also nicht notwendig 
+              "akzeptabel" (der Begriff "akzeptabel" ist rein operational, obwohl 
+                  er nat&uuml;rlich auf das traditionelle "sch&ouml;n" reflektiert). 
+                  [. . .] <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;H&auml;tten wir aber vielleicht 
+                  besser getan, eine generative Grammatik f&uuml;r die Beschreibung 
+                  des &auml;sthetischen Programms zu w&auml;hlen? Der Generationsproze&szlig; 
+              formaler Grammatiken l&auml;uft in der Regel "blind", "zuf&auml;llig", 
+                  nicht zielgerichtet ab. Das soll hei&szlig;en, das nicht versucht 
+                  wird, ein vorgegebenes Ziel zu erreichen [. . .]. Da wir aber 
+                  ausdr&uuml;cklich die Zielgerichtetheit des &auml;sthetischen 
+                  Realisationsprozesses im Auge behalten wollen, scheint der eingeschlagene 
+              Weg der bessere zu sein. </p>
+          </blockquote>
+          <div align="left"> 
+            <div align="left"> 
+              <p>Nake defines automatic art generation as an <i>optimization 
+                problem</i>: find, within the set of all images, the ones that 
+                best satisfy one's aesthetic criteria (the most &quot;beautiful&quot; ones). To implement this approach, one must make two conceptual 
+                decisions and solve one technical problem:<br>
+&nbsp;&nbsp;&nbsp;(1) Define the set of all possible images.<br>
+&nbsp;&nbsp;&nbsp;(2) Define the aesthetic evaluation criterion.<br>
+&nbsp;&nbsp;&nbsp;(3) Develop an effective method to search the 
+                space of possible images.<br>
+                <br>
+                Decision (1) is crucial. It determines how the program thinks 
+                about images, how it describes them. If we define the set of images 
+                in a broad but mindlessly reductionist way (as pixel grids, for 
+                instance), the formulation of evaluation criteria and search strategies 
+                becomes impossibly difficult. But if we define them by means of 
+                a specific style grammar, we impose arbitrary boundaries which 
+                may turn out to be too narrow. The ideal definition would avoid 
+                arbitrary reductionisms as well as arbitrary styles; it would 
+                define images in terms of the elements and constructions that 
+                are actually employed by the human cognitive system in its perception 
+                of images.<br>
+                <br>
+                Decision (2) is supposed to be the artistically interesting one: 
+                it articulates the system's values, its criteria for success or 
+                failure. If these criteria are to resemble those employed by a 
+                human artist, the system must be able to &quot;see&quot; its output, 
+                i.e., it must handle representations of the Gestalt structures 
+                that a human person would perceive in the output. (Note that this 
+                is beyond the state of the art; cf. our page on <a href="algebra/SIT/index.html">Gestalt 
+                perception</a>.) A more impersonal version of this approach might 
+                try to implement a general notion of &quot;beauty&quot;; it could 
+                lean on proposals to formalize the notion of beauty that were 
+                put forth by Birkhoff (1950), Gunzenh&auml;user (1975) and others. 
+                Note, however, that the scope of these proposals is extremely 
+                limited, and that the notion of &quot;beauty&quot; which they 
+                try to capture is somewhat boring. (Cf. <a href="http://iaaa.nl/rs/compestE.html">Scha &amp; Bod, 1993</a>.)<br>
+                <br>
+                Problem (3) gets us into a particular area within the field of 
+                Artificial Intelligence: heuristic search. When the set of data 
+                to be considered is large, and the evaluation criteria are complex, 
+                finding optimal solutions is a matter of trial an error; one may 
+                try to detect properties of the search space which can be exploited 
+                to enhance the success rate of this search process. Many techniques 
+                exploit the local coherence of the search space (hill-climbing, 
+                simulated annealing). When the number of dimensions is very large, 
+                one often resorts to &quot;simulated evolution&quot;: <a href="evolutie.html">genetic 
+                algorithms</a>.<br>
+                <br>
+                So far, the conceptual difficulties haunting the project of the &quot;simulated artist&quot; seem to be unsurmountable. I do not 
+                know of any serious efforts to carry it out on a non-trivial scale. 
+                (This includes Nake's own work, which is much closer to the &quot;grammar-based&quot; approach than his theory seems to demand.)<br>
+                <br>
+                Several art generation systems exist which technically fall under 
+                the optimization approach: they use <a href="evolutie.html">genetic 
+                algorithms</a> to search a 
+                large space. And their aesthetic ideal is to simulate a <i>very</i> conventional artist: they search for the most &quot;beautiful&quot; images in their search space, appreciated by the largest number 
+                of human observers. Nevertheless, these systems do not constitute <i>bona fide</i> realizations of Nake's research program, because 
+                they do not implement <i>any</i> formal evaluation criteria, using 
+                an &quot;oracle&quot; instead: human persons vote for what they 
+                like best (&quot;supervised learning&quot;).<br>
+                <br>
+              </p>
+            </div>
+          </div>
+          <div align="left"> 
+            <h6><br>
+              <i>References</i></h6>
+          </div>
+          <blockquote> 
+            <div align="left"> 
+              <p>G.D. Birkhoff: <i>Collected Mathematical Papers</i>, New York: 
+                American Mathematical Society, 1950.<br>
+              </p>
+              <p>D. Boekee &amp; J. van der Lubbe: &quot;Discrete Informatie.&quot; In: <i>Informatietheorie.</i> Delft: Delftse Uitgeversmaatschappij, 1988. <span class="small"><font color="#666666">[In Reader 1991</font></span><font color="#666666">]</font><br>
+                <br>
+                R. Gunzenh&auml;user: &quot;Die Theorie Birkhoff's unter Informations&auml;sthetischem 
+                Aspekt.&quot; In: <i>Ma&szlig; und Information als &auml;sthetische 
+                Kategorien. </i>Baden-Baden: Agis Verlag, 1975. <br>
+                <br>
+                R. Gunzenh&auml;user: &quot;Superzeichenredundanz.&quot; In: <i>Ma&szlig; 
+                und Information als &auml;sthetische Kategorien.</i> Baden-Baden: 
+              Agis Verlag, 1975.</p>
+              <div align="left">
+                <p>Lev Manovich: <a href="http://www.ixmagazin.de/tp/english/inhalt/sa/3115/1.html">Thinking Beyond Information</a>, 1997. </p>
+              </div>
+              <div align="left">
+                <p></p>
+              </div>
+              <p>Frieder Nake:<i> &Auml;sthetik als Informationsverarbeitung. Grundlagen und Anwendungen der Informatik im Bereich &auml;sthetischer Produktion und Kritik. </i>Vienna / New York: Springer Verlag, 1974. <br>
+                <br>
+              </p>
+              <div align="left">
+                <p>J. Pierce: &quot;Information Theory 
+                  and Art.&quot; In: <i>Symbols, Signals and Noise.</i> London: 
+                  Hutchinson and Co., 1962. <font color="#666666" class="small">[In Reader 1991]</font><br>
+                  <br>
+                  Remko Scha &amp; Rens Bod: &quot;<a href="http://iaaa.nl/rs/compestE.html">Computational 
+                  Esthetics</a>.&quot; <em>Informatie en Informatiebeleid</em> <b>11</b>, 
+                  1 (1993), pp. 54-63. <br>
+                </p>
+              </div>
+            </div>
+          </blockquote>
+        </blockquote>
+        <blockquote>&nbsp;</blockquote>
+      </td>
+    </tr>
+  </table>
+  <br>
+</div>
+<blockquote> 
+  <div align="right">Remko Scha, April 1, 2007<br>
+    &nbsp;&nbsp;&nbsp; </div>
+</blockquote>
+</body>
+</html>

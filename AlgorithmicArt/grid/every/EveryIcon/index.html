@@ -1,0 +1,290 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+""""http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>Every Icon</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="keywords" CONTENT="exhaustive enumeration algorithm computer systematic conceptual  visual art">
+<meta name="description" content="Enumeration art. ">
+<link rel="stylesheet" href="../../../../styles/blacktext.html" type="text/css">
+</head>
+
+<body bgcolor="#EEEEEE">
+<div align="right">&nbsp;<a href="../index.html"><img src="../../../../gif/buttons/blue16.gif" alt="Every Grid" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;All 
+  Grids &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../../everything/index.html"><img src="../../../../gif/buttons/blue16.gif" alt="Everything" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Everything&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../index.html"><img src="../../../../gif/buttons/blue16.gif" alt="Algorithmic Art" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Algorithmic 
+  Art &nbsp;&nbsp; &nbsp;&nbsp;<a href="../../../../index.html"><img src="../../../../gif/buttons/blue16.gif" alt="Root" width="16" height="16" border="0" align="absbottom"></a>&nbsp;&nbsp;Radical Art &nbsp;&nbsp; 
+  &nbsp;&nbsp;&nbsp;&nbsp;<br>
+</div>
+<div align="left"><hr>
+  <br>
+</div>
+<div align="center">
+<table width="750">
+    <tr bgcolor="#FFFFFF"> 
+      <td> 
+        <blockquote> 
+          <blockquote> 
+            <div align="left"> 
+              <h3><br>
+              John F. Simon Jr.: <i>Every Icon.</i></h3>
+              <p>
+                <applet code="Icon.class" alt="Every Icon Applet" width=225 height=324 hspace="15" vspace="10" align="left">
+                  <!-- 1 is the fastest speed - 1000 is the slowest  --> 
+                  <!-- 1 causes a lot of  garbage collection - maybe too fast for some processors--> 
+                  <param name=speed value="5">
+                  <!-- This controls the number of cycles of the timing circuit to --> 
+                  <!-- establish the average number of icons/second --> 
+                  <!-- Tradeoff startup time/delay with accurate estimation of display rate --> 
+                  <param name=iterations value="500">
+                </applet>
+                <br>
+                <br>
+                John Simon's Java-applet &quot;Every Icon&quot; (1996) enumerates 
+                  all patterns which are possible in a 32 by 32 grid of pixels which 
+                  may be colored black or white. <br>
+                <br>
+&quot;Every Icon&quot; was displayed in many gallery exhibitions. 
+                  Several of its instantiations can also be witnessed online through 
+                  any Java-compatible browser.<br>
+                <br>
+                Customized copies of the applet are created on demand; they can 
+                be ordered online through the artist's website. A customized applet 
+                starts its enumeration at the moment of its creation.The buyer 
+                of an applet receives the code for a web-page which can be used 
+              to put it online. Examples of web-pages in this format are </p>
+              <p><a href="http://www.numeral.com/eicon.html">John Simon's &quot;artist's proof&quot; of &quot;Every Icon&quot;.</a> <br>
+                <a href="http://ezone.org/ez/e11/articles/jfsjr/everyicon.html">The 
+                    <i>Enterzone</i> copy of &quot;Every Icon&quot;</a><br>
+                    <a href="http://www.stadiumweb.com/everyicon/every_icon.html">The<i> 
+                  Stadium</i> copy of &quot;Every Icon&quot;</a><br>
+              <a href="eicon.html">The <i>IAAA</i> copy of &quot;Every Icon&quot;</a><br>
+                  <br>
+                The buyer of an applet receives a license agreement (see below) 
+                which looks pretty much like a standard software license agreement. 
+                For the connoisseur of modern art it also resonates with the certificates 
+                written by the conceptual and minimal artists of the sixtities and 
+                seventies to turn their mental and immaterial artworks into tradable 
+                commodities. (Knight (1988) shows such certificates by Robert Barry, 
+                Donald Judd, Sol LeWitt, Walter De Maria, Bruce Naumann, and James 
+                Turrell.)<br>
+                  <br>
+                  Watching the program in action, one may 
+                  wonder: Does it indeed generate all possible 32 x 32 pixel configurations? 
+                  Does it generate each of them exactly once? To answer that question, 
+                  is to &quot;reverse-engineer&quot; the program: to guess the underlying 
+                  algorithm by analysing the program's observed behaviour.<br>
+                <br>
+                Jochem van der Spek's program &quot;Borges.C&quot; (1993) has 
+                  a functionality very similar to &quot;Every Icon&quot;. Van der 
+                  Spek reports that his algorithm for the 32 x 32 case would work 
+              as follows:  </p>
+            </div>
+            <blockquote>
+              <div align="left">
+                <p>Consider all possible bit strings 
+                  of length 1024. Notice that these can be read as denoting the 
+                  numbers 0 through 2^1024 &#150; 1 (in a notation with leading 
+                  0's). We can therefore generate all these numbers by starting 
+                  with 0 (i.e. 1024 0's) and adding 1 until we have reached the 
+                  number which is writtten as a sequence of 1024 1's. Stipulate 
+                  that 0 means white and 1 means black, and write each number in 
+                  a 32 x 32 grid, in right-to-left, bottom-to-top fashion (&quot;backwards&quot;, 
+                  least significant bits first). This process generates all possible 
+                  patterns by the simple process of binary counting. It starts with 
+                  small patterns in the upper left corner and gradually extends 
+                  them, first to the right, then to the next line, etc.</p>
+              </div>
+            </blockquote>
+            <div align="left">
+              <hr>
+              <br>
+              <div align="center"> 
+                <table width="550" border="1" cellspacing="0" cellpadding="15" bordercolor="#000000">
+                  <tr> 
+                    <td> 
+                      <p align="center"><font face="Georgia, Times New Roman, Times, serif" size="-1">-------- 
+                        EVERY ICON LICENSE AGREEMENT -----------</font></p>
+                      <p><font face="Georgia, Times New Roman, Times, serif" size="-1">This 
+                        agreement constitutes a legal agreement giving you, ("the 
+                        purchaser"), certain rights regarding your copy of the 
+                        Every Icon software applet ("the software"). YOU AGREE 
+                        THAT BY RUNNING THE LICENSED APPLET  YOU ACCEPT THE 
+                        TERMS OF THIS AGREEMENT. If you do not accept these terms, 
+                        please immediately erase all copies of your Every Icon 
+                        applet.</font></p>
+                      <p><font face="Georgia, Times New Roman, Times, serif" size="-1">1. 
+                        License grant. John F. Simon, Jr. grants you the right 
+                        to use your personal copy of the software, the copy with 
+                        your name displayed, on any computer at any time.</font></p>
+                      <p><font face="Georgia, Times New Roman, Times, serif" size="-1">2. 
+                        Code Restrictions. You are not allowed to alter the software, 
+                        the file of Java byte-code delivered with this document, 
+                        or replace any of the code. You may not disassemble, decompile, 
+                        reverse engineer or make changes to the software.</font></p>
+                      <p><font face="Georgia, Times New Roman, Times, serif" size="-1">3. 
+                        Display Restrictions. You may display your unaltered copy 
+                        of Every Icon on any non-commercial site on the World 
+                        Wide Web and in any other non-commercial venue.</font></p>
+                      <p><font face="Georgia, Times New Roman, Times, serif" size="-1">4. 
+                        Copy Restrictions. You may transfer copies of your unaltered 
+                        software to any other person through any media provided 
+                        that you guarantee any copies transferred are protected 
+                        by the terms of this agreement. If you are unable to insure 
+                        that the transferred copies remain unaltered and are properly 
+                        displayed, then copies may be made for personal use only.</font></p>
+                      <p><font face="Georgia, Times New Roman, Times, serif" size="-1">5. 
+                        Transfer of title. You may sell your edition number of 
+                        Every Icon under the conditions that all copies of Every 
+                        Icon with your name are erased and the sale is registered 
+                        with John F. Simon, Jr. Registration of the sale is subject 
+                        to a fee equal to 10% of the sale; for which John F. Simon, 
+                        Jr. will create a new copy of the applet with the same 
+                        edition number but with the new owner's name and will 
+                        change the owner's name on the posted list of registered 
+                        owners.</font></p>
+                      <p><font face="Georgia, Times New Roman, Times, serif" size="-1">6. 
+                        Continuation grant. In such time that the software becomes 
+                        obsolete and is no longer executable on state-of-the-art 
+                        computers, you are granted the right to have the working 
+                        processes of Every Icon reprogrammed and to transfer your 
+                        name as displayed in the software, the starting date given 
+                        in the software and the edition number given in the </font><font face="Georgia, Times New Roman, Times, serif" size="-1">software 
+                        to the new program. At such time, every effort should 
+                        be made to duplicate all functions and aspects of the 
+                        original software including visual appearance.</font></p>
+                      <p><font face="Georgia, Times New Roman, Times, serif" size="-1">7. 
+                        LIMITED WARRANTY. John F. Simon, Jr. warrants the delivery 
+                        of a working applet (and media free of defects when delivered 
+                        via disk). This software is provided "as is". There is 
+                        no other warranty of any kind either express or implied. 
+                        There is no warranty that the functions contained in the 
+                        software will meet your requirements or that the </font><font face="Georgia, Times New Roman, Times, serif" size="-1">operation 
+                        of the program will be uninterrupted or error free or 
+                        that the program's defects will be corrected. There is 
+                        no warranty that Every Icon will meet the purchaser's 
+                        expectations for owning conceptual art.</font></p>
+                      <p><font face="Georgia, Times New Roman, Times, serif" size="-1">8. 
+                        Limitation of liability. John F. Simon, Jr. will not be 
+                        liable for any damages beyond the purchase price of the 
+                        software. In cases of damaged media, John F. Simon, Jr. 
+                        has the option of replacing the media as purchaser's sole 
+                        remedy.</font></p>
+                      <p><font face="Georgia, Times New Roman, Times, serif" size="-1">9. 
+                        Governing Law. This agreement is governed by the laws 
+                        of the State of New York.</font></p>
+                      <p><font face="Times" size="-1">Copyright 1997, John F. 
+                        Simon, Jr. - All Rights Reserved</font></p>
+                    </td>
+                  </tr>
+                </table>
+                <br>
+                <hr>
+              </div>
+            </div>
+            <blockquote> 
+              <blockquote> 
+                <blockquote> 
+                  <div align="left">
+                    <h6><font color="#006600">Assignments 
+                    </font></h6>
+                  </div>
+                  <div align="left">
+                    <p><font color="#006600"><b>1.</b> 
+                        <i>[For A.I. students:]</i> Reverse-engineer the enumeration 
+                      algorithm. Decide whether it implements the intended functionality. 
+                      Explain why or why not. [Hint: Check whether the observable 
+                      behaviour of the program is compatible with Jochem van der 
+                      Spek's algorithm described above.]<br>
+                      <b>2. </b><i>[For art students:]</i> Consider the order in 
+                      which the different possible images are generated. Compare 
+                      this, from an artistic/aesthetic point of view, with the order 
+                      that Eijssen and Klopman employ in the algorithm of <i>The 
+                      Wishing Well</i>.<br>
+                      <b>3. </b><i>[For law students:]</i> Reverse engineering Simon's 
+                      algorithm is explicitly forbidden by article 2 of the license-agreement. 
+                      Explore how the notion of &quot;reverse engineering&quot; should be interpreted in this context.<br>
+                      In its core meaning, &quot;reverse engineering&quot; is the 
+                      process of understanding and analyzing software on the basis 
+                      of its external behavior. Is it possible, under the laws of 
+                      the State of New York, for a license agreement to exclude 
+                      purely mental activities? <br>
+                      [Subsidiary issue: Article 6 contradicts article 2. One may 
+                      conjecture that this does not create legal complexities, because 
+                      the intent is obviously that article 6, when applicable, overrules 
+                      article 2. Is this correct?]<br>
+                      <b>4. </b><i>[For art students:] </i>Reverse-engineering Simon's 
+                      algorithm is explicitly forbidden by article 2 of the license-agreement. 
+                      Discuss the artistic status of this prohibition. It seems 
+                      paradoxical for a conceptual artist to impose limitations 
+                      on the extent of someone's reflections on his works. Do you 
+                      think this paradox is intended? Why not?<br>
+                    </font></p>
+                  </div>
+                </blockquote>
+              </blockquote>
+            </blockquote>
+            <div align="left"> 
+              <hr>
+              <p>The idea of enumerating all possible pixel grids 
+                was developed and implemented independently by several artists. (We list them on our page about <a href="../index.html">&quot;Every Grid&quot;</a>.
+                The first piece of this sort that we know of is&nbsp;&quot;The 
+                Wishing Well&quot;&nbsp;by 
+                Lars Eijssen &amp; Boele Klopman (1991). It displays and prints 
+                all configurations of a 172 by 172 black &amp; white pixel grid, 
+                and includes a graphical interface for &quot;looking into the 
+                future&quot; and an &quot;inverse mapping&quot; which calculates 
+                for any input picture when it will be produced. It generates the 
+                images in a different order than &quot;Every Icon&quot;: after 
+                the empty image, first all images with 1 black pixel, then all 
+                images with 2 black pixels, etc.<br>
+                <br>
+                Other, more limited pieces in the same genre were done by Jochem 
+                van der Spek (&quot;Borges.C&quot;, 1993) and by Leander Seige 
+                (<a href="http://imagen.hgb-leipzig.de/">&quot;Imagen&quot;</a>, 
+                2000). The unique quality of John Simon's &quot;Every Icon&quot; is its availability as a Java-applet.<br>
+                <br>
+                The idea of enumerating all possible pixel grids has a definite 
+                relation with the &quot;random pixel grids&quot; done by artists 
+                such as Ellsworth Kelly (1951), Fran&ccedil;ois Morellet (1961), 
+                and herman de vries (1970). These are discussed in our page on <a href="../../any/index.html"><i>&quot;Any Grid&quot; </i></a>.<br>
+                <br>
+                The idea of enumerating all possible pixel grids is an instance 
+                of a more general notion of <a href="../../../enumeration/index.html">&quot;enumeration 
+                art&quot; </a>which can also be carried out without computers. 
+                Sol LeWitt, for instance, made many works in this genre.<br>
+                <br>
+&quot;Every Icon&quot; was inspired by an early Macintosh &quot;icon-editor&quot;. 
+                A similar program is Aaron Neugebauer's <i><a href="http://entries.the5k.org/967/index.html">PixelPaint</a></i> 
+                (2002). A 3D version of the same idea is one of the modes of operation 
+                of the program <a href="http://entries.the5k.org/209/index.html"> 
+                <i>Blocks</i></a><i>,</i> written by Wouter De Jong and Roy Tanck 
+                in 2000.</p>
+            </div>
+          </blockquote>
+          <blockquote> 
+            <div align="left"> 
+              <hr>
+              <h6>References</h6>
+              <p class="indent">Christopher Knight: <i>Art of the Sixties and 
+                Seventies. The Panza Collection.</i> New York: Rizzoli, 1988.<br>
+              Matthew Mirapaul: <a href="http://www.numeral.com/articles/041797mirapaul/041797mirapaul.html">&quot;In 
+                John Simon's Art, Everything Is Possible.&quot;</a> <i>The New 
+                York Times</i>, April 17, 1997. <br>
+              John Simon: <a href="http://www.numeral.com/paraicon.html">&quot;Given: 
+                a 32 X 32 Grid.&quot;</a> <i>Parachute Magazine</i>, January, 
+                1997. </p>
+              </div>
+          </blockquote>
+        </blockquote>
+        <blockquote>&nbsp;</blockquote>
+      </td>
+    </tr>
+  </table>
+<p>&nbsp;</p>
+<p align="right">Remko Scha, 2001/2004&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+  <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+</div>
+</body>
+</html>
