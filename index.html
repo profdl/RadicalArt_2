@@ -170,7 +170,7 @@
             position: fixed;
             top: 20px; /* Move to top */
             left: 20px; /* Keep left alignment */
-            width: 300px;
+            width: 500px; /* Increased from 300px */
             height: 400px;
             background: white;
             border-radius: 8px;
@@ -180,7 +180,7 @@
             z-index: 1000;
             transition: none; /* Remove transition for smoother dragging */
             resize: both;
-            min-width: 200px;
+            min-width: 300px; /* Increased from 200px */
             min-height: 200px;
             max-width: 95vw;
             max-height: calc(95vh - 20px); /* Adjust for top spacing */
@@ -1071,7 +1071,7 @@
                 bbox.bottom += padding;
                 
                 // Calculate the scale to fit the nodes
-                const scale = 0.9 * Math.min(
+                const scale = 0.95 * Math.min(
                     width / (bbox.right - bbox.left),
                     height / (bbox.bottom - bbox.top)
                 );
