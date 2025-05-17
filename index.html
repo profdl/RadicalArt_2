@@ -277,7 +277,6 @@
 </head>
 <body>
     <div id="graph"></div>
-    <div class="tooltip"></div>
     <div id="controls">
         <div class="search-box">
             <input type="text" id="search" placeholder="Search pages...">
@@ -493,18 +492,12 @@
                 const allLinks = link.merge(link.enter());
 
                 allNodes.on('mouseover', function(event, d) {
-                    tooltip.style('display', 'block')
-                        .html(`${d.name}<br/>${nodeDegrees[d.id]} connections`)
-                        .style('left', (event.pageX + 10) + 'px')
-                        .style('top', (event.pageY - 10) + 'px');
-                    
                     // Only update highlights if no node is selected
                     if (!selectedNodeId) {
                         updateNodeHighlights(d.id);
                     }
                 })
                 .on('mouseout', function() {
-                    tooltip.style('display', 'none');
                     // Only reset highlights if no node is selected
                     if (!selectedNodeId) {
                         updateNodeHighlights(null);
@@ -1233,8 +1226,6 @@
                 // Continue the simulation
                 simulation.alpha(0.3).restart();
             }
-            
-            const tooltip = d3.select('.tooltip');
             
             simulation.on('tick', () => {
                 g.selectAll('.link')
