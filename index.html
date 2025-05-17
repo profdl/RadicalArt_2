@@ -346,31 +346,76 @@
             const width = window.innerWidth;
             const height = window.innerHeight;
             
-            // Calculate node degrees for sizing
+            // Calculate node degrees and connections
             const nodeDegrees = {};
+            const nodeConnections = {};
             data.nodes.forEach(node => {
                 nodeDegrees[node.id] = 0;
+                nodeConnections[node.id] = new Set();
                 // Add clean name to node data
                 node.cleanName = capitalizeFirstLetter(getCleanName(node.name));
-                
-                // Set initial position for Anything node at the center
-                if (node.id === 5) {
-                    node.x = width / 2;
-                    node.y = height / 2;
-                    node.fx = width / 2;  // Fix position in x
-                    node.fy = height / 2;  // Fix position in y
-                }
             });
             
-            // After simulation starts, release the fixed position
-            setTimeout(() => {
-                const anythingNode = data.nodes.find(n => n.id === 5);
-                if (anythingNode) {
-                    anythingNode.fx = null;
-                    anythingNode.fy = null;
-                }
-            }, 1000);  // Release after 1 second
+            // Build connection map and calculate degrees
+            data.links.forEach(link => {
+                const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
+                const targetId = typeof link.target === 'object' ? link.target.id : link.target;
+                nodeDegrees[sourceId]++;
+                nodeDegrees[targetId]++;
+                nodeConnections[sourceId].add(targetId);
+                nodeConnections[targetId].add(sourceId);
+            });
 
+            // Use Radical Art node as the hub
+            const hubNode = data.nodes.find(node => node.id === 435);
+            
+            // Initialize positions using a hierarchical layout
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const maxRadius = Math.min(width, height) * 0.4;
+            
+            // Place hub node at center
+            hubNode.x = centerX;
+            hubNode.y = centerY;
+            
+            // Create layers based on distance from hub
+            const layers = new Map();
+            const visited = new Set([hubNode.id]);
+            let currentLayer = [hubNode.id];
+            let layerIndex = 0;
+            
+            while (currentLayer.length > 0) {
+                layers.set(layerIndex, currentLayer);
+                const nextLayer = [];
+                
+                currentLayer.forEach(nodeId => {
+                    nodeConnections[nodeId].forEach(connectedId => {
+                        if (!visited.has(connectedId)) {
+                            visited.add(connectedId);
+                            nextLayer.push(connectedId);
+                        }
+                    });
+                });
+                
+                currentLayer = nextLayer;
+                layerIndex++;
+            }
+            
+            // Position nodes in each layer
+            layers.forEach((layerNodes, layer) => {
+                const layerRadius = (layer + 1) * (maxRadius / layers.size);
+                const angleStep = (2 * Math.PI) / layerNodes.length;
+                
+                layerNodes.forEach((nodeId, index) => {
+                    const node = data.nodes.find(n => n.id === nodeId);
+                    if (node) {
+                        const angle = index * angleStep;
+                        node.x = centerX + layerRadius * Math.cos(angle);
+                        node.y = centerY + layerRadius * Math.sin(angle);
+                    }
+                });
+            });
+            
             // Highlighted node names (lowercase for comparison)
             const highlightedNodeNames = [
                 "concept", "algorithm", "mechanics", "process", "destruction",
@@ -1110,7 +1155,7 @@
                 );
 
                 // Calculate center position
-                const x = -(bbox.left + bbox.right) / 2 * scale + width / 2;
+                const x = -(bbox.left + bbox.right) / 2 * scale + width / 2 + 100; // Added 300px offset to the right
                 const y = -(bbox.top + bbox.bottom) / 2 * scale + height / 2;
 
                 // Animate to the new view
