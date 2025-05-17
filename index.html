@@ -325,7 +325,14 @@
             
             // Otherwise use the last meaningful part
             const lastPart = parts[parts.length - 1];
-            return lastPart === '' ? parts[parts.length - 2] : lastPart;
+            const name = lastPart === '' ? parts[parts.length - 2] : lastPart;
+            
+            // Special case for radical_art (case insensitive)
+            if (name.toLowerCase() === 'radical_art') {
+                return 'Radical Art';
+            }
+            
+            return name;
         }
 
         function capitalizeFirstLetter(string) {
@@ -368,12 +375,12 @@
             const highlightedNodeNames = [
                 "concept", "algorithm", "mechanics", "process", "destruction",
                 "nothing", "something", "anything", "everything", "life",
-                "radical_art"  // Add Radical Art to highlighted nodes
+                "radical art"  // Updated to match the new display name
             ];
             data.nodes.forEach(node => {
                 node.isHighlighted = highlightedNodeNames.includes(node.cleanName.toLowerCase());
                 // Add special styling for Radical Art node
-                node.isRadicalArt = node.cleanName.toLowerCase() === "radical_art";
+                node.isRadicalArt = node.cleanName.toLowerCase() === "radical art";
             });
             data.links.forEach(link => {
                 nodeDegrees[link.source]++;
@@ -520,9 +527,18 @@
                         selectedNodeId = null;
                         updateNodeHighlights(null);
                         d3.select('#preview-panel').style('display', 'none');
+                        // Reset node styling
+                        g.selectAll('.node rect')
+                            .style('stroke', d => d.isHighlighted ? '#222' : stringToColor(d.name.split('/')[0] || d.name))
+                            .style('stroke-width', d => d.isHighlighted ? '3px' : '1px');
                     } else {
                         selectedNodeId = d.id;
                         updateNodeHighlights(d.id);
+                        
+                        // Set red border for selected node
+                        g.selectAll('.node rect')
+                            .style('stroke', n => n.id === d.id ? '#ff0000' : (n.isHighlighted ? '#222' : stringToColor(n.name.split('/')[0] || n.name)))
+                            .style('stroke-width', n => n.id === d.id ? '3px' : (n.isHighlighted ? '3px' : '1px'));
                         
                         // Find all connected nodes
                         const connectedNodes = new Set();
@@ -1251,8 +1267,9 @@
                 // Use the size property from the backend, fallback to 30 if missing
                 const baseSize = d.size || 30;
                 const connectionScale = Math.sqrt(nodeDegrees[d.id] || 1);
-                let width = Math.max(60, baseSize + d.cleanName.length * 8) * connectionScale;
-                let height = Math.max(25, baseSize * 0.4) * connectionScale;
+                // Increase the multiplier for text length and ensure minimum width is larger
+                let width = Math.max(150, baseSize + d.cleanName.length * 25) * connectionScale;  // Increased from 150 to 200 and text multiplier from 12 to 15
+                let height = Math.max(50, baseSize * 0.4) * connectionScale;
                 
                 // Add extra padding for Radical Art node
                 if (d.isRadicalArt) {
@@ -1265,8 +1282,8 @@
 
             function calculateFontSize(d) {
                 const size = getNodeSize(d);
-                // Keep min size at 12px but increase max size to 60px
-                return Math.min(Math.max(size.height * 0.8, 12), 60) + 'px';
+                // Keep min size at 12px but increase max size to 80px
+                return Math.min(Math.max(size.height * 0.9, 12), 140) + 'px';
             }
             
             function updateNodeSizes() {
