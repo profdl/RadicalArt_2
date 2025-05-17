@@ -658,6 +658,16 @@
                     window.open(fullUrl, '_blank');
                 });
                 
+                // Add click handler to preview content to open in new tab
+                previewContent.style('cursor', 'pointer');
+                previewContent.on('click', (event) => {
+                    // Don't trigger if clicking on a link or if dragging
+                    if (event.target.closest('a') || isDragging) return;
+                    
+                    const fullUrl = window.location.origin + BASE_PATH + filePath;
+                    window.open(fullUrl, '_blank');
+                });
+                
                 // Add close button functionality
                 d3.select('#preview-close').on('click', () => {
                     previewPanel
@@ -678,8 +688,6 @@
                     xOffset = 0;
                     yOffset = 0;
                 });
-
-
 
                 // Update ResizeObserver to handle content scaling
                 const resizeObserver = new ResizeObserver(entries => {
@@ -752,38 +760,42 @@
                                     // Keep the original href for reference
                                     link.setAttribute('data-original-href', href);
                                     
+                                    // Remove the href attribute to prevent default navigation
+                                    link.removeAttribute('href');
+                                    
                                     // Add click handler with proper event handling
                                     link.addEventListener('click', (e) => {
                                         e.preventDefault();
                                         e.stopPropagation();
                                         
-                                        // Handle different types of links
+                                        // Handle relative URLs
+                                        let fullUrl;
                                         if (href.startsWith('http://') || href.startsWith('https://')) {
-                                            // External links open in new tab
-                                            window.open(href, '_blank');
+                                            fullUrl = href;
                                         } else {
-                                            // For relative links, calculate the full path
-                                            const currentPath = d.name.split('/').slice(0, -1).join('/');
-                                            const resolvedPath = href.startsWith('/') 
-                                                ? href.substring(1) // Remove leading slash for absolute paths
-                                                : currentPath 
-                                                    ? `${currentPath}/${href}` 
-                                                    : href;
+                                            // Consistently handle paths relative to BASE_PATH
+                                            let relativePath = href;
+                                            if (relativePath.startsWith('/')) {
+                                                relativePath = relativePath.substring(1);
+                                            }
                                             
-                                            // Create a temporary node object to use with showPreview
-                                            const tempNode = {
-                                                name: resolvedPath,
-                                                cleanName: href.split('/').pop() || href,
-                                                id: resolvedPath // Use path as id
-                                            };
-                                            
-                                            // Show the new page in the preview panel
-                                            showPreview(tempNode);
+                                            // Construct full URL
+                                            fullUrl = window.location.origin + BASE_PATH + relativePath;
+                                            console.log('Opening link:', fullUrl);
                                         }
+                                        
+                                        // Open in new tab with a slight delay to ensure event handling completes
+                                        setTimeout(() => {
+                                            window.open(fullUrl, '_blank');
+                                        }, 10);
+                                        
+                                        return false;
                                     });
                                     
-                                    // Add pointer cursor to show it's clickable
+                                    // Add pointer cursor to show it's clickable despite removed href
                                     link.style.cursor = 'pointer';
+                                    link.style.textDecoration = 'underline';
+                                    link.style.color = '#0066cc';
                                 }
                             });
 
