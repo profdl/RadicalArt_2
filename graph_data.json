@@ -57,14 +57,14 @@
     {
       "id": 9,
       "name": "kinetics/index.html",
-      "degree": 78,
-      "size": 9.452054794520548
+      "degree": 79,
+      "size": 9.509132420091323
     },
     {
       "id": 10,
       "name": "AlgorithmicArt/index.html",
-      "degree": 60,
-      "size": 8.424657534246576
+      "degree": 61,
+      "size": 8.481735159817351
     },
     {
       "id": 11,
@@ -2613,8 +2613,8 @@
     {
       "id": 435,
       "name": "radical_art.html",
-      "degree": 8,
-      "size": 5.45662100456621
+      "degree": 10,
+      "size": 5.570776255707763
     }
   ],
   "links": [
@@ -10165,6 +10165,14 @@
     {
       "source": 435,
       "target": 6
+    },
+    {
+      "source": 435,
+      "target": 9
+    },
+    {
+      "source": 435,
+      "target": 10
     }
   ]
 }

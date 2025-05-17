@@ -144,7 +144,9 @@ def generate_graph_data():
         "concept/index.html",
         "process/index.html",
         "destruction/index.html",
-        "nothing/index.html"
+        "nothing/index.html",
+        "kinetics/index.html",
+        "AlgorithmicArt/index.html"
     ]
 
     # Add connections to Radical Art node
