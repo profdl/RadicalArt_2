@@ -2,1743 +2,2619 @@
   "nodes": [
     {
       "id": 0,
-      "name": "meta.html"
+      "name": "meta.html",
+      "degree": 18,
+      "size": 6.027397260273973
     },
     {
       "id": 1,
-      "name": "index.html"
+      "name": "index.html",
+      "degree": 438,
+      "size": 30.0
     },
     {
       "id": 2,
-      "name": "nothing/monochrome/index.html"
+      "name": "nothing/monochrome/index.html",
+      "degree": 42,
+      "size": 7.397260273972602
     },
     {
       "id": 3,
-      "name": "QEndArt.html"
+      "name": "QEndArt.html",
+      "degree": 16,
+      "size": 5.91324200913242
     },
     {
       "id": 4,
-      "name": "everything/index.html"
+      "name": "everything/index.html",
+      "degree": 23,
+      "size": 6.312785388127853
     },
     {
       "id": 5,
-      "name": "anything/index.html"
+      "name": "anything/index.html",
+      "degree": 30,
+      "size": 6.712328767123288
     },
     {
       "id": 6,
-      "name": "nothing/index.html"
+      "name": "nothing/index.html",
+      "degree": 80,
+      "size": 9.5662100456621
     },
     {
       "id": 7,
-      "name": "anything/OpenForm/index.html"
+      "name": "anything/OpenForm/index.html",
+      "degree": 14,
+      "size": 5.799086757990867
     },
     {
       "id": 8,
-      "name": "process/index.html"
+      "name": "process/index.html",
+      "degree": 81,
+      "size": 9.623287671232877
     },
     {
       "id": 9,
-      "name": "kinetics/index.html"
+      "name": "kinetics/index.html",
+      "degree": 78,
+      "size": 9.452054794520548
     },
     {
       "id": 10,
-      "name": "AlgorithmicArt/index.html"
+      "name": "AlgorithmicArt/index.html",
+      "degree": 60,
+      "size": 8.424657534246576
     },
     {
       "id": 11,
-      "name": "AlgorithmicArt/chance/index.html"
+      "name": "AlgorithmicArt/chance/index.html",
+      "degree": 22,
+      "size": 6.255707762557078
     },
     {
       "id": 12,
-      "name": "concept/index.html"
+      "name": "concept/index.html",
+      "degree": 79,
+      "size": 9.509132420091323
     },
     {
       "id": 13,
-      "name": "AlgorithmicArt/grid/every/index.html"
+      "name": "AlgorithmicArt/grid/every/index.html",
+      "degree": 11,
+      "size": 5.627853881278539
     },
     {
       "id": 14,
-      "name": "AlgorithmicArt/grid/any/index.html"
+      "name": "AlgorithmicArt/grid/any/index.html",
+      "degree": 13,
+      "size": 5.742009132420091
     },
     {
       "id": 15,
-      "name": "about.html"
+      "name": "home.html",
+      "degree": 13,
+      "size": 5.742009132420091
     },
     {
       "id": 16,
-      "name": "Life/index.html"
+      "name": "about.html",
+      "degree": 2,
+      "size": 5.114155251141552
     },
     {
       "id": 17,
-      "name": "something/index.html"
+      "name": "Life/index.html",
+      "degree": 26,
+      "size": 6.4840182648401825
     },
     {
       "id": 18,
-      "name": "destruction/index.html"
+      "name": "something/index.html",
+      "degree": 23,
+      "size": 6.312785388127853
     },
     {
       "id": 19,
-      "name": "aesthetics.html"
+      "name": "destruction/index.html",
+      "degree": 69,
+      "size": 8.938356164383562
     },
     {
       "id": 20,
-      "name": "QLife.html"
+      "name": "aesthetics.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 21,
-      "name": "_downloads.html"
+      "name": "QLife.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 22,
-      "name": "site_graph.html"
+      "name": "_downloads.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 23,
-      "name": "concept/hegel.html"
+      "name": "concept/hegel.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 24,
-      "name": "things/readymade/quotes.html"
+      "name": "things/readymade/quotes.html",
+      "degree": 17,
+      "size": 5.970319634703197
     },
     {
       "id": 25,
-      "name": "ego/index.html"
+      "name": "ego/index.html",
+      "degree": 10,
+      "size": 5.570776255707763
     },
     {
       "id": 26,
-      "name": "ego/statements/index.html"
+      "name": "ego/statements/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 27,
-      "name": "ego/self-exhibits/index.html"
+      "name": "ego/self-exhibits/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 28,
-      "name": "ego/selfportraits/index.html"
+      "name": "ego/selfportraits/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 29,
-      "name": "ego/ben.html"
+      "name": "ego/ben.html",
+      "degree": 12,
+      "size": 5.684931506849315
     },
     {
       "id": 30,
-      "name": "concept/tautology/ben/index.html"
+      "name": "concept/tautology/ben/index.html",
+      "degree": 11,
+      "size": 5.627853881278539
     },
     {
       "id": 31,
-      "name": "something/blocks/index.html"
+      "name": "something/blocks/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 32,
-      "name": "something/balls/index.html"
+      "name": "something/balls/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 33,
-      "name": "something/bags/index.html"
+      "name": "something/bags/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 34,
-      "name": "something/poles/index.html"
+      "name": "something/poles/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 35,
-      "name": "something/rolls/index.html"
+      "name": "something/rolls/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 36,
-      "name": "informe/index.html"
+      "name": "informe/index.html",
+      "degree": 44,
+      "size": 7.511415525114155
     },
     {
       "id": 37,
-      "name": "things/readymade/index.html"
+      "name": "things/readymade/index.html",
+      "degree": 17,
+      "size": 5.970319634703197
     },
     {
       "id": 38,
-      "name": "kinetics/gravity/stasis.html"
+      "name": "kinetics/gravity/stasis.html",
+      "degree": 22,
+      "size": 6.255707762557078
     },
     {
       "id": 39,
-      "name": "kinetics/gravity/Stand/index.html"
+      "name": "kinetics/gravity/Stand/index.html",
+      "degree": 14,
+      "size": 5.799086757990867
     },
     {
       "id": 40,
-      "name": "kinetics/gravity/Lean/index.html"
+      "name": "kinetics/gravity/Lean/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 41,
-      "name": "kinetics/gravity/Lie/index.html"
+      "name": "kinetics/gravity/Lie/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 42,
-      "name": "kinetics/gravity/Float/index.html"
+      "name": "kinetics/gravity/Float/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 43,
-      "name": "kinetics/gravity/stretch/index.html"
+      "name": "kinetics/gravity/stretch/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 44,
-      "name": "kinetics/gravity/Suspension/index.html"
+      "name": "kinetics/gravity/Suspension/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 45,
-      "name": "kinetics/gravity/tether/index.html"
+      "name": "kinetics/gravity/tether/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 46,
-      "name": "kinetics/gravity/clamp/index.html"
+      "name": "kinetics/gravity/clamp/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 47,
-      "name": "kinetics/gravity/topple/index.html"
+      "name": "kinetics/gravity/topple/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 48,
-      "name": "kinetics/gravity/Hoist/index.html"
+      "name": "kinetics/gravity/Hoist/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 49,
-      "name": "kinetics/gravity/Drop/index.html"
+      "name": "kinetics/gravity/Drop/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 50,
-      "name": "kinetics/gravity/drip/index.html"
+      "name": "kinetics/gravity/drip/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 51,
-      "name": "kinetics/gravity/Throw/index.html"
+      "name": "kinetics/gravity/Throw/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 52,
-      "name": "kinetics/gravity/pour/index.html"
+      "name": "kinetics/gravity/pour/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 53,
-      "name": "kinetics/gravity/Jump/index.html"
+      "name": "kinetics/gravity/Jump/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 54,
-      "name": "kinetics/gravity/Dive/index.html"
+      "name": "kinetics/gravity/Dive/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 55,
-      "name": "kinetics/gravity/Fly/index.html"
+      "name": "kinetics/gravity/Fly/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 56,
-      "name": "kinetics/gravity/Fall/index.html"
+      "name": "kinetics/gravity/Fall/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 57,
-      "name": "kinetics/Turn/index.html"
+      "name": "kinetics/Turn/index.html",
+      "degree": 22,
+      "size": 6.255707762557078
     },
     {
       "id": 58,
-      "name": "kinetics/Spin/index.html"
+      "name": "kinetics/Spin/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 59,
-      "name": "kinetics/StandingWaves/index.html"
+      "name": "kinetics/StandingWaves/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 60,
-      "name": "kinetics/gravity/rock/index.html"
+      "name": "kinetics/gravity/rock/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 61,
-      "name": "kinetics/gravity/roll/index.html"
+      "name": "kinetics/gravity/roll/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 62,
-      "name": "kinetics/gravity/swing/index.html"
+      "name": "kinetics/gravity/swing/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 63,
-      "name": "kinetics/Shove/index.html"
+      "name": "kinetics/Shove/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 64,
-      "name": "kinetics/light/index.html"
+      "name": "kinetics/light/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 65,
-      "name": "AlgorithmicArt/movement/index.html"
+      "name": "AlgorithmicArt/movement/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 66,
-      "name": "kinetics/inutile.html"
+      "name": "kinetics/inutile.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 67,
-      "name": "kinetics/RigidBodies.html"
+      "name": "kinetics/RigidBodies.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 68,
-      "name": "process/vibration/metamatic/index.html"
+      "name": "process/vibration/metamatic/index.html",
+      "degree": 17,
+      "size": 5.970319634703197
     },
     {
       "id": 69,
-      "name": "kinetics/gravity/Drop/MotionLawExperiments.html"
+      "name": "kinetics/gravity/Drop/MotionLawExperiments.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 70,
-      "name": "kinetics/gravity/Stand/Build/buildings.html"
+      "name": "kinetics/gravity/Stand/Build/buildings.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 71,
-      "name": "kinetics/gravity/Stand/HighPedestals/index.html"
+      "name": "kinetics/gravity/Stand/HighPedestals/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 72,
-      "name": "kinetics/gravity/Stand/obelisk/index.html"
+      "name": "kinetics/gravity/Stand/obelisk/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 73,
-      "name": "kinetics/gravity/Stand/column/index.html"
+      "name": "kinetics/gravity/Stand/column/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 74,
-      "name": "kinetics/gravity/Stand/plane/index.html"
+      "name": "kinetics/gravity/Stand/plane/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 75,
-      "name": "kinetics/Turn/SimpleRotation/index.html"
+      "name": "kinetics/Turn/SimpleRotation/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 76,
-      "name": "kinetics/Turn/MobilesAMoteur/index.html"
+      "name": "kinetics/Turn/MobilesAMoteur/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 77,
-      "name": "kinetics/Turn/MobilesAMain/index.html"
+      "name": "kinetics/Turn/MobilesAMain/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 78,
-      "name": "kinetics/Turn/GearsBelts/HeinrichAntonMueller/index.html"
+      "name": "kinetics/Turn/GearsBelts/HeinrichAntonMueller/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 79,
-      "name": "kinetics/Turn/GearsBelts/tinguely/index.html"
+      "name": "kinetics/Turn/GearsBelts/tinguely/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 80,
-      "name": "kinetics/Turn/KineticPainting/tinguely/index.html"
+      "name": "kinetics/Turn/KineticPainting/tinguely/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 81,
-      "name": "kinetics/Turn/KineticPainting/VonGraevenitz/index.html"
+      "name": "kinetics/Turn/KineticPainting/VonGraevenitz/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 82,
-      "name": "kinetics/Turn/Planetariums/index.html"
+      "name": "kinetics/Turn/Planetariums/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 83,
-      "name": "node_modules/tryer/test/index.html"
+      "name": "node_modules/tryer/test/index.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 84,
-      "name": "node_modules/tslib/tslib.es6.html"
+      "name": "node_modules/tslib/tslib.es6.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 85,
-      "name": "node_modules/tslib/tslib.html"
+      "name": "node_modules/tslib/tslib.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 86,
-      "name": "node_modules/tsutils/node_modules/tslib/tslib.es6.html"
+      "name": "node_modules/tsutils/node_modules/tslib/tslib.es6.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 87,
-      "name": "node_modules/tsutils/node_modules/tslib/tslib.html"
+      "name": "node_modules/tsutils/node_modules/tslib/tslib.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 88,
-      "name": "node_modules/sprintf-js/demo/angular.html"
+      "name": "node_modules/sprintf-js/demo/angular.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 89,
-      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/dynamic-import/build/runner.html"
+      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/dynamic-import/build/runner.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 90,
-      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/import-meta-worker/build/runner.html"
+      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/import-meta-worker/build/runner.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 91,
-      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/more-workers/build/runner.html"
+      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/more-workers/build/runner.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 92,
-      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/public-path/build/runner.html"
+      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/public-path/build/runner.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 93,
-      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/module-worker/build/runner.html"
+      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/module-worker/build/runner.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 94,
-      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/import-worker-url/build/runner.html"
+      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/import-worker-url/build/runner.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 95,
-      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/assets-in-worker/build/runner.html"
+      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/assets-in-worker/build/runner.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 96,
-      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/single-default/build/runner.html"
+      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/single-default/build/runner.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 97,
-      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/amd-function-name/build/runner.html"
+      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/amd-function-name/build/runner.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 98,
-      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/import-meta/build/runner.html"
+      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/import-meta/build/runner.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 99,
-      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/import-worker-url-custom-scheme/build/runner.html"
+      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/import-worker-url-custom-scheme/build/runner.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 100,
-      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/simple-bundle/build/runner.html"
+      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/simple-bundle/build/runner.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 101,
-      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/worker/build/runner.html"
+      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/worker/build/runner.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 102,
-      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/url-import-meta-worker/build/runner.html"
+      "name": "node_modules/@surma/rollup-plugin-off-main-thread/tests/fixtures/url-import-meta-worker/build/runner.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 103,
-      "name": "node_modules/terser/tools/props.html"
+      "name": "node_modules/terser/tools/props.html",
+      "degree": 0,
+      "size": 5.0
     },
     {
       "id": 104,
-      "name": "node_modules/serve-index/public/directory.html"
+      "name": "node_modules/serve-index/public/directory.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 105,
-      "name": "../../../../../index.html"
+      "name": "../../../../../index.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 106,
-      "name": "everything/all.html"
+      "name": "everything/all.html",
+      "degree": 10,
+      "size": 5.570776255707763
     },
     {
       "id": 107,
-      "name": "everything/64Kienholz/64TheWorld-Text.jpg"
+      "name": "everything/64Kienholz/64TheWorld-Text.jpg",
+      "degree": 2,
+      "size": 5.114155251141552
     },
     {
       "id": 108,
-      "name": "things/index.html"
+      "name": "things/index.html",
+      "degree": 52,
+      "size": 7.968036529680365
     },
     {
       "id": 109,
-      "name": "nature/index.html"
+      "name": "nature/index.html",
+      "degree": 13,
+      "size": 5.742009132420091
     },
     {
       "id": 110,
-      "name": "AlgorithmicArt/Artificial.html"
+      "name": "AlgorithmicArt/Artificial.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 111,
-      "name": "Life/Breathing.html"
+      "name": "Life/Breathing.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 112,
-      "name": "Life/LifeIsArtwork.html"
+      "name": "Life/LifeIsArtwork.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 113,
-      "name": "Life/EveryoneShallBeAnArtist.html"
+      "name": "Life/EveryoneShallBeAnArtist.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 114,
-      "name": "Life/LifeAboveArt.html"
+      "name": "Life/LifeAboveArt.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 115,
-      "name": "Life/Soul.html"
+      "name": "Life/Soul.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 116,
-      "name": "things/readymade/aesthetics_of_reality.html"
+      "name": "things/readymade/aesthetics_of_reality.html",
+      "degree": 9,
+      "size": 5.513698630136986
     },
     {
       "id": 117,
-      "name": "Life/EveryoneIsAnArtist.html"
+      "name": "Life/EveryoneIsAnArtist.html",
+      "degree": 2,
+      "size": 5.114155251141552
     },
     {
       "id": 118,
-      "name": "Life/Dandyism.html"
+      "name": "Life/Dandyism.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 119,
-      "name": "Life/TheArtistsLife.html"
+      "name": "Life/TheArtistsLife.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 120,
-      "name": "Life/PerformanceArt.html"
+      "name": "Life/PerformanceArt.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 121,
-      "name": "Life/LifeWillBeArt.html"
+      "name": "Life/LifeWillBeArt.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 122,
-      "name": "Life/ArtShallBeReligion.html"
+      "name": "Life/ArtShallBeReligion.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 123,
-      "name": "Life/Maeterlinck.html"
+      "name": "Life/Maeterlinck.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 124,
-      "name": "destruction/NaturalDisasters/index.html"
+      "name": "destruction/NaturalDisasters/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 125,
-      "name": "physics/index.html"
+      "name": "physics/index.html",
+      "degree": 9,
+      "size": 5.513698630136986
     },
     {
       "id": 126,
-      "name": "process/vibration/animal/index.html"
+      "name": "process/vibration/animal/index.html",
+      "degree": 12,
+      "size": 5.684931506849315
     },
     {
       "id": 127,
-      "name": "nature/Quotes.html"
+      "name": "nature/Quotes.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 128,
-      "name": "anything/NImporteQuoi/index.html"
+      "name": "anything/NImporteQuoi/index.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 129,
-      "name": "anything/bugs.html"
+      "name": "anything/bugs.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 130,
-      "name": "anything/OpenForm/DIYSculpture.html"
+      "name": "anything/OpenForm/DIYSculpture.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 131,
-      "name": "anything/OpenForm/FlexibleSculpture.html"
+      "name": "anything/OpenForm/FlexibleSculpture.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 132,
-      "name": "anything/OpenForm/DIYDrawing.html"
+      "name": "anything/OpenForm/DIYDrawing.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 133,
-      "name": "anything/OpenForm/DIYInstallation.html"
+      "name": "anything/OpenForm/DIYInstallation.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 134,
-      "name": "anything/OpenForm/RearrangeablePainting.html"
+      "name": "anything/OpenForm/RearrangeablePainting.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 135,
-      "name": "AlgorithmicArt/interactivity.html"
+      "name": "AlgorithmicArt/interactivity.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 136,
-      "name": "anything/OpenForm/Music.html"
+      "name": "anything/OpenForm/Music.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 137,
-      "name": "AlgorithmicArt/grid/modular/index.html"
+      "name": "AlgorithmicArt/grid/modular/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 138,
-      "name": "destruction/ArtificialDisasters/WTC/index.html"
+      "name": "destruction/ArtificialDisasters/WTC/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 139,
-      "name": "nothing/music/silence/index.html"
+      "name": "nothing/music/silence/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 140,
-      "name": "concept/wiskunde.html"
+      "name": "concept/wiskunde.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 141,
-      "name": "concept/scores.html"
+      "name": "concept/scores.html",
+      "degree": 23,
+      "size": 6.312785388127853
     },
     {
       "id": 142,
-      "name": "concept/weiner/index.html"
+      "name": "concept/weiner/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 143,
-      "name": "concept/LeWitt/index.html"
+      "name": "concept/LeWitt/index.html",
+      "degree": 14,
+      "size": 5.799086757990867
     },
     {
       "id": 144,
-      "name": "concept/MetaConcepts/index.html"
+      "name": "concept/MetaConcepts/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 145,
-      "name": "nothing/concept/index.html"
+      "name": "nothing/concept/index.html",
+      "degree": 10,
+      "size": 5.570776255707763
     },
     {
       "id": 146,
-      "name": "concept/QuoteCollections.html"
+      "name": "concept/QuoteCollections.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 147,
-      "name": "concept/tautology/index.html"
+      "name": "concept/tautology/index.html",
+      "degree": 50,
+      "size": 7.853881278538813
     },
     {
       "id": 148,
-      "name": "concept/paradox/index.html"
+      "name": "concept/paradox/index.html",
+      "degree": 11,
+      "size": 5.627853881278539
     },
     {
       "id": 149,
-      "name": "concept/flynt.html"
+      "name": "concept/flynt.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 150,
-      "name": "concept/Words/index.html"
+      "name": "concept/Words/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 151,
-      "name": "concept/WordConstellations/index.html"
+      "name": "concept/WordConstellations/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 152,
-      "name": "concept/SpeechActs/index.html"
+      "name": "concept/SpeechActs/index.html",
+      "degree": 21,
+      "size": 6.198630136986301
     },
     {
       "id": 153,
-      "name": "concept/FoundText/index.html"
+      "name": "concept/FoundText/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 154,
-      "name": "concept/Arithmetic/index.html"
+      "name": "concept/Arithmetic/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 155,
-      "name": "AlgorithmicArt/enumeration/index.html"
+      "name": "AlgorithmicArt/enumeration/index.html",
+      "degree": 15,
+      "size": 5.8561643835616435
     },
     {
       "id": 156,
-      "name": "concept/fluxus-exercise.html"
+      "name": "concept/fluxus-exercise.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 157,
-      "name": "concept/perls.html"
+      "name": "concept/perls.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 158,
-      "name": "concept/invisible.html"
+      "name": "concept/invisible.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 159,
-      "name": "concept/fluxus-theatre.html"
+      "name": "concept/fluxus-theatre.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 160,
-      "name": "concept/fluxus-music.html"
+      "name": "concept/fluxus-music.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 161,
-      "name": "concept/impossible.html"
+      "name": "concept/impossible.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 162,
-      "name": "concept/LeWitt/paragraphs.html"
+      "name": "concept/LeWitt/paragraphs.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 163,
-      "name": "concept/brecht/index.html"
+      "name": "concept/brecht/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 164,
-      "name": "concept/Words/Ben/index.html"
+      "name": "concept/Words/Ben/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 165,
-      "name": "concept/LeWitt/sentences.html"
+      "name": "concept/LeWitt/sentences.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 166,
-      "name": "concept/LeWitt/ostrow.html"
+      "name": "concept/LeWitt/ostrow.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 167,
-      "name": "concept/ArtAboutArt/index.html"
+      "name": "concept/ArtAboutArt/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 168,
-      "name": "concept/ArtAgainstArt/index.html"
+      "name": "concept/ArtAgainstArt/index.html",
+      "degree": 12,
+      "size": 5.684931506849315
     },
     {
       "id": 169,
-      "name": "concept/tautology/Johns/index.html"
+      "name": "concept/tautology/Johns/index.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 170,
-      "name": "concept/tautology/measurement/index.html"
+      "name": "concept/tautology/measurement/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 171,
-      "name": "concept/tautology/anastasi/index.html"
+      "name": "concept/tautology/anastasi/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 172,
-      "name": "nothing/monochrome/back/index.html"
+      "name": "nothing/monochrome/back/index.html",
+      "degree": 10,
+      "size": 5.570776255707763
     },
     {
       "id": 173,
-      "name": "concept/tautology/magritte/index.html"
+      "name": "concept/tautology/magritte/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 174,
-      "name": "concept/tautology/Indiana/index.html"
+      "name": "concept/tautology/Indiana/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 175,
-      "name": "nothing/depiction/maps/index.html"
+      "name": "nothing/depiction/maps/index.html",
+      "degree": 10,
+      "size": 5.570776255707763
     },
     {
       "id": 176,
-      "name": "concept/tautology/selfdasm.zip"
+      "name": "concept/tautology/selfdasm.zip",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 177,
-      "name": "concept/tautology/OnKawara/index.html"
+      "name": "concept/tautology/OnKawara/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 178,
-      "name": "concept/tautology/kosuth/index.html"
+      "name": "concept/tautology/kosuth/index.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 179,
-      "name": "concept/tautology/99StefanBrueggemann/index.html"
+      "name": "concept/tautology/99StefanBrueggemann/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 180,
-      "name": "concept/tautology/photo/index.html"
+      "name": "concept/tautology/photo/index.html",
+      "degree": 9,
+      "size": 5.513698630136986
     },
     {
       "id": 181,
-      "name": "concept/tautology/video/index.html"
+      "name": "concept/tautology/video/index.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 182,
-      "name": "concept/ArtAgainstArt/Reimann.html"
+      "name": "concept/ArtAgainstArt/Reimann.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 183,
-      "name": "concept/ArtAgainstArt/Ben/index.html"
+      "name": "concept/ArtAgainstArt/Ben/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 184,
-      "name": "concept/SpeechActs/1stPersonReports/index.html"
+      "name": "concept/SpeechActs/1stPersonReports/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 185,
-      "name": "concept/SpeechActs/Assertions/index.html"
+      "name": "concept/SpeechActs/Assertions/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 186,
-      "name": "concept/SpeechActs/Questions/index.html"
+      "name": "concept/SpeechActs/Questions/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 187,
-      "name": "concept/SpeechActs/Answers/index.html"
+      "name": "concept/SpeechActs/Answers/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 188,
-      "name": "concept/SpeechActs/Performatives/index.html"
+      "name": "concept/SpeechActs/Performatives/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 189,
-      "name": "concept/SpeechActs/Imperatives/index.html"
+      "name": "concept/SpeechActs/Imperatives/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 190,
-      "name": "concept/SpeechActs/Accusations/index.html"
+      "name": "concept/SpeechActs/Accusations/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 191,
-      "name": "concept/SpeechActs/AdviceEtc/index.html"
+      "name": "concept/SpeechActs/AdviceEtc/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 192,
-      "name": "concept/SpeechActs/Answers/file:/Macintosh%20HD/Users/scha/Sites/home.html"
+      "name": "concept/SpeechActs/Answers/file:/Macintosh%20HD/Users/scha/Sites/home.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 193,
-      "name": "nothing/quotes.html"
+      "name": "nothing/quotes.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 194,
-      "name": "nothing/index-visual.html"
+      "name": "nothing/index-visual.html",
+      "degree": 41,
+      "size": 7.340182648401827
     },
     {
       "id": 195,
-      "name": "nothing/text/index.html"
+      "name": "nothing/text/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 196,
-      "name": "nothing/web.html"
+      "name": "nothing/web.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 197,
-      "name": "physics/vacuum/index.html"
+      "name": "physics/vacuum/index.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 198,
-      "name": "nothing/concept/NoShow/index.html"
+      "name": "nothing/concept/NoShow/index.html",
+      "degree": 10,
+      "size": 5.570776255707763
     },
     {
       "id": 199,
-      "name": "nothing/space/index.html"
+      "name": "nothing/space/index.html",
+      "degree": 31,
+      "size": 6.769406392694064
     },
     {
       "id": 200,
-      "name": "nothing/space/frames/index.html"
+      "name": "nothing/space/frames/index.html",
+      "degree": 17,
+      "size": 5.970319634703197
     },
     {
       "id": 201,
-      "name": "nothing/darkness/index.html"
+      "name": "nothing/darkness/index.html",
+      "degree": 13,
+      "size": 5.742009132420091
     },
     {
       "id": 202,
-      "name": "nothing/blindness/index.html"
+      "name": "nothing/blindness/index.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 203,
-      "name": "things/wrapped/index.html"
+      "name": "things/wrapped/index.html",
+      "degree": 31,
+      "size": 6.769406392694064
     },
     {
       "id": 204,
-      "name": "nothing/cover-up/bury/index.html"
+      "name": "nothing/cover-up/bury/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 205,
-      "name": "nothing/cover-up/Uebermalung/index.html"
+      "name": "nothing/cover-up/Uebermalung/index.html",
+      "degree": 15,
+      "size": 5.8561643835616435
     },
     {
       "id": 206,
-      "name": "nothing/cover-up/cover/index.html"
+      "name": "nothing/cover-up/cover/index.html",
+      "degree": 20,
+      "size": 6.141552511415525
     },
     {
       "id": 207,
-      "name": "nothing/cover-up/box/index.html"
+      "name": "nothing/cover-up/box/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 208,
-      "name": "nothing/invisible/index.html"
+      "name": "nothing/invisible/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 209,
-      "name": "nothing/invisible/electromagnetic.html"
+      "name": "nothing/invisible/electromagnetic.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 210,
-      "name": "nothing/depiction/index.html"
+      "name": "nothing/depiction/index.html",
+      "degree": 9,
+      "size": 5.513698630136986
     },
     {
       "id": 211,
-      "name": "nothing/monochrome/Incoherents/index.html"
+      "name": "nothing/monochrome/Incoherents/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 212,
-      "name": "nothing/monochrome/MalevichRodchenko/index.html"
+      "name": "nothing/monochrome/MalevichRodchenko/index.html",
+      "degree": 9,
+      "size": 5.513698630136986
     },
     {
       "id": 213,
-      "name": "nothing/space/klein/index.html"
+      "name": "nothing/space/klein/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 214,
-      "name": "nothing/monochrome/Rauschenberg/index.html"
+      "name": "nothing/monochrome/Rauschenberg/index.html",
+      "degree": 9,
+      "size": 5.513698630136986
     },
     {
       "id": 215,
-      "name": "nothing/monochrome/black/index.html"
+      "name": "nothing/monochrome/black/index.html",
+      "degree": 19,
+      "size": 6.084474885844749
     },
     {
       "id": 216,
-      "name": "nothing/monochrome/white/index.html"
+      "name": "nothing/monochrome/white/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 217,
-      "name": "nothing/monochrome/grey/index.html"
+      "name": "nothing/monochrome/grey/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 218,
-      "name": "nothing/monochrome/gold/index.html"
+      "name": "nothing/monochrome/gold/index.html",
+      "degree": 10,
+      "size": 5.570776255707763
     },
     {
       "id": 219,
-      "name": "nothing/monochrome/colored/index.html"
+      "name": "nothing/monochrome/colored/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 220,
-      "name": "nothing/mirrors/index.html"
+      "name": "nothing/mirrors/index.html",
+      "degree": 24,
+      "size": 6.36986301369863
     },
     {
       "id": 221,
-      "name": "nothing/monochrome/light/index.html"
+      "name": "nothing/monochrome/light/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 222,
-      "name": "nothing/monochrome/1D/index.html"
+      "name": "nothing/monochrome/1D/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 223,
-      "name": "nothing/monochrome/Rauschenberg/file:/G3%20HD/index.html"
+      "name": "nothing/monochrome/Rauschenberg/file:/G3%20HD/index.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 224,
-      "name": "nothing/monochrome/back/Lichtenstein/index.html"
+      "name": "nothing/monochrome/back/Lichtenstein/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 225,
-      "name": "nothing/monochrome/MalevichRodchenko/suprematism.html"
+      "name": "nothing/monochrome/MalevichRodchenko/suprematism.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 226,
-      "name": "things/cast/index.html"
+      "name": "things/cast/index.html",
+      "degree": 10,
+      "size": 5.570776255707763
     },
     {
       "id": 227,
-      "name": "nothing/space/holes/BurriJute/index.html"
+      "name": "nothing/space/holes/BurriJute/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 228,
-      "name": "nothing/monochrome/gold/klein/index.html"
+      "name": "nothing/monochrome/gold/klein/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 229,
-      "name": "nothing/monochrome/gold/MathiasGoeritz/index.html"
+      "name": "nothing/monochrome/gold/MathiasGoeritz/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 230,
-      "name": "nothing/monochrome/depiction/index.html"
+      "name": "nothing/monochrome/depiction/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 231,
-      "name": "nothing/monochrome/depiction/RogerRaveel/index.html"
+      "name": "nothing/monochrome/depiction/RogerRaveel/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 232,
-      "name": "nothing/monochrome/black/HerbertZangs/index.html"
+      "name": "nothing/monochrome/black/HerbertZangs/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 233,
-      "name": "nothing/cover-up/Uebermalung/Soulages/index.html"
+      "name": "nothing/cover-up/Uebermalung/Soulages/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 234,
-      "name": "nothing/cover-up/Uebermalung/Rainer/index.html"
+      "name": "nothing/cover-up/Uebermalung/Rainer/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 235,
-      "name": "nothing/monochrome/1D/file:/G3%20HD/index.html"
+      "name": "nothing/monochrome/1D/file:/G3%20HD/index.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 236,
-      "name": "nothing/music/monotone/index.html"
+      "name": "nothing/music/monotone/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 237,
-      "name": "nothing/music/monotone/file:/G3%20HD/index.html"
+      "name": "nothing/music/monotone/file:/G3%20HD/index.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 238,
-      "name": "nothing/mirrors/Kapoor/index.html"
+      "name": "nothing/mirrors/Kapoor/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 239,
-      "name": "nothing/mirrors/koons/index.html"
+      "name": "nothing/mirrors/koons/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 240,
-      "name": "nothing/mirrors/Lichtenstein/index.html"
+      "name": "nothing/mirrors/Lichtenstein/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 241,
-      "name": "nothing/mirrors/luther/index.html"
+      "name": "nothing/mirrors/luther/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 242,
-      "name": "nothing/mirrors/HeinzMack/index.html"
+      "name": "nothing/mirrors/HeinzMack/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 243,
-      "name": "nothing/mirrors/ChristianMegert/index.html"
+      "name": "nothing/mirrors/ChristianMegert/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 244,
-      "name": "nothing/mirrors/Pistoletto/index.html"
+      "name": "nothing/mirrors/Pistoletto/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 245,
-      "name": "nothing/mirrors/Richter/index.html"
+      "name": "nothing/mirrors/Richter/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 246,
-      "name": "nothing/darkness/kapoor.html"
+      "name": "nothing/darkness/kapoor.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 247,
-      "name": "gif/buttons/blue16.gif"
+      "name": "gif/buttons/blue16.gif",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 248,
-      "name": "nothing/concept/rien/index.html"
+      "name": "nothing/concept/rien/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 249,
-      "name": "nothing/concept/secret/index.html"
+      "name": "nothing/concept/secret/index.html",
+      "degree": 21,
+      "size": 6.198630136986301
     },
     {
       "id": 250,
-      "name": "nothing/space/vide/room.html"
+      "name": "nothing/space/vide/room.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 251,
-      "name": "things/wrapped/Christo/index.html"
+      "name": "things/wrapped/Christo/index.html",
+      "degree": 9,
+      "size": 5.513698630136986
     },
     {
       "id": 252,
-      "name": "nothing/cover-up/cover/christo/index.html"
+      "name": "nothing/cover-up/cover/christo/index.html",
+      "degree": 9,
+      "size": 5.513698630136986
     },
     {
       "id": 253,
-      "name": "nothing/depiction/romantic/index.html"
+      "name": "nothing/depiction/romantic/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 254,
-      "name": "nothing/depiction/realist/index.html"
+      "name": "nothing/depiction/realist/index.html",
+      "degree": 9,
+      "size": 5.513698630136986
     },
     {
       "id": 255,
-      "name": "nothing/text/reimann.html"
+      "name": "nothing/text/reimann.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 256,
-      "name": "nothing/cover-up/cover/RotellaCopertura/index.html"
+      "name": "nothing/cover-up/cover/RotellaCopertura/index.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 257,
-      "name": "things/wrapped/Delete/index.html"
+      "name": "things/wrapped/Delete/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 258,
-      "name": "process/tear/Rotella/index.html"
+      "name": "process/tear/Rotella/index.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 259,
-      "name": "nothing/space/vide/spot.html"
+      "name": "nothing/space/vide/spot.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 260,
-      "name": "nothing/space/containers/index.html"
+      "name": "nothing/space/containers/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 261,
-      "name": "nothing/space/holes/index.html"
+      "name": "nothing/space/holes/index.html",
+      "degree": 34,
+      "size": 6.940639269406392
     },
     {
       "id": 262,
-      "name": "nothing/space/vide/index.html"
+      "name": "nothing/space/vide/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 263,
-      "name": "nothing/space/frames/SiegfriedCremer/index.html"
+      "name": "nothing/space/frames/SiegfriedCremer/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 264,
-      "name": "nothing/space/frames/ChristianEckart/index.html"
+      "name": "nothing/space/frames/ChristianEckart/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 265,
-      "name": "nothing/space/frames/GeroldMiller/index.html"
+      "name": "nothing/space/frames/GeroldMiller/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 266,
-      "name": "nothing/space/holes/klein/index.html"
+      "name": "nothing/space/holes/klein/index.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 267,
-      "name": "nothing/space/holes/BarbaraHepworth/index.html"
+      "name": "nothing/space/holes/BarbaraHepworth/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 268,
-      "name": "process/burn/burri/index.html"
+      "name": "process/burn/burri/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 269,
-      "name": "nothing/space/holes/ManoloMillares/index.html"
+      "name": "nothing/space/holes/ManoloMillares/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 270,
-      "name": "nothing/space/holes/Fontana/index.html"
+      "name": "nothing/space/holes/Fontana/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 271,
-      "name": "nothing/space/holes/LeeBontecou/index.html"
+      "name": "nothing/space/holes/LeeBontecou/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 272,
-      "name": "nothing/space/holes/Ben/index.html"
+      "name": "nothing/space/holes/Ben/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 273,
-      "name": "nothing/space/holes/MichaelHeizer/index.html"
+      "name": "nothing/space/holes/MichaelHeizer/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 274,
-      "name": "nothing/space/holes/StevenParrino/index.html"
+      "name": "nothing/space/holes/StevenParrino/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 275,
-      "name": "nothing/space/holes/MaryellenLatas/index.html"
+      "name": "nothing/space/holes/MaryellenLatas/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 276,
-      "name": "nothing/space/holes/GeroldMiller/index.html"
+      "name": "nothing/space/holes/GeroldMiller/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 277,
-      "name": "destruction/slash/Fontana/index.html"
+      "name": "destruction/slash/Fontana/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 278,
-      "name": "process/burn/klein/index.html"
+      "name": "process/burn/klein/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 279,
-      "name": "nothing/space/klein/blue.html"
+      "name": "nothing/space/klein/blue.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 280,
-      "name": "process/blast/index.html"
+      "name": "process/blast/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 281,
-      "name": "process/burn/index.html"
+      "name": "process/burn/index.html",
+      "degree": 24,
+      "size": 6.36986301369863
     },
     {
       "id": 282,
-      "name": "destruction/dissolve/index.html"
+      "name": "destruction/dissolve/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 283,
-      "name": "process/grind/index.html"
+      "name": "process/grind/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 284,
-      "name": "destruction/pierce/index.html"
+      "name": "destruction/pierce/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 285,
-      "name": "destruction/rip/index.html"
+      "name": "destruction/rip/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 286,
-      "name": "process/rub/index.html"
+      "name": "process/rub/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 287,
-      "name": "process/shatter/index.html"
+      "name": "process/shatter/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 288,
-      "name": "destruction/slice/index.html"
+      "name": "destruction/slice/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 289,
-      "name": "process/smash/index.html"
+      "name": "process/smash/index.html",
+      "degree": 20,
+      "size": 6.141552511415525
     },
     {
       "id": 290,
-      "name": "process/squeeze/index.html"
+      "name": "process/squeeze/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 291,
-      "name": "process/implosion/index.html"
+      "name": "process/implosion/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 292,
-      "name": "process/tear/index.html"
+      "name": "process/tear/index.html",
+      "degree": 14,
+      "size": 5.799086757990867
     },
     {
       "id": 293,
-      "name": "destruction/wipe/index.html"
+      "name": "destruction/wipe/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 294,
-      "name": "destruction/Accidents/index.html"
+      "name": "destruction/Accidents/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 295,
-      "name": "destruction/ArtificialDisasters/index.html"
+      "name": "destruction/ArtificialDisasters/index.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 296,
-      "name": "destruction/architecture.html"
+      "name": "destruction/architecture.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 297,
-      "name": "destruction/assassination/index.html"
+      "name": "destruction/assassination/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 298,
-      "name": "destruction/metzger.html"
+      "name": "destruction/metzger.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 299,
-      "name": "destruction/ArtificialDisasters/AtomBomb/index.html"
+      "name": "destruction/ArtificialDisasters/AtomBomb/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 300,
-      "name": "destruction/ArtificialDisasters/GulfWar.html"
+      "name": "destruction/ArtificialDisasters/GulfWar.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 301,
-      "name": "destruction/NaturalDisasters/warhol/index.html"
+      "name": "destruction/NaturalDisasters/warhol/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 302,
-      "name": "informe/hang/index.html"
+      "name": "informe/hang/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 303,
-      "name": "informe/tangle/index.html"
+      "name": "informe/tangle/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 304,
-      "name": "informe/jumble/index.html"
+      "name": "informe/jumble/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 305,
-      "name": "informe/litter/index.html"
+      "name": "informe/litter/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 306,
-      "name": "informe/mound/index.html"
+      "name": "informe/mound/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 307,
-      "name": "informe/heap/index.html"
+      "name": "informe/heap/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 308,
-      "name": "informe/junk/index.html"
+      "name": "informe/junk/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 309,
-      "name": "informe/foam/index.html"
+      "name": "informe/foam/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 310,
-      "name": "informe/fluff/index.html"
+      "name": "informe/fluff/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 311,
-      "name": "informe/mud/index.html"
+      "name": "informe/mud/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 312,
-      "name": "informe/dirt/index.html"
+      "name": "informe/dirt/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 313,
-      "name": "informe/Fat/index.html"
+      "name": "informe/Fat/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 314,
-      "name": "informe/junk/trash.html"
+      "name": "informe/junk/trash.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 315,
-      "name": "informe/Viscosity/index.html"
+      "name": "informe/Viscosity/index.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 316,
-      "name": "informe/mess/index.html"
+      "name": "informe/mess/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 317,
-      "name": "informe/Viscosity/Cesar/index.html"
+      "name": "informe/Viscosity/Cesar/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 318,
-      "name": "informe/Viscosity/LyndaBenglis/index.html"
+      "name": "informe/Viscosity/LyndaBenglis/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 319,
-      "name": "informe/Viscosity/RoxyPaine/index.html"
+      "name": "informe/Viscosity/RoxyPaine/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 320,
-      "name": "things/copied/index.html"
+      "name": "things/copied/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 321,
-      "name": "things/art-copied/index.html"
+      "name": "things/art-copied/index.html",
+      "degree": 23,
+      "size": 6.312785388127853
     },
     {
       "id": 322,
-      "name": "things/composite/stacks/index.html"
+      "name": "things/composite/stacks/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 323,
-      "name": "things/composite/collections/index.html"
+      "name": "things/composite/collections/index.html",
+      "degree": 12,
+      "size": 5.684931506849315
     },
     {
       "id": 324,
-      "name": "things/composite/CombinePaintings/index.html"
+      "name": "things/composite/CombinePaintings/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 325,
-      "name": "things/painted/index.html"
+      "name": "things/painted/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 326,
-      "name": "things/immersed/index.html"
+      "name": "things/immersed/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 327,
-      "name": "things/covered/index.html"
+      "name": "things/covered/index.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 328,
-      "name": "things/enlarged/index.html"
+      "name": "things/enlarged/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 329,
-      "name": "things/readymade/literature.html"
+      "name": "things/readymade/literature.html",
+      "degree": 11,
+      "size": 5.627853881278539
     },
     {
       "id": 330,
-      "name": "things/readymade/duchamp/text.html"
+      "name": "things/readymade/duchamp/text.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 331,
-      "name": "things/composite/collections/Arman/index.html"
+      "name": "things/composite/collections/Arman/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 332,
-      "name": "things/composite/collections/Spoerri/index.html"
+      "name": "things/composite/collections/Spoerri/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 333,
-      "name": "things/composite/collections/steinbach/index.html"
+      "name": "things/composite/collections/steinbach/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 334,
-      "name": "things/covered/kusama.html"
+      "name": "things/covered/kusama.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 335,
-      "name": "things/wrapped/Magritte/index.html"
+      "name": "things/wrapped/Magritte/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 336,
-      "name": "things/wrapped/ErikDietman/index.html"
+      "name": "things/wrapped/ErikDietman/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 337,
-      "name": "things/wrapped/Muehl/index.html"
+      "name": "things/wrapped/Muehl/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 338,
-      "name": "things/wrapped/ManRay/index.html"
+      "name": "things/wrapped/ManRay/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 339,
-      "name": "things/art-copied/Pettibone/index.html"
+      "name": "things/art-copied/Pettibone/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 340,
-      "name": "things/art-copied/sturtevant/index.html"
+      "name": "things/art-copied/sturtevant/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 341,
-      "name": "things/art-copied/levine/index.html"
+      "name": "things/art-copied/levine/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 342,
-      "name": "things/art-copied/bidlo/index.html"
+      "name": "things/art-copied/bidlo/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 343,
-      "name": "things/art-copied/EricDoeringer/index.html"
+      "name": "things/art-copied/EricDoeringer/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 344,
-      "name": "physics/gravity/index.html"
+      "name": "physics/gravity/index.html",
+      "degree": 11,
+      "size": 5.627853881278539
     },
     {
       "id": 345,
-      "name": "physics/gravity/Drop/index.html"
+      "name": "physics/gravity/Drop/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 346,
-      "name": "physics/gravity/Fall/index.html"
+      "name": "physics/gravity/Fall/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 347,
-      "name": "process/drop/index.html"
+      "name": "process/drop/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 348,
-      "name": "physics/gravity/Drop/MotionLawExperiments.html"
+      "name": "physics/gravity/Drop/MotionLawExperiments.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 349,
-      "name": "AlgorithmicArt/optimization.html"
+      "name": "AlgorithmicArt/optimization.html",
+      "degree": 15,
+      "size": 5.8561643835616435
     },
     {
       "id": 350,
-      "name": "AlgorithmicArt/grammar/index.html"
+      "name": "AlgorithmicArt/grammar/index.html",
+      "degree": 10,
+      "size": 5.570776255707763
     },
     {
       "id": 351,
-      "name": "AlgorithmicArt/algebra/index.html"
+      "name": "AlgorithmicArt/algebra/index.html",
+      "degree": 9,
+      "size": 5.513698630136986
     },
     {
       "id": 352,
-      "name": "AlgorithmicArt/grid/cellular/index.html"
+      "name": "AlgorithmicArt/grid/cellular/index.html",
+      "degree": 14,
+      "size": 5.799086757990867
     },
     {
       "id": 353,
-      "name": "AlgorithmicArt/algebra/SIT/index.html"
+      "name": "AlgorithmicArt/algebra/SIT/index.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 354,
-      "name": "AlgorithmicArt/evolutie.html"
+      "name": "AlgorithmicArt/evolutie.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 355,
-      "name": "AlgorithmicArt/intro.html"
+      "name": "AlgorithmicArt/intro.html",
+      "degree": 31,
+      "size": 6.769406392694064
     },
     {
       "id": 356,
-      "name": "AlgorithmicArt/grid/index.html"
+      "name": "AlgorithmicArt/grid/index.html",
+      "degree": 35,
+      "size": 6.997716894977168
     },
     {
       "id": 357,
-      "name": "AlgorithmicArt/scatter/index.html"
+      "name": "AlgorithmicArt/scatter/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 358,
-      "name": "AlgorithmicArt/line/index.html"
+      "name": "AlgorithmicArt/line/index.html",
+      "degree": 15,
+      "size": 5.8561643835616435
     },
     {
       "id": 359,
-      "name": "AlgorithmicArt/mapping/index.html"
+      "name": "AlgorithmicArt/mapping/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 360,
-      "name": "AlgorithmicArt/moire/index.html"
+      "name": "AlgorithmicArt/moire/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 361,
-      "name": "AlgorithmicArt/links.html"
+      "name": "AlgorithmicArt/links.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 362,
-      "name": "AlgorithmicArt/Quotes.html"
+      "name": "AlgorithmicArt/Quotes.html",
+      "degree": 11,
+      "size": 5.627853881278539
     },
     {
       "id": 363,
-      "name": "AlgorithmicArt/QuotesArtScience.html"
+      "name": "AlgorithmicArt/QuotesArtScience.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 364,
-      "name": "AlgorithmicArt/Nake.html"
+      "name": "AlgorithmicArt/Nake.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 365,
-      "name": "AlgorithmicArt/paint.html"
+      "name": "AlgorithmicArt/paint.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 366,
-      "name": "AlgorithmicArt/Nake95.html"
+      "name": "AlgorithmicArt/Nake95.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 367,
-      "name": "AlgorithmicArt/http:iaaa.nl/artificial/index.html"
+      "name": "AlgorithmicArt/http:iaaa.nl/artificial/index.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 368,
-      "name": "AlgorithmicArt/chance/QChanceArt.html"
+      "name": "AlgorithmicArt/chance/QChanceArt.html",
+      "degree": 8,
+      "size": 5.45662100456621
     },
     {
       "id": 369,
-      "name": "AlgorithmicArt/algebra/AARON/index.html"
+      "name": "AlgorithmicArt/algebra/AARON/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 370,
-      "name": "AlgorithmicArt/grammar/Lindenmayer/index.html"
+      "name": "AlgorithmicArt/grammar/Lindenmayer/index.html",
+      "degree": 10,
+      "size": 5.570776255707763
     },
     {
       "id": 371,
-      "name": "AlgorithmicArt/grammar/ShapeGrammar/index.html"
+      "name": "AlgorithmicArt/grammar/ShapeGrammar/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
     },
     {
       "id": 372,
-      "name": "AlgorithmicArt/grammar/Lindenmayer/L-Opdracht/L-formules.html"
+      "name": "AlgorithmicArt/grammar/Lindenmayer/L-Opdracht/L-formules.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 373,
-      "name": "AlgorithmicArt/grammar/Lindenmayer/L-Opdracht/L-Kooistra.html"
+      "name": "AlgorithmicArt/grammar/Lindenmayer/L-Opdracht/L-Kooistra.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 374,
-      "name": "AlgorithmicArt/grammar/Lindenmayer/L-Opdracht/L-Overtoom.html"
+      "name": "AlgorithmicArt/grammar/Lindenmayer/L-Opdracht/L-Overtoom.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 375,
-      "name": "AlgorithmicArt/grid/every/EveryIcon/index.html"
+      "name": "AlgorithmicArt/grid/every/EveryIcon/index.html",
+      "degree": 11,
+      "size": 5.627853881278539
     },
     {
       "id": 376,
-      "name": "AlgorithmicArt/chance/chance.html"
+      "name": "AlgorithmicArt/chance/chance.html",
+      "degree": 13,
+      "size": 5.742009132420091
     },
     {
       "id": 377,
-      "name": "AlgorithmicArt/chance/RandomNumberTables.html"
+      "name": "AlgorithmicArt/chance/RandomNumberTables.html",
+      "degree": 9,
+      "size": 5.513698630136986
     },
     {
       "id": 378,
-      "name": "AlgorithmicArt/chance/hardware.html"
+      "name": "AlgorithmicArt/chance/hardware.html",
+      "degree": 9,
+      "size": 5.513698630136986
     },
     {
       "id": 379,
-      "name": "AlgorithmicArt/chance/QChance.html"
+      "name": "AlgorithmicArt/chance/QChance.html",
+      "degree": 10,
+      "size": 5.570776255707763
     },
     {
       "id": 380,
-      "name": "AlgorithmicArt/chance/boyle/index.html"
+      "name": "AlgorithmicArt/chance/boyle/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 381,
-      "name": "AlgorithmicArt/grid/cellular/2D/index.html"
+      "name": "AlgorithmicArt/grid/cellular/2D/index.html",
+      "degree": 10,
+      "size": 5.570776255707763
     },
     {
       "id": 382,
-      "name": "AlgorithmicArt/movement/boids.swf"
+      "name": "AlgorithmicArt/movement/boids.swf",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 383,
-      "name": "AlgorithmicArt/grid/abstract/2D/index.html"
+      "name": "AlgorithmicArt/grid/abstract/2D/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 384,
-      "name": "AlgorithmicArt/grid/minimal/checkerboard/index.html"
+      "name": "AlgorithmicArt/grid/minimal/checkerboard/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 385,
-      "name": "AlgorithmicArt/grid/minimal/Empty/index.html"
+      "name": "AlgorithmicArt/grid/minimal/Empty/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 386,
-      "name": "AlgorithmicArt/grid/repetition/index.html"
+      "name": "AlgorithmicArt/grid/repetition/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 387,
-      "name": "AlgorithmicArt/grid/variation/index.html"
+      "name": "AlgorithmicArt/grid/variation/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 388,
-      "name": "AlgorithmicArt/grid/discretization/index.html"
+      "name": "AlgorithmicArt/grid/discretization/index.html",
+      "degree": 12,
+      "size": 5.684931506849315
     },
     {
       "id": 389,
-      "name": "AlgorithmicArt/grid/repetition/62Warhol/index.html"
+      "name": "AlgorithmicArt/grid/repetition/62Warhol/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 390,
-      "name": "AlgorithmicArt/grid/every/EveryIcon/eicon.html"
+      "name": "AlgorithmicArt/grid/every/EveryIcon/eicon.html",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 391,
-      "name": "AlgorithmicArt/grid/any/51-RayJohnson/RayJohnson51CalmCenter-M.jpg"
+      "name": "AlgorithmicArt/grid/any/51-RayJohnson/RayJohnson51CalmCenter-M.jpg",
+      "degree": 2,
+      "size": 5.114155251141552
     },
     {
       "id": 392,
-      "name": "AlgorithmicArt/grid/any/58Morellet/Morellet2-M.jpg"
+      "name": "AlgorithmicArt/grid/any/58Morellet/Morellet2-M.jpg",
+      "degree": 2,
+      "size": 5.114155251141552
     },
     {
       "id": 393,
-      "name": "AlgorithmicArt/grid/cellular/1D/index.html"
+      "name": "AlgorithmicArt/grid/cellular/1D/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 394,
-      "name": "AlgorithmicArt/grid/cellular/3D/index.html"
+      "name": "AlgorithmicArt/grid/cellular/3D/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 395,
-      "name": "AlgorithmicArt/grid/cellular/2D/BelaJulesz/65Computergraphic.jpg"
+      "name": "AlgorithmicArt/grid/cellular/2D/BelaJulesz/65Computergraphic.jpg",
+      "degree": 2,
+      "size": 5.114155251141552
     },
     {
       "id": 396,
-      "name": "AlgorithmicArt/grid/cellular/2D/93Coddington/coddington-93-ising.gif"
+      "name": "AlgorithmicArt/grid/cellular/2D/93Coddington/coddington-93-ising.gif",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 397,
-      "name": "AlgorithmicArt/grid/cellular/2D/93Coddington/coddington93-potts-M.gif"
+      "name": "AlgorithmicArt/grid/cellular/2D/93Coddington/coddington93-potts-M.gif",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 398,
-      "name": "AlgorithmicArt/grid/cellular/2D/93Coddington/O3VectorSpinModel.jpg"
+      "name": "AlgorithmicArt/grid/cellular/2D/93Coddington/O3VectorSpinModel.jpg",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 399,
-      "name": "PDF/Rotator%20Engine.pdf"
+      "name": "PDF/Rotator%20Engine.pdf",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 400,
-      "name": "PDF/Truchet.pdf"
+      "name": "PDF/Truchet.pdf",
+      "degree": 1,
+      "size": 5.057077625570776
     },
     {
       "id": 401,
-      "name": "AlgorithmicArt/grid/discretization/PixelGrids/index.html"
+      "name": "AlgorithmicArt/grid/discretization/PixelGrids/index.html",
+      "degree": 11,
+      "size": 5.627853881278539
     },
     {
       "id": 402,
-      "name": "AlgorithmicArt/grid/discretization/HalfTone/index.html"
+      "name": "AlgorithmicArt/grid/discretization/HalfTone/index.html",
+      "degree": 9,
+      "size": 5.513698630136986
     },
     {
       "id": 403,
-      "name": "AlgorithmicArt/grid/discretization/ASCIIArt/index.html"
+      "name": "AlgorithmicArt/grid/discretization/ASCIIArt/index.html",
+      "degree": 11,
+      "size": 5.627853881278539
     },
     {
       "id": 404,
-      "name": "AlgorithmicArt/grid/discretization/PhotoMosaic/index.html"
+      "name": "AlgorithmicArt/grid/discretization/PhotoMosaic/index.html",
+      "degree": 15,
+      "size": 5.8561643835616435
     },
     {
       "id": 405,
-      "name": "AlgorithmicArt/grid/discretization/PhotoMosaic/RobertSilvers/BillGates.jpg"
+      "name": "AlgorithmicArt/grid/discretization/PhotoMosaic/RobertSilvers/BillGates.jpg",
+      "degree": 2,
+      "size": 5.114155251141552
     },
     {
       "id": 406,
-      "name": "AlgorithmicArt/grid/discretization/PhotoMosaic/RobertSilvers/100DollarBill.jpg"
+      "name": "AlgorithmicArt/grid/discretization/PhotoMosaic/RobertSilvers/100DollarBill.jpg",
+      "degree": 2,
+      "size": 5.114155251141552
     },
     {
       "id": 407,
-      "name": "AlgorithmicArt/grid/discretization/PhotoMosaic/RobertSilvers/Flag.jpg"
+      "name": "AlgorithmicArt/grid/discretization/PhotoMosaic/RobertSilvers/Flag.jpg",
+      "degree": 2,
+      "size": 5.114155251141552
     },
     {
       "id": 408,
-      "name": "process/vibration/chladni-lissajous/index.html"
+      "name": "process/vibration/chladni-lissajous/index.html",
+      "degree": 9,
+      "size": 5.513698630136986
     },
     {
       "id": 409,
-      "name": "process/gravity-liquid/drip/index.html"
+      "name": "process/gravity-liquid/drip/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 410,
-      "name": "process/gravity-liquid/Pour/index.html"
+      "name": "process/gravity-liquid/Pour/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 411,
-      "name": "process/gravity-liquid/flow/index.html"
+      "name": "process/gravity-liquid/flow/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 412,
-      "name": "process/gravity-liquid/throw/index.html"
+      "name": "process/gravity-liquid/throw/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 413,
-      "name": "process/gravity-liquid/Thrash/index.html"
+      "name": "process/gravity-liquid/Thrash/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 414,
-      "name": "process/gravity-liquid/Swirl/index.html"
+      "name": "process/gravity-liquid/Swirl/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 415,
-      "name": "process/condensation/index.html"
+      "name": "process/condensation/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 416,
-      "name": "process/liquid-projection/index.html"
+      "name": "process/liquid-projection/index.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 417,
-      "name": "process/rust/index.html"
+      "name": "process/rust/index.html",
+      "degree": 4,
+      "size": 5.228310502283105
     },
     {
       "id": 418,
-      "name": "process/vibration/animal/schretlen.html"
+      "name": "process/vibration/animal/schretlen.html",
+      "degree": 3,
+      "size": 5.171232876712328
     },
     {
       "id": 419,
-      "name": "process/tear/Villegle/index.html"
+      "name": "process/tear/Villegle/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 420,
-      "name": "process/tear/Hains/index.html"
+      "name": "process/tear/Hains/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 421,
-      "name": "process/tear/Dufrene/index.html"
+      "name": "process/tear/Dufrene/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 422,
-      "name": "process/burn/latham.html"
+      "name": "process/burn/latham.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 423,
-      "name": "process/burn/peeters/index.html"
+      "name": "process/burn/peeters/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 424,
-      "name": "process/burn/RaphaelMontanezOrtiz/index.html"
+      "name": "process/burn/RaphaelMontanezOrtiz/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 425,
-      "name": "process/burn/piene/index.html"
+      "name": "process/burn/piene/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 426,
-      "name": "process/burn/vautier.html"
+      "name": "process/burn/vautier.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 427,
-      "name": "process/burn/aubertin.html"
+      "name": "process/burn/aubertin.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 428,
-      "name": "process/burn/boyle/index.html"
+      "name": "process/burn/boyle/index.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 429,
-      "name": "process/burn/arman.html"
+      "name": "process/burn/arman.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 430,
-      "name": "process/burn/breuer.html"
+      "name": "process/burn/breuer.html",
+      "degree": 5,
+      "size": 5.2853881278538815
     },
     {
       "id": 431,
-      "name": "process/smash/arman/index.html"
+      "name": "process/smash/arman/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 432,
-      "name": "process/smash/ortiz/index.html"
+      "name": "process/smash/ortiz/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 433,
-      "name": "process/smash/guitars/index.html"
+      "name": "process/smash/guitars/index.html",
+      "degree": 7,
+      "size": 5.399543378995434
     },
     {
       "id": 434,
-      "name": "process/smash/luther/index.html"
+      "name": "process/smash/luther/index.html",
+      "degree": 6,
+      "size": 5.342465753424658
+    },
+    {
+      "id": 435,
+      "name": "radical_art.html",
+      "degree": 8,
+      "size": 5.45662100456621
     }
   ],
   "links": [
@@ -1807,72 +2683,72 @@
       "target": 14
     },
     {
-      "source": 1,
-      "target": 15
-    },
-    {
-      "source": 1,
-      "target": 12
-    },
-    {
-      "source": 1,
+      "source": 15,
       "target": 16
     },
     {
-      "source": 1,
-      "target": 4
-    },
-    {
-      "source": 1,
-      "target": 10
-    },
-    {
-      "source": 1,
-      "target": 5
-    },
-    {
-      "source": 1,
-      "target": 9
-    },
-    {
-      "source": 1,
-      "target": 17
-    },
-    {
-      "source": 1,
-      "target": 8
-    },
-    {
-      "source": 1,
-      "target": 18
-    },
-    {
-      "source": 1,
-      "target": 6
-    },
-    {
-      "source": 1,
-      "target": 0
-    },
-    {
-      "source": 1,
-      "target": 3
+      "source": 15,
+      "target": 12
     },
     {
       "source": 15,
+      "target": 17
+    },
+    {
+      "source": 15,
+      "target": 4
+    },
+    {
+      "source": 15,
+      "target": 10
+    },
+    {
+      "source": 15,
+      "target": 5
+    },
+    {
+      "source": 15,
+      "target": 9
+    },
+    {
+      "source": 15,
+      "target": 18
+    },
+    {
+      "source": 15,
+      "target": 8
+    },
+    {
+      "source": 15,
+      "target": 19
+    },
+    {
+      "source": 15,
+      "target": 6
+    },
+    {
+      "source": 15,
+      "target": 0
+    },
+    {
+      "source": 15,
+      "target": 3
+    },
+    {
+      "source": 16,
       "target": 1
     },
     {
-      "source": 19,
+      "source": 20,
       "target": 1
     },
     {
-      "source": 21,
+      "source": 22,
       "target": 1
     },
     {
       "source": 3,
-      "target": 20
+      "target": 21
     },
     {
       "source": 3,
@@ -1880,7 +2756,7 @@
     },
     {
       "source": 3,
-      "target": 20
+      "target": 21
     },
     {
       "source": 3,
@@ -1888,7 +2764,7 @@
     },
     {
       "source": 25,
-      "target": 16
+      "target": 17
     },
     {
       "source": 25,
@@ -1916,7 +2792,7 @@
     },
     {
       "source": 29,
-      "target": 16
+      "target": 17
     },
     {
       "source": 29,
@@ -1952,7 +2828,7 @@
     },
     {
       "source": 27,
-      "target": 16
+      "target": 17
     },
     {
       "source": 27,
@@ -1968,7 +2844,7 @@
     },
     {
       "source": 26,
-      "target": 16
+      "target": 17
     },
     {
       "source": 26,
@@ -1992,71 +2868,71 @@
     },
     {
       "source": 28,
-      "target": 16
+      "target": 17
     },
     {
       "source": 28,
       "target": 1
     },
     {
-      "source": 17,
+      "source": 18,
       "target": 4
     },
     {
-      "source": 17,
+      "source": 18,
       "target": 5
     },
     {
-      "source": 17,
+      "source": 18,
       "target": 6
     },
     {
-      "source": 17,
+      "source": 18,
       "target": 1
     },
     {
-      "source": 17,
+      "source": 18,
       "target": 4
     },
     {
-      "source": 17,
+      "source": 18,
       "target": 5
     },
     {
-      "source": 17,
+      "source": 18,
       "target": 6
     },
     {
-      "source": 17,
+      "source": 18,
       "target": 31
     },
     {
-      "source": 17,
+      "source": 18,
       "target": 32
     },
     {
-      "source": 17,
+      "source": 18,
       "target": 33
     },
     {
-      "source": 17,
+      "source": 18,
       "target": 34
     },
     {
-      "source": 17,
+      "source": 18,
       "target": 35
     },
     {
-      "source": 17,
+      "source": 18,
       "target": 36
     },
     {
-      "source": 17,
+      "source": 18,
       "target": 37
     },
     {
       "source": 31,
-      "target": 17
+      "target": 18
     },
     {
       "source": 31,
@@ -2064,7 +2940,7 @@
     },
     {
       "source": 32,
-      "target": 17
+      "target": 18
     },
     {
       "source": 32,
@@ -2072,7 +2948,7 @@
     },
     {
       "source": 34,
-      "target": 17
+      "target": 18
     },
     {
       "source": 34,
@@ -2080,7 +2956,7 @@
     },
     {
       "source": 35,
-      "target": 17
+      "target": 18
     },
     {
       "source": 35,
@@ -2088,7 +2964,7 @@
     },
     {
       "source": 33,
-      "target": 17
+      "target": 18
     },
     {
       "source": 33,
@@ -2836,70 +3712,70 @@
     },
     {
       "source": 4,
-      "target": 20
+      "target": 21
     },
     {
       "source": 4,
       "target": 110
     },
     {
-      "source": 16,
+      "source": 17,
       "target": 3
     },
     {
-      "source": 16,
+      "source": 17,
       "target": 1
     },
     {
-      "source": 16,
+      "source": 17,
       "target": 114
     },
     {
-      "source": 16,
+      "source": 17,
       "target": 115
     },
     {
-      "source": 16,
+      "source": 17,
       "target": 111
     },
     {
-      "source": 16,
+      "source": 17,
       "target": 116
     },
     {
-      "source": 16,
+      "source": 17,
       "target": 117
     },
     {
-      "source": 16,
+      "source": 17,
       "target": 118
     },
     {
-      "source": 16,
+      "source": 17,
       "target": 119
     },
     {
-      "source": 16,
+      "source": 17,
       "target": 120
     },
     {
-      "source": 16,
+      "source": 17,
       "target": 112
     },
     {
-      "source": 16,
+      "source": 17,
       "target": 25
     },
     {
-      "source": 16,
+      "source": 17,
       "target": 113
     },
     {
-      "source": 16,
+      "source": 17,
       "target": 121
     },
     {
-      "source": 16,
+      "source": 17,
       "target": 122
     },
     {
@@ -3348,7 +4224,7 @@
     },
     {
       "source": 23,
-      "target": 19
+      "target": 20
     },
     {
       "source": 23,
@@ -3932,7 +4808,7 @@
     },
     {
       "source": 168,
-      "target": 16
+      "target": 17
     },
     {
       "source": 168,
@@ -4284,7 +5160,7 @@
     },
     {
       "source": 2,
-      "target": 17
+      "target": 18
     },
     {
       "source": 2,
@@ -5540,7 +6416,7 @@
     },
     {
       "source": 261,
-      "target": 18
+      "target": 19
     },
     {
       "source": 261,
@@ -5783,95 +6659,95 @@
       "target": 249
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 8
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 1
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 280
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 281
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 282
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 283
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 284
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 285
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 286
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 287
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 277
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 288
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 289
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 290
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 291
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 292
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 293
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 124
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 294
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 295
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 296
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 297
     },
     {
-      "source": 18,
+      "source": 19,
       "target": 298
     },
     {
@@ -5900,7 +6776,7 @@
     },
     {
       "source": 285,
-      "target": 18
+      "target": 19
     },
     {
       "source": 285,
@@ -5908,7 +6784,7 @@
     },
     {
       "source": 284,
-      "target": 18
+      "target": 19
     },
     {
       "source": 284,
@@ -5916,7 +6792,7 @@
     },
     {
       "source": 295,
-      "target": 18
+      "target": 19
     },
     {
       "source": 295,
@@ -5952,7 +6828,7 @@
     },
     {
       "source": 138,
-      "target": 18
+      "target": 19
     },
     {
       "source": 299,
@@ -5960,7 +6836,7 @@
     },
     {
       "source": 299,
-      "target": 18
+      "target": 19
     },
     {
       "source": 299,
@@ -5968,7 +6844,7 @@
     },
     {
       "source": 294,
-      "target": 18
+      "target": 19
     },
     {
       "source": 294,
@@ -5980,7 +6856,7 @@
     },
     {
       "source": 288,
-      "target": 18
+      "target": 19
     },
     {
       "source": 288,
@@ -5988,7 +6864,7 @@
     },
     {
       "source": 297,
-      "target": 18
+      "target": 19
     },
     {
       "source": 297,
@@ -6000,7 +6876,7 @@
     },
     {
       "source": 124,
-      "target": 18
+      "target": 19
     },
     {
       "source": 124,
@@ -6020,7 +6896,7 @@
     },
     {
       "source": 301,
-      "target": 18
+      "target": 19
     },
     {
       "source": 301,
@@ -6036,7 +6912,7 @@
     },
     {
       "source": 277,
-      "target": 18
+      "target": 19
     },
     {
       "source": 277,
@@ -6044,7 +6920,7 @@
     },
     {
       "source": 293,
-      "target": 18
+      "target": 19
     },
     {
       "source": 293,
@@ -6056,7 +6932,7 @@
     },
     {
       "source": 282,
-      "target": 18
+      "target": 19
     },
     {
       "source": 282,
@@ -6072,7 +6948,7 @@
     },
     {
       "source": 36,
-      "target": 17
+      "target": 18
     },
     {
       "source": 36,
@@ -6092,7 +6968,7 @@
     },
     {
       "source": 36,
-      "target": 18
+      "target": 19
     },
     {
       "source": 36,
@@ -6412,7 +7288,7 @@
     },
     {
       "source": 108,
-      "target": 20
+      "target": 21
     },
     {
       "source": 108,
@@ -6472,7 +7348,7 @@
     },
     {
       "source": 37,
-      "target": 20
+      "target": 21
     },
     {
       "source": 37,
@@ -6484,7 +7360,7 @@
     },
     {
       "source": 116,
-      "target": 16
+      "target": 17
     },
     {
       "source": 116,
@@ -6516,7 +7392,7 @@
     },
     {
       "source": 24,
-      "target": 16
+      "target": 17
     },
     {
       "source": 24,
@@ -6540,7 +7416,7 @@
     },
     {
       "source": 24,
-      "target": 16
+      "target": 17
     },
     {
       "source": 24,
@@ -6572,7 +7448,7 @@
     },
     {
       "source": 329,
-      "target": 20
+      "target": 21
     },
     {
       "source": 329,
@@ -7320,7 +8196,7 @@
     },
     {
       "source": 10,
-      "target": 19
+      "target": 20
     },
     {
       "source": 366,
@@ -8644,7 +9520,7 @@
     },
     {
       "source": 292,
-      "target": 18
+      "target": 19
     },
     {
       "source": 292,
@@ -8676,7 +9552,7 @@
     },
     {
       "source": 258,
-      "target": 18
+      "target": 19
     },
     {
       "source": 258,
@@ -8700,7 +9576,7 @@
     },
     {
       "source": 419,
-      "target": 18
+      "target": 19
     },
     {
       "source": 419,
@@ -8716,7 +9592,7 @@
     },
     {
       "source": 421,
-      "target": 18
+      "target": 19
     },
     {
       "source": 421,
@@ -8732,7 +9608,7 @@
     },
     {
       "source": 420,
-      "target": 18
+      "target": 19
     },
     {
       "source": 420,
@@ -8744,7 +9620,7 @@
     },
     {
       "source": 281,
-      "target": 18
+      "target": 19
     },
     {
       "source": 281,
@@ -8812,7 +9688,7 @@
     },
     {
       "source": 430,
-      "target": 18
+      "target": 19
     },
     {
       "source": 430,
@@ -8828,7 +9704,7 @@
     },
     {
       "source": 427,
-      "target": 18
+      "target": 19
     },
     {
       "source": 427,
@@ -8844,7 +9720,7 @@
     },
     {
       "source": 429,
-      "target": 18
+      "target": 19
     },
     {
       "source": 429,
@@ -8860,7 +9736,7 @@
     },
     {
       "source": 426,
-      "target": 18
+      "target": 19
     },
     {
       "source": 426,
@@ -8876,7 +9752,7 @@
     },
     {
       "source": 422,
-      "target": 18
+      "target": 19
     },
     {
       "source": 422,
@@ -8892,7 +9768,7 @@
     },
     {
       "source": 424,
-      "target": 18
+      "target": 19
     },
     {
       "source": 424,
@@ -8908,7 +9784,7 @@
     },
     {
       "source": 423,
-      "target": 18
+      "target": 19
     },
     {
       "source": 423,
@@ -8924,7 +9800,7 @@
     },
     {
       "source": 425,
-      "target": 18
+      "target": 19
     },
     {
       "source": 425,
@@ -8940,7 +9816,7 @@
     },
     {
       "source": 268,
-      "target": 18
+      "target": 19
     },
     {
       "source": 268,
@@ -8956,7 +9832,7 @@
     },
     {
       "source": 428,
-      "target": 18
+      "target": 19
     },
     {
       "source": 428,
@@ -8972,7 +9848,7 @@
     },
     {
       "source": 278,
-      "target": 18
+      "target": 19
     },
     {
       "source": 278,
@@ -8984,7 +9860,7 @@
     },
     {
       "source": 286,
-      "target": 18
+      "target": 19
     },
     {
       "source": 286,
@@ -9008,7 +9884,7 @@
     },
     {
       "source": 347,
-      "target": 18
+      "target": 19
     },
     {
       "source": 347,
@@ -9020,7 +9896,7 @@
     },
     {
       "source": 289,
-      "target": 18
+      "target": 19
     },
     {
       "source": 289,
@@ -9080,7 +9956,7 @@
     },
     {
       "source": 432,
-      "target": 18
+      "target": 19
     },
     {
       "source": 432,
@@ -9096,7 +9972,7 @@
     },
     {
       "source": 434,
-      "target": 18
+      "target": 19
     },
     {
       "source": 434,
@@ -9112,7 +9988,7 @@
     },
     {
       "source": 433,
-      "target": 18
+      "target": 19
     },
     {
       "source": 433,
@@ -9132,7 +10008,7 @@
     },
     {
       "source": 431,
-      "target": 18
+      "target": 19
     },
     {
       "source": 431,
@@ -9140,7 +10016,7 @@
     },
     {
       "source": 280,
-      "target": 18
+      "target": 19
     },
     {
       "source": 280,
@@ -9212,7 +10088,7 @@
     },
     {
       "source": 291,
-      "target": 18
+      "target": 19
     },
     {
       "source": 291,
@@ -9224,7 +10100,7 @@
     },
     {
       "source": 287,
-      "target": 18
+      "target": 19
     },
     {
       "source": 287,
@@ -9236,7 +10112,7 @@
     },
     {
       "source": 290,
-      "target": 18
+      "target": 19
     },
     {
       "source": 290,
@@ -9248,7 +10124,7 @@
     },
     {
       "source": 283,
-      "target": 18
+      "target": 19
     },
     {
       "source": 283,
@@ -9257,6 +10133,38 @@
     {
       "source": 283,
       "target": 1
+    },
+    {
+      "source": 435,
+      "target": 18
+    },
+    {
+      "source": 435,
+      "target": 4
+    },
+    {
+      "source": 435,
+      "target": 5
+    },
+    {
+      "source": 435,
+      "target": 17
+    },
+    {
+      "source": 435,
+      "target": 12
+    },
+    {
+      "source": 435,
+      "target": 8
+    },
+    {
+      "source": 435,
+      "target": 19
+    },
+    {
+      "source": 435,
+      "target": 6
     }
   ]
 }

@@ -125,6 +125,42 @@ def generate_graph_data():
     max_degree = max(node["degree"] for node in nodes)
     min_size = 5  # Minimum node size
     max_size = 30  # Maximum node size
+
+    # Add Radical Art node and its connections
+    radical_art_id = current_id
+    nodes.append({
+        "id": radical_art_id,
+        "name": "radical_art.html",
+        "degree": 0  # Initialize degree
+    })
+    current_id += 1
+
+    # Define the nodes to connect to
+    target_nodes = [
+        "something/index.html",
+        "everything/index.html",
+        "anything/index.html",
+        "Life/index.html",
+        "concept/index.html",
+        "process/index.html",
+        "destruction/index.html",
+        "nothing/index.html"
+    ]
+
+    # Add connections to Radical Art node
+    for target_name in target_nodes:
+        if target_name in node_ids:
+            target_id = node_ids[target_name]
+            links.append({
+                "source": radical_art_id,
+                "target": target_id
+            })
+            # Update degrees
+            nodes[radical_art_id]["degree"] += 1
+            nodes[target_id]["degree"] += 1
+
+    # Calculate final node sizes based on updated degrees
+    max_degree = max(node["degree"] for node in nodes)
     
     for node in nodes:
         # Scale size based on degree, with a minimum size

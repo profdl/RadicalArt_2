@@ -172,7 +172,7 @@
             left: 20px; /* Keep left alignment */
             width: 500px; /* Increased from 300px */
             height: 400px;
-            background: white;
+            background: rgba(255, 255, 255, 0.95); /* Changed to rgba for transparency */
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             display: none;
@@ -188,7 +188,7 @@
 
         #preview-header {
             padding: 10px;
-            background: #f5f5f5;
+            background: rgba(245, 245, 245, 0.95); /* Changed to rgba for transparency */
             border-bottom: 1px solid #ddd;
             display: flex;
             justify-content: space-between;
@@ -367,10 +367,13 @@
             // Highlighted node names (lowercase for comparison)
             const highlightedNodeNames = [
                 "concept", "algorithm", "mechanics", "process", "destruction",
-                "nothing", "something", "anything", "everything", "life"
+                "nothing", "something", "anything", "everything", "life",
+                "radical_art"  // Add Radical Art to highlighted nodes
             ];
             data.nodes.forEach(node => {
                 node.isHighlighted = highlightedNodeNames.includes(node.cleanName.toLowerCase());
+                // Add special styling for Radical Art node
+                node.isRadicalArt = node.cleanName.toLowerCase() === "radical_art";
             });
             data.links.forEach(link => {
                 nodeDegrees[link.source]++;
@@ -460,7 +463,10 @@
                         .attr('height', size.height)
                         .attr('x', -size.width / 2)
                         .attr('y', -size.height / 2)
-                        .style('fill', d => d.isHighlighted ? 'black' : 'white')
+                        .style('fill', d => {
+                            if (d.isRadicalArt) return '#ff0000';  // Red background for Radical Art
+                            return d.isHighlighted ? 'black' : 'white';
+                        })
                         .style('stroke', d => d.isHighlighted ? '#222' : stringToColor(d.name.split('/')[0] || d.name))
                         .style('stroke-width', d => d.isHighlighted ? '3px' : '1px');
                     
@@ -478,7 +484,10 @@
                     .attr('height', d => getNodeSize(d).height)
                     .attr('x', d => -getNodeSize(d).width / 2)
                     .attr('y', d => -getNodeSize(d).height / 2)
-                    .style('fill', d => d.isHighlighted ? 'black' : 'white')
+                    .style('fill', d => {
+                        if (d.isRadicalArt) return '#ff0000';  // Red background for Radical Art
+                        return d.isHighlighted ? 'black' : 'white';
+                    })
                     .style('stroke', d => d.isHighlighted ? '#222' : stringToColor(d.name.split('/')[0] || d.name))
                     .style('stroke-width', d => d.isHighlighted ? '3px' : '1px');
 
@@ -642,8 +651,8 @@
                     .on('mousemove', drag)
                     .on('mouseup', dragEnd);
 
-                // Handle the file path
-                const filePath = d.name;
+                // Handle the file path - show home.html for Radical Art node
+                const filePath = d.isRadicalArt ? 'home.html' : d.name;
                 
                 // Add open in new tab functionality
                 d3.select('#preview-open').on('click', () => {
@@ -1198,24 +1207,24 @@
             // Initial graph update
             updateGraph();
             
-            // Select the "Anything" node immediately
-            const anythingNode = g.selectAll('.node')
-                .filter(d => d.id === 5)
+            // Select the "Radical Art" node immediately
+            const radicalArtNode = g.selectAll('.node')
+                .filter(d => d.id === 435)
                 .datum();
-            if (anythingNode) {
-                selectedNodeId = anythingNode.id;
-                updateNodeHighlights(anythingNode.id);
-                showPreview(anythingNode);
+            if (radicalArtNode) {
+                selectedNodeId = radicalArtNode.id;
+                updateNodeHighlights(radicalArtNode.id);
+                showPreview(radicalArtNode);
                 
                 // Find all connected nodes
                 const connectedNodes = new Set();
                 simulation.force('link').links().forEach(link => {
                     const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
                     const targetId = typeof link.target === 'object' ? link.target.id : link.target;
-                    if (sourceId === anythingNode.id) connectedNodes.add(targetId);
-                    if (targetId === anythingNode.id) connectedNodes.add(sourceId);
+                    if (sourceId === radicalArtNode.id) connectedNodes.add(targetId);
+                    if (targetId === radicalArtNode.id) connectedNodes.add(sourceId);
                 });
-                connectedNodes.add(anythingNode.id);
+                connectedNodes.add(radicalArtNode.id);
                 
                 // Let the simulation run for a tiny bit to establish initial positions
                 simulation.tick(10);
@@ -1242,8 +1251,15 @@
                 // Use the size property from the backend, fallback to 30 if missing
                 const baseSize = d.size || 30;
                 const connectionScale = Math.sqrt(nodeDegrees[d.id] || 1);
-                const width = Math.max(60, baseSize + d.cleanName.length * 8) * connectionScale;
-                const height = Math.max(25, baseSize * 0.4) * connectionScale;
+                let width = Math.max(60, baseSize + d.cleanName.length * 8) * connectionScale;
+                let height = Math.max(25, baseSize * 0.4) * connectionScale;
+                
+                // Add extra padding for Radical Art node
+                if (d.isRadicalArt) {
+                    width += 40;  // Add 20px padding on each side
+                    height += 20; // Add 10px padding on top and bottom
+                }
+                
                 return { width, height };
             }
 
